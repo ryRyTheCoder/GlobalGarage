@@ -342,7 +342,8 @@ DateTime timestamp;          // The time when the message was sent.
   * If `itemID` is not found or `buyerID` is not provided/invalid, it will throw a `InvalidParameterValueException`.
   * 
 ### 7. Pages
-![Screenshot 2023-11-01 at 5.21.39 PM.png](..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Ftr%2Fj5qhh_rx3d91rpg9l55xpk3c0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_4C9hxs%2FScreenshot%202023-11-01%20at%205.21.39%20PM.png)
-![Screenshot 2023-11-01 at 5.22.02 PM.png](..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Ftr%2Fj5qhh_rx3d91rpg9l55xpk3c0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_4d837R%2FScreenshot%202023-11-01%20at%205.22.02%20PM.png)
-![Screenshot 2023-11-01 at 5.22.15 PM.png](..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Ftr%2Fj5qhh_rx3d91rpg9l55xpk3c0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_axIDgY%2FScreenshot%202023-11-01%20at%205.22.15%20PM.png)
-![Screenshot 2023-11-01 at 5.22.37 PM.png](..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Ftr%2Fj5qhh_rx3d91rpg9l55xpk3c0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_17I2AF%2FScreenshot%202023-11-01%20at%205.22.37%20PM.png)
+
+![Screenshot 2023-11-01 at 5.32.37 PM.png](..%2FImages%2FScreenshot%202023-11-01%20at%205.32.37%20PM.png)
+![Screenshot 2023-11-01 at 5.32.50 PM.png](..%2FImages%2FScreenshot%202023-11-01%20at%205.32.50%20PM.png)
+![Screenshot 2023-11-01 at 5.32.56 PM.png](..%2FImages%2FScreenshot%202023-11-01%20at%205.32.56%20PM.png)
+![Screenshot 2023-11-01 at 5.33.04 PM.png](..%2FImages%2FScreenshot%202023-11-01%20at%205.33.04%20PM.png)
