@@ -17,21 +17,21 @@ Local yard sales, rich in unique items and community engagement, remain constrai
 
 
 ### User Registration & Profile Management
-- **As a seller**, I want to register on GlobalGarage so that I can list my items for sale and manage my profile.
-- **As a buyer**, I want to create an account so I can express my interest in items and communicate with sellers.
+- U1 **As a seller**, I want to register on GlobalGarage so that I can list my items for sale and manage my profile.
+- U2 **As a buyer**, I want to create an account so I can express my interest in items and communicate with sellers.
 
 ### Item Listings
-- **As a seller**, I want to list an item by providing its description, price, images, and category, so potential buyers can view and express interest in it.
-- **As a buyer**, I want to search and filter items based on category, zip code, and keywords to find items I'm interested in.
+- U3 **As a seller**, I want to list an item by providing its description, price, images, and category, so potential buyers can view and express interest in it.
+- U4**As a buyer**, I want to search and filter items based on category, zip code, and keywords to find items I'm interested in.
 
 ### Interest & Communication
-- **As a buyer**, I want to express my intent to buy a particular item so the seller knows I'm interested.
-- **As a seller**, I want to receive notifications when a buyer expresses interest in one of my items so I can initiate communication.
-- **As a buyer**, I want to send messages to sellers to inquire further about an item or negotiate terms.
+- U4**As a buyer**, I want to express my intent to buy a particular item by adding a 'like' to an item so the seller knows I'm interested.
+- U5**As a seller**, I want to receive notifications when a buyer expresses interest in one of my items by 'liking' it, so I can initiate communication.
+- U6**As a buyer**, I want to send messages to sellers to inquire further about an item or negotiate terms.
 
 ### Dashboard & Management
-- **As a seller**, I want a dashboard where I can view all my listed items, see the number of interested buyers for each item, and manage communications.
-- **As a buyer**, I want a personalized space where I can view items I've expressed interest in and manage my communications with sellers.
+- U7**As a seller**, I want a dashboard where I can view all my listed items, see the number of interested buyers for each item, and manage communications.
+- U8**As a buyer**, I want a personalized space where I can view items I've expressed interest in and manage my communications with sellers.
 
 
 
@@ -57,13 +57,13 @@ Local yard sales, rich in unique items and community engagement, remain constrai
     - Buyers can search and filter these items based on various criteria.
 
 3. **Interest Expression & Communication**:
-    - Buyers can express interest in items.
-    - Sellers receive notifications of expressed interest.
+    - Buyers can express interest in items by adding 'likes' to an item.
+    - Sellers receive notifications of 'liked' items by buyers.
     - Direct messaging system between buyers and sellers.
 
 4. **Dashboard & Management**:
     - Sellers have a dashboard to manage their listings and communications.
-    - Buyers have a dashboard to manage their expressed interests and communications.
+    - Buyers have a dashboard to manage their 'liked' items and communications.
 
 ### Out-of-Scope:
 
