@@ -166,7 +166,7 @@ DateTime timestamp;          // The time when the message was sent.
 * Accepts a `username`, `email`, `location`, and `contactInfo`
    * If the given invalid inputs, will throw a
      `InvalidAttributeValueException`
-![Screenshot 2023-11-01 at 2.23.19 PM.png](..%2F..%2F..%2F..%2F..%2Fvar%2Ffolders%2Ftr%2Fj5qhh_rx3d91rpg9l55xpk3c0000gn%2FT%2FTemporaryItems%2FNSIRD_screencaptureui_Peh9fi%2FScreenshot%202023-11-01%20at%202.23.19%20PM.png)
+![Screenshot 2023-11-01 at 8.39.26 PM.png](..%2FImages%2FScreenshot%202023-11-01%20at%208.39.26%20PM.png)
 ### 6.22. Get Seller Endpoint
 
 * Accepts `GET` requests to `/sellers/:sellerID`
