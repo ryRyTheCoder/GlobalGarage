@@ -1,0 +1,367 @@
+:root {
+    /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
+    --primary-color: #5D5E5E;
+    --secondary-color: #ffffff;
+    --tertiary-color: #F5881F;
+    --error-color: #EE3A23;
+}
+
+.background {
+    background-color: #8A8C8F;
+    margin: 0;
+    counter-reset: section;
+    font-family: "Helvetica Neue",Helvetica,sans-serif;
+}
+
+.header {
+    /* Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url("/images/cardbackground.jpeg");
+    padding: 4px 20px;
+}
+
+#showEventsButton {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+#showVendors {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.button {
+    border: none;
+    color: var(--secondary-color);
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.button-group {
+    display: flex;
+    justify-content: right;
+    color: black;
+}
+
+.header_home {
+    font-size: 36px;
+    line-height: 40px;
+    height: 100px;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+#upcoming-events-display {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+#featured-vendors-display {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.card {
+    color: var(--secondary-color);
+    background-image: url("/images/cardbackground.jpeg");
+    background-color: rgba(173, 216, 230, 0.5);
+    margin: 20px auto;
+    padding: 15px 25px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#events {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+     gap: 1rem;
+}
+
+.eventCard, .vendorCard {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    margin: 20px auto;
+    padding: 15px 25px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    grow
+}
+.singleVendorCard {
+    color: var(--primary-color);
+        background-color: var(--secondary-color);
+        margin: 20px auto;
+        padding: 15px 25px;
+        max-width: 10000px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        grow
+}
+
+.singleVendorCard:hover {
+    background-color: #E57300;
+}
+
+.singleVendorCard {
+    color: var(--primary-color);
+        background-color: var(--secondary-color);
+        margin: 20px auto;
+        padding: 15px 25px;
+        max-width: 10000px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+}
+
+.singleVendorCard:hover {
+    background-color: #E57300;
+}
+
+
+.vendorCard:hover {
+    background-color: rgba(173, 216, 230, 0.5);
+}
+
+.eventCard:hover {
+    background-color: rgba(173, 216, 230, 0.5);
+}
+
+.styleForCard {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    margin: 20px auto;
+    padding: 5px 5px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    grow
+}
+
+.styleForCard:hover {
+    background-color: rgba(180, 220, 230, 0.5);
+}
+
+#vendors-list-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+     gap: 1rem;
+}
+
+#page-buttons {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 30px 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+body {
+    background-image: url("/images/banner-bg.jpg");
+}
+
+#pagination-controls {
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+#vendors-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--tertiary-color);
+    background: rgba(0, 0, 0, 0.7);
+      transition: opacity 0.3s ease-in-out;
+    }
+
+
+#prevButton:hover {
+    background-color: #E57300;
+}
+  
+#nextButton:hover {
+    background-color: #E57300;
+}
+
+.vendor {
+    flex: 0 0 calc(25% - 1rem);
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+}
+
+
+.error {
+    color: var(--error-color);
+    border: 1px solid var(--error-color);
+    padding: 8px;
+}
+
+.validated-field:invalid {
+    outline: 2px solid var(--error-color);
+}
+.validated-field:focus:invalid {
+    color: var(--error-color);
+}
+
+.card-content {
+    max-width: 500px;
+}
+
+.card-content .form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+}
+
+.tag {
+    font-size: 12px;
+    margin: 0 10px;
+    padding: 4px 8px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    position: relative;
+    border-radius: 16px;
+}
+
+.tagList {
+    list-style-type: disc;
+    padding: 1em;
+}
+
+/* table styles */ 
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    border-bottom: 1px solid var(--primary-color);
+}
+
+a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    align-self: flex-start;
+}
+
+
+.column {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    background-color: #f9f9f9;
+}
+
+.event-card, .vendor-card {
+    width: calc(25% - 0.5rem);
+}
+
+.vendor-container {
+    display: flex;
+    flex-direction: column; /* To stack children vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.vendor-container h1 {
+    margin-top: 0; /* Ensures there's no space at the top of the container */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#vendorForm {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#vendorForm h1 {
+    border-bottom: 2px solid #e9e9e9;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+#vendorForm label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#vendorForm input[type="text"],
+#vendorForm input[type="tel"],
+#vendorForm input[type="email"],
+#vendorForm textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#vendorForm textarea {
+    min-height: 100px;
+    resize: vertical; /* Allows vertical resizing */
+}
+
+#vendorForm input[type="submit"] {
+    background-color: #007BFF; /* Blue color */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+#vendorForm input[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}

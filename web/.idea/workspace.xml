@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="819414f5-9cb6-4dd5-894d-4fa546ee55a3" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/api/vendorEventClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/vendorEventClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/viewAllEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/viewAllEvents.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2V4WOBJShVBrgb2UW9MT50cJd0p" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="819414f5-9cb6-4dd5-894d-4fa546ee55a3" name="Changes" comment="" />
+      <created>1694095798554</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694095798554</updated>
+    </task>
+    <servers />
+  </component>
+</project>
