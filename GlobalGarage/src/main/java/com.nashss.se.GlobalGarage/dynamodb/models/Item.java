@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Objects;
 
-@DynamoDBTable(tableName = "Items")
+@DynamoDBTable(tableName = "items")
 public class Item {
     private String garageID;
     private String itemID;

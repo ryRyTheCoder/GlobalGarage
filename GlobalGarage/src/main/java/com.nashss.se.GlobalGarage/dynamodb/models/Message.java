@@ -5,7 +5,7 @@ import com.nashss.se.GlobalGarage.converters.LocalDateTimeConverter;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@DynamoDBTable(tableName = "Messages")
+@DynamoDBTable(tableName = "messages")
 public class Message {
     private String messageID;
     private String relatedItemID;
