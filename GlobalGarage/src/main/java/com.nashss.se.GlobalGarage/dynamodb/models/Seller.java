@@ -1,6 +1,8 @@
 package com.nashss.se.GlobalGarage.dynamodb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import com.nashss.se.GlobalGarage.converters.LocalDateTimeConverter;
+
 import java.time.LocalDateTime;
 
 import java.util.Objects;
@@ -12,7 +14,7 @@ public class Seller {
     private String username;
     private String email;
     private String location;
-    private Set<String> events;
+    private Set<String> garages;
     private Set<String> messages;
     private String contactInfo;
     private LocalDateTime signupDate;
@@ -53,13 +55,13 @@ public class Seller {
         this.location = location;
     }
 
-    @DynamoDBAttribute(attributeName = "events")
-    public Set<String> getEvents() {
-        return events;
+    @DynamoDBAttribute(attributeName = "garages")
+    public Set<String> getGarages() {
+        return garages;
     }
 
-    public void setEvents(Set<String> events) {
-        this.events = events;
+    public void setGarages(Set<String> garages) {
+        this.garages = garages;
     }
 
     @DynamoDBAttribute(attributeName = "messages")
@@ -95,12 +97,12 @@ public class Seller {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Seller seller = (Seller) o;
-        return Objects.equals(sellerID, seller.sellerID) && Objects.equals(username, seller.username) && Objects.equals(email, seller.email) && Objects.equals(location, seller.location) && Objects.equals(events, seller.events) && Objects.equals(messages, seller.messages) && Objects.equals(contactInfo, seller.contactInfo) && Objects.equals(signupDate, seller.signupDate);
+        return Objects.equals(sellerID, seller.sellerID) && Objects.equals(username, seller.username) && Objects.equals(email, seller.email) && Objects.equals(location, seller.location) && Objects.equals(garages, seller.garages) && Objects.equals(messages, seller.messages) && Objects.equals(contactInfo, seller.contactInfo) && Objects.equals(signupDate, seller.signupDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(sellerID, username, email, location, events, messages, contactInfo, signupDate);
+        return Objects.hash(sellerID, username, email, location, garages, messages, contactInfo, signupDate);
     }
 
     @Override
@@ -110,23 +112,10 @@ public class Seller {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", location='" + location + '\'' +
-                ", events=" + events +
+                ", events=" + garages +
                 ", messages=" + messages +
                 ", contactInfo='" + contactInfo + '\'' +
                 ", signupDate=" + signupDate +
                 '}';
-    }
-
-    // Custom converter for LocalDateTime, as DynamoDB doesn't support LocalDateTime natively
-    public static class LocalDateTimeConverter implements DynamoDBTypeConverter<String, LocalDateTime> {
-        @Override
-        public String convert(final LocalDateTime time) {
-            return time.toString();
-        }
-
-        @Override
-        public LocalDateTime unconvert(final String stringValue) {
-            return LocalDateTime.parse(stringValue);
-        }
     }
 }
