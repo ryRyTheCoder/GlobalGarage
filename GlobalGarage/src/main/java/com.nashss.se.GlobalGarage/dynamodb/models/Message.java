@@ -1,5 +1,7 @@
 package com.nashss.se.GlobalGarage.dynamodb.models;
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import com.nashss.se.GlobalGarage.converters.LocalDateTimeConverter;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -123,16 +125,4 @@ public class Message {
                 '}';
     }
 
-    // Custom converter for LocalDateTime
-    public static class LocalDateTimeConverter implements DynamoDBTypeConverter<String, LocalDateTime> {
-        @Override
-        public String convert(final LocalDateTime time) {
-            return time.toString();
-        }
-
-        @Override
-        public LocalDateTime unconvert(final String stringValue) {
-            return LocalDateTime.parse(stringValue);
-        }
-    }
 }
