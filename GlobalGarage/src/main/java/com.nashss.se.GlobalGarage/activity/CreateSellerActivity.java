@@ -61,7 +61,7 @@ public class CreateSellerActivity {
         seller.setEmail(createSellerRequest.getEmail());
         seller.setLocation(createSellerRequest.getLocation());
         seller.setContactInfo(createSellerRequest.getContactInfo());
-        seller.setGarages(new HashSet<>());
+        seller.setGarages(null);
         seller.setSignupDate(LocalDateTime.now());
 
         boolean success = sellerDao.createSeller(seller);

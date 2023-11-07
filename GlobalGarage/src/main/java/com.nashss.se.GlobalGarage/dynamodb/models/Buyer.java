@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.Objects;
 
-@DynamoDBTable(tableName = "Buyers")
+@DynamoDBTable(tableName = "buyers")
 public class Buyer {
     private String buyerID;
     private String username;
