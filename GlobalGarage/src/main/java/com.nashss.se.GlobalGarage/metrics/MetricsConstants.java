@@ -13,4 +13,6 @@ public class MetricsConstants {
     public static final String CREATESELLER_SUCCESS_COUNT = "CreateSeller.Success.Count";
     public static final String CREATESELLER_FAIL_COUNT = "CreateSeller.Failure.Count";
     public static final String SELLER_NOTFOUND_COUNT = "GetSeller.SellerNotFoundException.Count";
+    public static final String CREATEGARAGE_SUCCESS_COUNT = "CreateGarage.Success.Count";
+    public static final String CREATEGARAGE_FAIL_COUNT = "CreateGarage.Failure.Count";
 }
