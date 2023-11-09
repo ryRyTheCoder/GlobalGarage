@@ -2,14 +2,17 @@ package com.nashss.se.GlobalGarage.activity;
 
 import com.nashss.se.GlobalGarage.activity.request.CreateSellerRequest;
 import com.nashss.se.GlobalGarage.activity.results.CreateSellerResult;
+import com.nashss.se.GlobalGarage.converters.ModelConverter;
 import com.nashss.se.GlobalGarage.dynamodb.SellerDAO;
 import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
 import com.nashss.se.GlobalGarage.exceptions.InvalidAttributeValueException;
+import com.nashss.se.GlobalGarage.models.SellerModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import java.time.LocalDateTime;
+
 import java.util.HashSet;
 import java.util.UUID;
 
@@ -21,6 +24,7 @@ import java.util.UUID;
 public class CreateSellerActivity {
     private final Logger log = LogManager.getLogger();
     private final SellerDAO sellerDao;
+    private final ModelConverter modelConverter;
 
     /**
      * Instantiates a new CreateSellerActivity object.
@@ -28,8 +32,9 @@ public class CreateSellerActivity {
      * @param sellerDao to access the Seller table.
      */
     @Inject
-    public CreateSellerActivity(SellerDAO sellerDao) {
+    public CreateSellerActivity(SellerDAO sellerDao, ModelConverter modelConverter) {
         this.sellerDao = sellerDao;
+        this.modelConverter = modelConverter;
     }
 
     /**
@@ -52,25 +57,34 @@ public class CreateSellerActivity {
         }
 
 
-        // Auto-generate a unique seller ID
-        String sellerID = UUID.randomUUID().toString();
 
         Seller seller = new Seller();
-        seller.setSellerID(sellerID);
+        seller.setSellerID(createSellerRequest.getSellerId());
         seller.setUsername(username);
         seller.setEmail(createSellerRequest.getEmail());
         seller.setLocation(createSellerRequest.getLocation());
         seller.setContactInfo(createSellerRequest.getContactInfo());
-        seller.setGarages(null);
+        seller.setGarages(new HashSet<>());
+        seller.setMessages(new HashSet<>());
         seller.setSignupDate(LocalDateTime.now());
+
+        // Set garages and messages to null if they are empty
+        if (seller.getGarages().isEmpty()) {
+            seller.setGarages(null);
+        }
+        if (seller.getMessages().isEmpty()) {
+            seller.setMessages(null);
+        }
 
         boolean success = sellerDao.createSeller(seller);
         String message = success ? "Seller created successfully." : "Failed to create seller.";
 
+        SellerModel sellerModel = modelConverter.toSellerModel(seller);
+
         return CreateSellerResult.builder()
                 .withSuccess(success)
                 .withMessage(message)
-                .withSellerID(seller.getSellerID())
+                .withSellerModel(sellerModel)
                 .build();
     }
 }

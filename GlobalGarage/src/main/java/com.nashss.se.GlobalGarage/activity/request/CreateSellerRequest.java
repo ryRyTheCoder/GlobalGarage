@@ -9,12 +9,14 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  */
 @JsonDeserialize(builder = CreateSellerRequest.Builder.class)
 public class CreateSellerRequest {
+    private final String sellerId;
     private final String username;
     private final String email;
     private final String location;
     private final String contactInfo;
 
-    private CreateSellerRequest(String username, String email, String location, String contactInfo) {
+    private CreateSellerRequest(String sellerId, String username, String email, String location, String contactInfo) {
+        this.sellerId = sellerId;
         this.username = username;
         this.email = email;
         this.location = location;
@@ -37,6 +39,10 @@ public class CreateSellerRequest {
         return contactInfo;
     }
 
+    public String getSellerId() {
+        return sellerId;
+    }
+
     @Override
     public String toString() {
         return "CreateSellerRequest{" +
@@ -52,10 +58,16 @@ public class CreateSellerRequest {
     }
 
     public static class Builder {
+        private String sellerId;
         private String username;
         private String email;
         private String location;
         private String contactInfo;
+
+        public Builder withSellerId(String sellerId) {
+            this.sellerId = sellerId;
+            return this;
+        }
 
         public Builder withUsername(String username) {
             this.username = username;
@@ -78,7 +90,7 @@ public class CreateSellerRequest {
         }
 
         public CreateSellerRequest build() {
-            return new CreateSellerRequest(username, email, location, contactInfo);
+            return new CreateSellerRequest(sellerId, username, email, location, contactInfo);
         }
     }
 }

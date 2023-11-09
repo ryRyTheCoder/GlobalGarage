@@ -52,5 +52,5 @@ public class GarageDAO {
         }
     }
 
-    // Additional methods as required, like getGarage, updateGarage, deleteGarage, etc.
+
 }

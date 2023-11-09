@@ -264,6 +264,27 @@ Resources:
             Auth:
               Authorizer: 'NONE'
 
+  CreateGarageFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.CreateGarageLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /garages
+            Method: post
+            Auth:
+              Authorizer: 'NONE'
   #-----------------------------------------------------
   # DynamoDB Configuration
   #-----------------------------------------------------
