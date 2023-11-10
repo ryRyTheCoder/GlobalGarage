@@ -1,7 +1,9 @@
 package com.nashss.se.GlobalGarage.converters;
 
+import com.nashss.se.GlobalGarage.dynamodb.models.Buyer;
 import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
 import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
+import com.nashss.se.GlobalGarage.models.BuyerModel;
 import com.nashss.se.GlobalGarage.models.GarageModel;
 import com.nashss.se.GlobalGarage.models.SellerModel;
 
@@ -66,5 +68,27 @@ public class ModelConverter {
                 .withIsActive(garage.getIsActive())
                 .build();
     }
+    /**
+     * Converts a provided Buyer into BuyerModel representation.
+     *
+     * @param buyer the Buyer to convert to BuyerModel
+     * @return the converted BuyerModel with fields mapped from buyer
+     */
+    public BuyerModel toBuyerModel(Buyer buyer) {
+        Set<String> itemsInterestedIds = buyer.getItemsInterested() != null ? new HashSet<>(buyer.getItemsInterested()) : new HashSet<>();
+        Set<String> messageIds = buyer.getMessages() != null ? new HashSet<>(buyer.getMessages()) : new HashSet<>();
+        String signupDateString = buyer.getSignupDate() != null ? buyer.getSignupDate().toString() : null;
+
+        return BuyerModel.builder()
+                .withBuyerID(buyer.getBuyerID())
+                .withUsername(buyer.getUsername())
+                .withEmail(buyer.getEmail())
+                .withLocation(buyer.getLocation())
+                .withItemsInterested(itemsInterestedIds)
+                .withMessages(messageIds)
+                .withSignupDate(signupDateString)
+                .build();
+    }
+
 
 }

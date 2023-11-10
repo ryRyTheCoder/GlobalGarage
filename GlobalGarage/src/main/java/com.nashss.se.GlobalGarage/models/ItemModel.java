@@ -16,12 +16,12 @@ public class ItemModel {
     private final BigDecimal price;
     private final String category;
     private final List<String> images;
-    private final LocalDateTime dateListed;
+    private final String dateListed;
     private final Set<String> buyersInterested;
     private final String status;
 
     private ItemModel(String garageID, String itemID, String sellerID, String name, String description,
-                      BigDecimal price, String category, List<String> images, LocalDateTime dateListed,
+                      BigDecimal price, String category, List<String> images, String dateListed,
                       Set<String> buyersInterested, String status) {
         this.garageID = garageID;
         this.itemID = itemID;
@@ -70,7 +70,7 @@ public class ItemModel {
         return images;
     }
 
-    public LocalDateTime getDateListed() {
+    public String getDateListed() {
         return dateListed;
     }
 
@@ -122,7 +122,7 @@ public class ItemModel {
         private BigDecimal price;
         private String category;
         private List<String> images;
-        private LocalDateTime dateListed;
+        private String dateListed;
         private Set<String> buyersInterested;
         private String status;
 
@@ -166,7 +166,7 @@ public class ItemModel {
             return this;
         }
 
-        public Builder withDateListed(LocalDateTime dateListed) {
+        public Builder withDateListed(String dateListed) {
             this.dateListed = dateListed;
             return this;
         }

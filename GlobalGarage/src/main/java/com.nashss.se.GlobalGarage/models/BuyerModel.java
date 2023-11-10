@@ -11,10 +11,10 @@ public class BuyerModel {
     private final String location;
     private final Set<String> itemsInterested;
     private final Set<String> messages;
-    private final LocalDateTime signupDate;
+    private final String signupDate;
 
     private BuyerModel(String buyerID, String username, String email, String location,
-                       Set<String> itemsInterested, Set<String> messages, LocalDateTime signupDate) {
+                       Set<String> itemsInterested, Set<String> messages, String signupDate) {
         this.buyerID = buyerID;
         this.username = username;
         this.email = email;
@@ -50,7 +50,7 @@ public class BuyerModel {
         return messages;
     }
 
-    public LocalDateTime getSignupDate() {
+    public String getSignupDate() {
         return signupDate;
     }
 
@@ -88,7 +88,7 @@ public class BuyerModel {
         private String location;
         private Set<String> itemsInterested;
         private Set<String> messages;
-        private LocalDateTime signupDate;
+        private String signupDate;
 
         public Builder withBuyerID(String buyerID) {
             this.buyerID = buyerID;
@@ -120,7 +120,7 @@ public class BuyerModel {
             return this;
         }
 
-        public Builder withSignupDate(LocalDateTime signupDate) {
+        public Builder withSignupDate(String signupDate) {
             this.signupDate = signupDate;
             return this;
         }

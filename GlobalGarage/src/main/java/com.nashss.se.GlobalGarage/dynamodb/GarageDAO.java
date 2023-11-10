@@ -43,11 +43,11 @@ public class GarageDAO {
 
         try {
             mapper.save(garage);
-            metricsPublisher.addCount(MetricsConstants.CREATEGARAGE_SUCCESS_COUNT, 1);
+            metricsPublisher.addCount(MetricsConstants.CREATE_GARAGE_SUCCESS_COUNT, 1);
             return true;
         } catch (Exception e) {
             log.error("Error creating garage", e);
-            metricsPublisher.addCount(MetricsConstants.CREATEGARAGE_FAIL_COUNT, 1);
+            metricsPublisher.addCount(MetricsConstants.CREATE_GARAGE_FAIL_COUNT, 1);
             return false;
         }
     }

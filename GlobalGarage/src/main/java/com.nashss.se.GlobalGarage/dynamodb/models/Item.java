@@ -3,6 +3,7 @@ package com.nashss.se.GlobalGarage.dynamodb.models;
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import com.nashss.se.GlobalGarage.converters.LocalDateTimeConverter;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
@@ -15,7 +16,7 @@ public class Item {
     private String sellerID;
     private String name;
     private String description;
-    private Number price;
+    private BigDecimal price;
     private String category;
     private List<String> images;
     private LocalDateTime dateListed;
@@ -68,11 +69,11 @@ public class Item {
     }
 
     @DynamoDBAttribute(attributeName = "price")
-    public Number getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Number price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 

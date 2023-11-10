@@ -44,11 +44,11 @@ public class SellerDAO {
 
         try {
             mapper.save(seller);
-            metricsPublisher.addCount(MetricsConstants.CREATESELLER_SUCCESS_COUNT, 1);
+            metricsPublisher.addCount(MetricsConstants.CREATE_SELLER_SUCCESS_COUNT, 1);
             return true;
         } catch (Exception e) {
             log.error("Error creating seller", e);
-            metricsPublisher.addCount(MetricsConstants.CREATESELLER_FAIL_COUNT, 1);
+            metricsPublisher.addCount(MetricsConstants.CREATE_SELLER_FAIL_COUNT, 1);
             return false;
         }
     }
