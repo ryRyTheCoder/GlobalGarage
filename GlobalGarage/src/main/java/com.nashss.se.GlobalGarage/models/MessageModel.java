@@ -12,11 +12,11 @@ public class MessageModel {
     private final String receiverType;
     private final String receiverID;
     private final String content;
-    private final LocalDateTime timestamp;
+    private final String timestamp;
 
     private MessageModel(String messageID, String relatedItemID, String senderType,
                           String senderID, String receiverType, String receiverID,
-                          String content, LocalDateTime timestamp) {
+                          String content, String timestamp) {
         this.messageID = messageID;
         this.relatedItemID = relatedItemID;
         this.senderType = senderType;
@@ -57,7 +57,7 @@ public class MessageModel {
         return content;
     }
 
-    public LocalDateTime getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
@@ -97,7 +97,7 @@ public class MessageModel {
         private String receiverType;
         private String receiverID;
         private String content;
-        private LocalDateTime timestamp;
+        private String timestamp;
 
         public Builder withMessageID(String messageID) {
             this.messageID = messageID;
@@ -134,7 +134,7 @@ public class MessageModel {
             return this;
         }
 
-        public Builder withTimestamp(LocalDateTime timestamp) {
+        public Builder withTimestamp(String timestamp) {
             this.timestamp = timestamp;
             return this;
         }

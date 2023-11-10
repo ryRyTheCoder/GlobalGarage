@@ -12,7 +12,7 @@ public class SellerModel {
     private final Set<String> garages;
     private final Set<String> messages;
     private final String contactInfo;
-    private String signupDate;
+    private final String signupDate;
 
     private SellerModel(String sellerID, String username, String email, String location,
                         Set<String> garages, Set<String> messages, String contactInfo,
