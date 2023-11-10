@@ -1,19 +1,19 @@
 package com.nashss.se.GlobalGarage.activity.results;
 
-import com.nashss.se.GlobalGarage.models.SellerModel;
+import com.nashss.se.GlobalGarage.models.GarageModel;
 
 /**
- * This class represents the result of a request to create a seller.
+ * This class represents the result of a request to create a garage.
  */
-public class CreateSellerResult {
+public class CreateGarageResult {
     private final boolean success;
     private final String message;
-    private final SellerModel sellerModel;
+    private final GarageModel garageModel;
 
-    private CreateSellerResult(boolean success, String message, SellerModel sellerModel) {
+    private CreateGarageResult(boolean success, String message, GarageModel garageModel) {
         this.success = success;
         this.message = message;
-        this.sellerModel = sellerModel;
+        this.garageModel = garageModel;
     }
 
     public boolean isSuccess() {
@@ -24,16 +24,16 @@ public class CreateSellerResult {
         return message;
     }
 
-    public SellerModel getSellerModel() {
-        return sellerModel;
+    public GarageModel getGarageModel() {
+        return garageModel;
     }
 
     @Override
     public String toString() {
-        return "CreateSellerResult{" +
+        return "CreateGarageResult{" +
                 "success=" + success +
                 ", message='" + message + '\'' +
-                ", sellerModel='" + sellerModel + '\'' +
+                ", garageModel=" + garageModel +
                 '}';
     }
 
@@ -44,7 +44,7 @@ public class CreateSellerResult {
     public static class Builder {
         private boolean success;
         private String message;
-        private SellerModel sellerModel;
+        private GarageModel garageModel;
 
         public Builder withSuccess(boolean success) {
             this.success = success;
@@ -56,13 +56,13 @@ public class CreateSellerResult {
             return this;
         }
 
-        public Builder withSellerModel(SellerModel sellerModel) {
-            this.sellerModel = sellerModel;
+        public Builder withGarageModel(GarageModel garageModel) {
+            this.garageModel = garageModel;
             return this;
         }
 
-        public CreateSellerResult build() {
-            return new CreateSellerResult(success, message, sellerModel);
+        public CreateGarageResult build() {
+            return new CreateGarageResult(success, message, garageModel);
         }
     }
 }

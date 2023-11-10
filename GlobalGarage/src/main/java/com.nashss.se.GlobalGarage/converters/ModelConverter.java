@@ -1,6 +1,8 @@
 package com.nashss.se.GlobalGarage.converters;
 
+import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
 import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
+import com.nashss.se.GlobalGarage.models.GarageModel;
 import com.nashss.se.GlobalGarage.models.SellerModel;
 
 import java.util.ArrayList;
@@ -20,8 +22,10 @@ public class ModelConverter {
      * @return the converted SellerModel with fields mapped from seller
      */
     public SellerModel toSellerModel(Seller seller) {
-        Set<String> eventIds = seller.getGarages() != null ? new HashSet<>(seller.getGarages()) : null;
-        Set<String> messageIds = seller.getMessages() != null ? new HashSet<>(seller.getMessages()) : null;
+        Set<String> eventIds = seller.getGarages() != null ? new HashSet<>(seller.getGarages()) : new HashSet<>();
+        Set<String> messageIds = seller.getMessages() != null ? new HashSet<>(seller.getMessages()) : new HashSet<>();
+        String signupDateString = seller.getSignupDate() != null ? seller.getSignupDate().toString() : null;
+
 
         return SellerModel.builder()
                 .withSellerID(seller.getSellerID())
@@ -29,9 +33,9 @@ public class ModelConverter {
                 .withEmail(seller.getEmail())
                 .withLocation(seller.getLocation())
                 .withContactInfo(seller.getContactInfo())
-                .withGarages(seller.getGarages())
+                .withGarages(eventIds)
                 .withMessages(messageIds)
-                .withSignupDate(seller.getSignupDate())
+                .withSignupDate(signupDateString)
                 .build();
     }
 
@@ -46,6 +50,21 @@ public class ModelConverter {
         sellers.forEach(seller -> sellerModels.add(toSellerModel(seller)));
         return sellerModels;
     }
+    public GarageModel toGarageModel(Garage garage) {
 
+        List<String> itemsList = garage.getItems() != null ? new ArrayList<>(garage.getItems()) : new ArrayList<>();
+
+        return GarageModel.builder()
+                .withSellerID(garage.getSellerID())
+                .withGarageID(garage.getGarageID())
+                .withGarageName(garage.getGarageName())
+                .withStartDate(garage.getStartDate())
+                .withEndDate(garage.getEndDate())
+                .withLocation(garage.getLocation())
+                .withDescription(garage.getDescription())
+                .withItems(itemsList)
+                .withIsActive(garage.getIsActive())
+                .build();
+    }
 
 }

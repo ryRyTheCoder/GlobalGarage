@@ -5,6 +5,8 @@ import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,7 +22,8 @@ import static com.nashss.se.GlobalGarage.utils.NullUtils.ifNull;
  */
 public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
 
-    protected static final ObjectMapper MAPPER = new ObjectMapper();
+    protected static final ObjectMapper MAPPER = new ObjectMapper()
+            .registerModule(new JavaTimeModule()); // Register JavaTimeModule
     protected final Logger log = LogManager.getLogger();
 
     /**

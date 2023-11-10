@@ -1,5 +1,6 @@
 package com.nashss.se.GlobalGarage.dependency;
 
+import com.nashss.se.GlobalGarage.converters.ModelConverter;
 import com.nashss.se.GlobalGarage.dynamodb.DynamoDbClientProvider;
 
 import com.amazonaws.regions.Regions;
@@ -23,5 +24,11 @@ public class DaoModule {
     @Provides
     public DynamoDBMapper provideDynamoDBMapper() {
         return new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient(Regions.US_EAST_2));
+    }
+
+    @Singleton
+    @Provides
+    public ModelConverter provideModelConverter() {
+        return new ModelConverter();
     }
 }

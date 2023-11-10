@@ -63,4 +63,15 @@ public class SellerDAO {
         metricsPublisher.addCount(MetricsConstants.SELLER_NOTFOUND_COUNT, 0);
         return seller;
     }
+    public boolean updateSeller(Seller seller) {
+        try {
+            mapper.save(seller);
+            // Optionally, you can log success or do other operations
+            return true;
+        } catch (Exception e) {
+            log.error("Error updating seller", e);
+            // Optionally, handle or log the exception
+            return false;
+        }
+    }
 }
