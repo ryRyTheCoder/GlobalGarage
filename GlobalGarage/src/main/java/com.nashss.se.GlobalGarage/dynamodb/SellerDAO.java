@@ -66,11 +66,12 @@ public class SellerDAO {
     public boolean updateSeller(Seller seller) {
         try {
             mapper.save(seller);
-            // Optionally, you can log success or do other operations
+            metricsPublisher.addCount(MetricsConstants.UPDATE_SELLER_SUCCESS_COUNT, 1);
+            log.info("Seller updated successfully: {}", seller.getSellerID());
             return true;
         } catch (Exception e) {
-            log.error("Error updating seller", e);
-            // Optionally, handle or log the exception
+            metricsPublisher.addCount(MetricsConstants.UPDATE_SELLER_FAIL_COUNT, 1);
+            log.error("Error updating seller: {}", seller.getSellerID(), e);
             return false;
         }
     }

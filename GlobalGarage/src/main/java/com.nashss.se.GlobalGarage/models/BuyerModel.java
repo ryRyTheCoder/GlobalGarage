@@ -1,4 +1,4 @@
-package main.java.com.nashss.se.GlobalGarage.models;
+package com.nashss.se.GlobalGarage.models;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
