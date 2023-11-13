@@ -2,7 +2,9 @@ package com.nashss.se.GlobalGarage.dynamodb;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
+import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
 import com.nashss.se.GlobalGarage.exceptions.GarageNotFoundException;
+import com.nashss.se.GlobalGarage.exceptions.SellerNotFoundException;
 import com.nashss.se.GlobalGarage.metrics.MetricsConstants;
 import com.nashss.se.GlobalGarage.metrics.MetricsPublisher;
 
@@ -52,5 +54,39 @@ public class GarageDAO {
         }
     }
 
+    public Garage getGarage(String sellerID, String garageID){
 
+    try {
+        Garage garageKey = new Garage();
+        garageKey.setSellerID(sellerID);
+        garageKey.setGarageID(garageID);
+
+        Garage garage = mapper.load(garageKey);
+        if (garage == null) {
+            metricsPublisher.addCount(MetricsConstants.GARAGE_NOTFOUND_COUNT, 1);
+            throw new GarageNotFoundException("Could not find garage with SellerID: " + sellerID + " and GarageID: " + garageID);
+        }
+        metricsPublisher.addCount(MetricsConstants.GARAGE_NOTFOUND_COUNT, 0);
+        return garage;
+    } catch (Exception e) {
+        log.error("Error loading garage", e);
+        throw e; // Rethrow the exception or handle it as per your application's requirement
+    }
+}
+
+
+
+
+    public boolean updateGarage(Garage garage) {
+        try {
+            mapper.save(garage);
+            metricsPublisher.addCount(MetricsConstants.UPDATE_GARAGE_SUCCESS_COUNT, 1);
+            log.info("Garage updated successfully: {}", garage.getGarageID());
+            return true;
+        } catch (Exception e) {
+            metricsPublisher.addCount(MetricsConstants.UPDATE_GARAGE_FAIL_COUNT, 1);
+            log.error("Error updating garage: {}", garage.getGarageID(), e);
+            return false;
+        }
+    }
 }
