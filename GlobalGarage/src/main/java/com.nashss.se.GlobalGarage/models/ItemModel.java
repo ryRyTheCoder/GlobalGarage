@@ -15,13 +15,13 @@ public class ItemModel {
     private final String description;
     private final BigDecimal price;
     private final String category;
-    private final List<String> images;
+    private final Set<String> images;
     private final String dateListed;
     private final Set<String> buyersInterested;
     private final String status;
 
     private ItemModel(String garageID, String itemID, String sellerID, String name, String description,
-                      BigDecimal price, String category, List<String> images, String dateListed,
+                      BigDecimal price, String category, Set<String> images, String dateListed,
                       Set<String> buyersInterested, String status) {
         this.garageID = garageID;
         this.itemID = itemID;
@@ -66,7 +66,7 @@ public class ItemModel {
         return category;
     }
 
-    public List<String> getImages() {
+    public Set<String> getImages() {
         return images;
     }
 
@@ -121,7 +121,7 @@ public class ItemModel {
         private String description;
         private BigDecimal price;
         private String category;
-        private List<String> images;
+        private Set<String> images;
         private String dateListed;
         private Set<String> buyersInterested;
         private String status;
@@ -161,7 +161,7 @@ public class ItemModel {
             return this;
         }
 
-        public Builder withImages(List<String> images) {
+        public Builder withImages(Set<String> images) {
             this.images = images;
             return this;
         }

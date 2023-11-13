@@ -18,7 +18,7 @@ public class Item {
     private String description;
     private BigDecimal price;
     private String category;
-    private List<String> images;
+    private Set<String> images;
     private LocalDateTime dateListed;
     private Set<String> buyersInterested;
     private String status;
@@ -87,11 +87,11 @@ public class Item {
     }
 
     @DynamoDBAttribute(attributeName = "images")
-    public List<String> getImages() {
+    public Set<String> getImages() {
         return images;
     }
 
-    public void setImages(List<String> images) {
+    public void setImages(Set<String> images) {
         this.images = images;
     }
 

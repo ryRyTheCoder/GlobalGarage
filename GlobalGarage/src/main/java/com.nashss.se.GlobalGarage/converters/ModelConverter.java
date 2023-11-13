@@ -2,9 +2,11 @@ package com.nashss.se.GlobalGarage.converters;
 
 import com.nashss.se.GlobalGarage.dynamodb.models.Buyer;
 import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
+import com.nashss.se.GlobalGarage.dynamodb.models.Item;
 import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
 import com.nashss.se.GlobalGarage.models.BuyerModel;
 import com.nashss.se.GlobalGarage.models.GarageModel;
+import com.nashss.se.GlobalGarage.models.ItemModel;
 import com.nashss.se.GlobalGarage.models.SellerModel;
 
 import java.util.ArrayList;
@@ -89,6 +91,25 @@ public class ModelConverter {
                 .withSignupDate(signupDateString)
                 .build();
     }
+    public ItemModel toItemModel(Item item) {
 
+        String dateListedString = item.getDateListed() != null ? item.getDateListed().toString() : null;
+        Set<String> itemImages = item.getImages() != null ? new HashSet<>(item.getImages()) : new HashSet<>();
+        Set<String> buyerInterested = item.getBuyersInterested() != null ? new HashSet<>(item.getBuyersInterested()) : new HashSet<>();
+
+        return ItemModel.builder()
+                .withGarageID(item.getGarageID())
+                .withItemID(item.getItemID())
+                .withSellerID(item.getSellerID())
+                .withName(item.getName())
+                .withDescription(item.getDescription())
+                .withPrice(item.getPrice())
+                .withCategory(item.getCategory())
+                .withImages(itemImages)
+                .withDateListed(dateListedString)
+                .withBuyersInterested(buyerInterested)
+                .withStatus(item.getStatus())
+                .build();
+    }
 
 }

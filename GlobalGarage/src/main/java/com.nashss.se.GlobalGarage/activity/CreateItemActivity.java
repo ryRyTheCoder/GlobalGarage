@@ -1,14 +1,21 @@
 package com.nashss.se.GlobalGarage.activity;
 
 import com.nashss.se.GlobalGarage.activity.request.CreateItemRequest;
+import com.nashss.se.GlobalGarage.activity.results.CreateItemResult;
 import com.nashss.se.GlobalGarage.converters.ModelConverter;
 import com.nashss.se.GlobalGarage.dynamodb.GarageDAO;
+import com.nashss.se.GlobalGarage.dynamodb.ItemDAO;
+import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
+import com.nashss.se.GlobalGarage.dynamodb.models.Item;
+import com.nashss.se.GlobalGarage.models.ItemModel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -56,17 +63,25 @@ public class CreateItemActivity {
         item.setDescription(createItemRequest.getDescription());
         item.setPrice(createItemRequest.getPrice());
         item.setCategory(createItemRequest.getCategory());
-        item.setImages(new ArrayList<>(createItemRequest.getImages()));
+        item.setImages(createItemRequest.getImages() != null ? new HashSet<>(createItemRequest.getImages()) : null);
         item.setDateListed(LocalDateTime.now());
         item.setBuyersInterested(new HashSet<>());
         item.setStatus("available");
+
+        if (item.getBuyersInterested() != null && item.getBuyersInterested().isEmpty()) {
+            item.setBuyersInterested(null);
+        }
+        if (item.getImages() != null && item.getImages().isEmpty()) {
+            item.setImages(null);
+        }
 
         boolean success = itemDao.createItem(item);
 
         if (success) {
             // Update the corresponding garage with the new item
-            success = updateGarageItems(garageID, itemID);
+            success = updateGarageItems(sellerID, garageID, itemID);
         }
+
 
         String message = success ? "Item created successfully." : "Failed to create item.";
 
@@ -79,9 +94,9 @@ public class CreateItemActivity {
                 .build();
     }
 
-    private boolean updateGarageItems(String garageID, String itemID) {
+    private boolean updateGarageItems(String sellerID, String garageID, String itemID) {
         try {
-            Garage garage = garageDao.getGarage(garageID); // Load the garage
+            Garage garage = garageDao.getGarage(sellerID,garageID); // Load the garage
             List<String> items = garage.getItems();
             if (items == null) {
                 items = new ArrayList<>();

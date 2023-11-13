@@ -2,6 +2,7 @@ package com.nashss.se.GlobalGarage.dependency;
 
 import com.nashss.se.GlobalGarage.activity.CreateBuyerActivity;
 import com.nashss.se.GlobalGarage.activity.CreateGarageActivity;
+import com.nashss.se.GlobalGarage.activity.CreateItemActivity;
 import com.nashss.se.GlobalGarage.activity.CreateSellerActivity;
 
 
@@ -25,5 +26,6 @@ public interface ServiceComponent {
     CreateSellerActivity provideCreateSellerActivity();
     CreateGarageActivity provideCreateGarageActivity();
     CreateBuyerActivity provideCreateBuyerActivity();
+    CreateItemActivity provideCreateItemActivity();
 
 }

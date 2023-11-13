@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 /**
  * This class represents a request to create an item.
@@ -17,10 +18,10 @@ public class CreateItemRequest {
     private final String description;
     private final BigDecimal price;
     private final String category;
-    private final List<String> images;
+    private final Set<String> images;
 
     private CreateItemRequest(String sellerID, String garageID, String name, String description,
-                              BigDecimal price, String category, List<String> images) {
+                              BigDecimal price, String category, Set<String> images) {
         this.sellerID = sellerID;
         this.garageID = garageID;
         this.name = name;
@@ -55,7 +56,7 @@ public class CreateItemRequest {
         return category;
     }
 
-    public List<String> getImages() {
+    public Set<String> getImages() {
         return images;
     }
 
@@ -71,7 +72,7 @@ public class CreateItemRequest {
         private String description;
         private BigDecimal price;
         private String category;
-        private List<String> images;
+        private Set<String> images;
 
         public Builder withSellerID(String sellerID) {
             this.sellerID = sellerID;
@@ -103,7 +104,7 @@ public class CreateItemRequest {
             return this;
         }
 
-        public Builder withImages(List<String> images) {
+        public Builder withImages(Set<String> images) {
             this.images = images;
             return this;
         }
