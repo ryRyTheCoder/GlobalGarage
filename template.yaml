@@ -264,7 +264,7 @@ Resources:
             Auth:
               Authorizer: 'NONE'
 
-  CreateGarageFunction:
+  CreateGarageLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessRole.Arn
@@ -286,7 +286,7 @@ Resources:
             Auth:
               Authorizer: 'NONE'
 
-  CreateBuyerFunction:
+  CreateBuyerLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessRole.Arn
@@ -308,7 +308,7 @@ Resources:
             Auth:
               Authorizer: 'NONE'      
 
-  CreateItemFunction:
+  CreateItemLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessRole.Arn
@@ -328,7 +328,30 @@ Resources:
             Path: /items
             Method: post
             Auth:
-              Authorizer: 'NONE'             
+              Authorizer: 'NONE'      
+
+  GetAllGaragesLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.GetAllGaragesLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /garages
+            Method: get
+            Auth:
+              Authorizer: 'NONE'    
+                     
   #-----------------------------------------------------
   # DynamoDB Configuration
   #-----------------------------------------------------
