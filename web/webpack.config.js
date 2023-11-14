@@ -34,7 +34,7 @@ module.exports = {
     index: path.resolve(__dirname, 'src', 'pages', 'index.js'),
     createVendor: path.resolve(__dirname, 'src', 'pages', 'createVendor.js'),
     VendorAccount: path.resolve(__dirname, 'src', 'pages', 'VendorAccount.js'),
-    viewAllGarages: path.resolve(__dirname, 'src', 'pages', 'viewAllGarages.js'),
+    viewAllGarages: path.resolve(__dirname, 'src', 'pages', 'ViewAllGarages.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

@@ -1,4 +1,4 @@
-import vendorEventClient from '../api/vendorEventClient';
+ import vendorEventClient from '../api/vendorEventClient';
 import BindingClass from "../util/bindingClass";
 
 /**

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="819414f5-9cb6-4dd5-894d-4fa546ee55a3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/api/vendorEventClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/vendorEventClient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/viewAllEvents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/viewAllEvents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/globalGarageClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/globalGarageClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/viewAllGarages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/viewAllGarages.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,11 +23,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

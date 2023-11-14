@@ -4,7 +4,7 @@ import Authenticator from "./authenticator";
 /**
  * Client to call the VendorEventService.
  */
-export default class globalGarageClient extends BindingClass {
+export default class GlobalGarageClient extends BindingClass {
     constructor(props = {}) {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages'];
@@ -60,17 +60,20 @@ export default class globalGarageClient extends BindingClass {
 async getAllGarages(lastEvaluatedKey, errorCallback) {
     try {
         const queryParams = lastEvaluatedKey ? { next: lastEvaluatedKey } : {};
+        console.log("Making API call to getAllGarages with params:", queryParams);
 
         const response = await this.axiosClient.get('garages', { params: queryParams });
+        console.log("getAllGarages response data:", response.data);
 
-        console.log("Server Response:", response.data);
+        // Destructure the necessary data from the response
+        const { garageModels, lastEvaluatedKey: newLastEvaluatedKey } = response.data;
 
         return {
-            garages: response.data.garageModels,
-            lastEvaluatedKey: response.data.lastEvaluatedKey
+            garages: garageModels,
+            lastEvaluatedKey: newLastEvaluatedKey
         };
-    }
-    catch (error) {
+    } catch (error) {
+        console.error("Error in getAllGarages:", error);
         this.handleError(error, errorCallback);
     }
 }

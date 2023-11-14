@@ -1,123 +1,143 @@
-import globalGarageClient from '../api/globalGarageClient';
+import GlobalGarageClient from '../api/globalGarageClient';
 import Header from '../components/header';
 import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
 
 class ViewAllGarages extends BindingClass {
-    constructor() {
-        super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'displayGarages','next','previous', 'showLoading', 'hideLoading'], this);
-        this.dataStore = new DataStore();
-        this.header = new Header(this.dataStore);
-        this.client = new globalGarageClient();
-        this.dataStore.addChangeListener(this.displayGarages);
-        this.previousKeys = [];
-        this.currentLastEvaluatedKey = null;
-        console.log("ViewAllGarages constructor");
-    }
+   constructor() {
+       super();
+       this.bindClassMethods(['clientLoaded', 'mount', 'displayGarages','next','previous', 'showLoading', 'hideLoading','loadGarages'], this);
+       this.dataStore = new DataStore();
+       this.header = new Header(this.dataStore);
+       this.client = new GlobalGarageClient();
+       this.dataStore.addChangeListener(this.displayGarages                 );
+       this.previousKeys = [];
+       this.currentLastEvaluatedKey = null;
+       console.log("ViewAllGarages constructor");
+   }
 
-    showLoading() {
-        document.getElementById('garages-loading').innerText = "(Loading garages...)";
+   showLoading() {
+       document.getElementById('garages-loading').innerText = "(Loading garages...)";
 
-    }
+   }
 
-    hideLoading() {
-        document.getElementById('garages-loading').style.display = 'none';
-    }
-    /**
-     * Once the client is loaded, get the list of all vendors.
-     */
-    async clientLoaded() {
-        this.showLoading();
-        await this.loadGarages();
-        this.hideLoading();
-    }
-    /**
-     * Add the header to the page and load the VendorEventClient.
-     */
-    mount() {
-        this.header.addHeaderToPage();
-        this.clientLoaded();
-        document.getElementById('nextButton').addEventListener('click', this.next);
-        document.getElementById('prevButton').addEventListener('click', this.previous);
-    }
+   hideLoading() {
+       document.getElementById('garages-loading').style.display = 'none';
+   }
+   /**
+    * Once the client is loaded, get the list of all garages.
+    */
+   async clientLoaded() {
+    this.showLoading();
+    await this.loadGarages();
+    console.log("Garages loaded:", this.dataStore.get('garages'));
+    this.hideLoading();
+   }
+   /**
+    * Add the header to the page and load the GlobalGarageClient.
+    */
+   mount() {
+       this.header.addHeaderToPage();
+       this.clientLoaded();
+       document.getElementById('nextButton').addEventListener('click', this.next);
+       document.getElementById('prevButton').addEventListener('click', this.previous);
+   }
 
-    async loadGarages(lastEvaluatedKey = null) {
-        const result = await this.client.getAllGarages(lastEvaluatedKey);
-        if (result && result.success) {
-            const garages = result.garageModels;
-            this.currentLastEvaluatedKey = lastEvaluatedKey;
+async loadGarages(lastEvaluatedKey = null) {
+    try {
+        // Log the start of the method and the lastEvaluatedKey if provided
+        console.log("loadGarages called with lastEvaluatedKey:", lastEvaluatedKey);
+
+       const { garages, lastEvaluatedKey: newLastEvaluatedKey } = await this.client.getAllGarages(lastEvaluatedKey);
+
+
+        // Log the result of the API call
+        console.log("loadGarages result: Garages -", garages, ", Last Evaluated Key -", newLastEvaluatedKey);
+
+        if (garages && garages.length > 0) {
+            // Set garages and lastEvaluatedKey in the DataStore and log
+            this.currentLastEvaluatedKey = newLastEvaluatedKey;
             this.dataStore.set('garages', garages);
-            this.dataStore.set('lastEvaluatedKey', result.lastEvaluatedKey);
+            this.dataStore.set('lastEvaluatedKey', newLastEvaluatedKey);
+            console.log("Garages and lastEvaluatedKey set in DataStore");
+
+            // Call displayGarages to render the data
             this.displayGarages();
         } else {
-            console.error("Error loading garages:", result.message);
+            // Log error if result is not successful
+            console.error("Error loading garages. Garages array is empty or undefined.");
         }
+    } catch (error) {
+        // Log any caught errors
+        console.error("Exception in loadGarages:", error);
     }
+}
 
-    async next() {
-        if (this.dataStore.get('lastEvaluatedKey')) {
-            this.showLoading();
-            await this.loadGarages(this.dataStore.get('lastEvaluatedKey'));
-            this.hideLoading();
-        }
-    }
 
-    async previous() {
-        if (this.previousKeys.length > 0) {
-            this.showLoading();
-            const lastKey = this.previousKeys.pop();
-            await this.loadGarages(lastKey);
-            this.hideLoading();
-        }
-    }
+   async next() {
+       if (this.dataStore.get('lastEvaluatedKey')) {
+           this.showLoading();
+           await this.loadGarages(this.dataStore.get('lastEvaluatedKey'));
+           this.hideLoading();
+       }
+   }
+
+   async previous() {
+       if (this.previousKeys.length > 0) {
+           this.showLoading();
+           const lastKey = this.previousKeys.pop();
+           await this.loadGarages(lastKey);
+           this.hideLoading();
+       }
+   }
 
 displayGarages() {
-    const garages = this.dataStore.get('garages');
-    const displayDiv = document.getElementById('garages-list-display');
-    displayDiv.innerHTML = ''; // Clear existing content
+     const garages = this.dataStore.get('garages');
+     console.log("Displaying garages:", garages);
+   const displayDiv = document.getElementById('garages-list-display');
+   displayDiv.innerHTML = ''; // Clear existing content
 
-    if (garages.length === 0) {
-        displayDiv.innerText = "No more Garages available.";
-        return;
-    }
+   if (garages.length === 0) {
+       displayDiv.innerText = "No more Garages available.";
+       return;
+   }
 
-    garages.forEach(garage => {
-        const garageCard = document.createElement('section');
-        garageCard.className = 'garageCard';
+   garages.forEach(garage => {
+       const garageCard = document.createElement('section');
+       garageCard.className = 'card';
 
-        const garageName = document.createElement('h2');
-        garageName.innerText = garage.name;
+       const garageName = document.createElement('h2');
+       garageName.innerText = garage.garageName;
 
-        const garageLocation = document.createElement('p');
-        garageLocation.innerText = `Location: ${garage.location}`;
+       const garageLocation = document.createElement('p');
+       garageLocation.innerText = `Location: ${garage.location}`;
 
-        // Generate URL for the garage
-        const garageId = encodeURIComponent(garage.id);
-        const currentHostname = window.location.hostname;
-        const isLocal = currentHostname === 'localhost' || currentHostname === '127.0.0.1';
-        const baseUrl = isLocal ? 'http://localhost:8000/' : 'https://your-deployment-url.com/';
-        const garagePageUrl = `${baseUrl}viewGarage.html?id=${garageId}`;
+       // Generate URL for the garage
+       const garageId = encodeURIComponent(garage.garageId);
+       const currentHostname = window.location.hostname;
+       const isLocal = currentHostname === 'localhost' || currentHostname === '127.0.0.1';
+       const baseUrl = isLocal ? 'http://localhost:8000/' : 'https://your-deployment-url.com/';
+       const garagePageUrl = `${baseUrl}viewGarage.html?id=${garageId}`;
 
-        // Clickable link element
-        const garageLink = document.createElement('a');
-        garageLink.href = garagePageUrl;
-        garageLink.innerText = "View Details";
-        garageLink.className = 'garageLink';
+       // Clickable link element
+       const garageLink = document.createElement('a');
+       garageLink.href = garagePageUrl;
+       garageLink.innerText = "View Details";
+       garageLink.className = 'garageLink';
 
-        garageCard.appendChild(garageName);
-        garageCard.appendChild(garageLocation);
-        garageCard.appendChild(garageLink);
+       garageCard.appendChild(garageName);
+       garageCard.appendChild(garageLocation);
+       garageCard.appendChild(garageLink);
 
-        displayDiv.appendChild(garageCard);
-    });
+       displayDiv.appendChild(garageCard);
+   });
 }
+}
+
 const main = async () => {
-    const viewAllGarages = new viewAllGarages();
-    viewAllGarages.mount();
+   const viewAllGarages = new ViewAllGarages();
+   viewAllGarages.mount();
 };
 
 window.addEventListener('DOMContentLoaded', main);
-
-
 
