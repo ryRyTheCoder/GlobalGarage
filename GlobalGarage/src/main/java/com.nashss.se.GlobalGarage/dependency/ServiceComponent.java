@@ -1,9 +1,6 @@
 package com.nashss.se.GlobalGarage.dependency;
 
-import com.nashss.se.GlobalGarage.activity.CreateBuyerActivity;
-import com.nashss.se.GlobalGarage.activity.CreateGarageActivity;
-import com.nashss.se.GlobalGarage.activity.CreateItemActivity;
-import com.nashss.se.GlobalGarage.activity.CreateSellerActivity;
+import com.nashss.se.GlobalGarage.activity.*;
 
 
 import dagger.Component;
@@ -27,5 +24,6 @@ public interface ServiceComponent {
     CreateGarageActivity provideCreateGarageActivity();
     CreateBuyerActivity provideCreateBuyerActivity();
     CreateItemActivity provideCreateItemActivity();
+    GetAllGaragesActivity provideGetAllGaragesActivity();
 
 }

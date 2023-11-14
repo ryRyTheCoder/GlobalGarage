@@ -1,10 +1,18 @@
 package com.nashss.se.GlobalGarage.dynamodb;
 
+
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.ScanResultPage;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
-import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
+
 import com.nashss.se.GlobalGarage.exceptions.GarageNotFoundException;
-import com.nashss.se.GlobalGarage.exceptions.SellerNotFoundException;
+
 import com.nashss.se.GlobalGarage.metrics.MetricsConstants;
 import com.nashss.se.GlobalGarage.metrics.MetricsPublisher;
 
@@ -13,13 +21,17 @@ import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.util.Base64;
+
+import java.util.List;
+import java.util.Map;
 
 @Singleton
 public class GarageDAO {
     private final DynamoDBMapper mapper;
     private final MetricsPublisher metricsPublisher;
     private final Logger log = LogManager.getLogger();
-
+    private Map<String, AttributeValue> lastEvaluatedKey = null;
     /**
      * Instantiates a GarageDAO object.
      *
@@ -75,8 +87,6 @@ public class GarageDAO {
 }
 
 
-
-
     public boolean updateGarage(Garage garage) {
         try {
             mapper.save(garage);
@@ -88,5 +98,24 @@ public class GarageDAO {
             log.error("Error updating garage: {}", garage.getGarageID(), e);
             return false;
         }
+    }
+
+    public List<Garage> getAllGarages(Map<String, AttributeValue> lastEvaluatedKey) {
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
+                .withLimit(10); // Limit the number of items returned
+
+        if (lastEvaluatedKey != null && !lastEvaluatedKey.isEmpty()) {
+            scanExpression.setExclusiveStartKey(lastEvaluatedKey);
+        }
+
+        ScanResultPage<Garage> scanResult = mapper.scanPage(Garage.class, scanExpression);
+        this.lastEvaluatedKey = scanResult.getLastEvaluatedKey();
+
+        return scanResult.getResults();
+    }
+
+
+    public Map<String, AttributeValue> getLastEvaluatedKey() {
+        return this.lastEvaluatedKey;
     }
 }
