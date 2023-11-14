@@ -19,7 +19,7 @@
 # Ignore Gradle build output directory
 build
 logs
-node_modules
+web/node_modules
 
 .env*
 bin

@@ -1,9 +1,5 @@
 package com.nashss.se.GlobalGarage.activity.request;
 
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
-
-import java.util.Map;
-
 /**
  * This class represents a request to get all garages.
  * It is used as part of the GetAllGaragesActivity API.
