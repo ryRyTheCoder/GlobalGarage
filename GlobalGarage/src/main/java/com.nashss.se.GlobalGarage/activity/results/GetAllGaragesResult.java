@@ -2,7 +2,7 @@ package com.nashss.se.GlobalGarage.activity.results;
 
 import com.nashss.se.GlobalGarage.models.GarageModel;
 import java.util.List;
-import java.util.Map;
+
 
 /**
  * This class represents the result of a request to get all garages.
