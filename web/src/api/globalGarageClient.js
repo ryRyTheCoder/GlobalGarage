@@ -7,7 +7,7 @@ import Authenticator from "./authenticator";
 export default class GlobalGarageClient extends BindingClass {
     constructor(props = {}) {
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages', 'getOneGarage'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -77,7 +77,14 @@ async getAllGarages(lastEvaluatedKey, errorCallback) {
         this.handleError(error, errorCallback);
     }
 }
-
+async getOneGarage(sellerId, garageId, errorCallback) {
+    try {
+        const response = await this.axiosClient.get(`garages/${sellerId}/${garageId}`);
+        return response.data;
+    } catch (error) {
+        this.handleError(error, errorCallback);
+    }
+}
 
     /**
      * Helper method to log the error and run any error functions.

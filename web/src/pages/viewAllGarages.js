@@ -93,46 +93,53 @@ async loadGarages(lastEvaluatedKey = null) {
 
 displayGarages() {
      const garages = this.dataStore.get('garages');
-     console.log("Displaying garages:", garages);
-   const displayDiv = document.getElementById('garages-list-display');
-   displayDiv.innerHTML = ''; // Clear existing content
+     console.log("Displaying garages:", garages); // Debugging line
+     const displayDiv = document.getElementById('garages-list-display');
+     displayDiv.innerHTML = ''; // Clear existing content
 
-   if (garages.length === 0) {
-       displayDiv.innerText = "No more Garages available.";
-       return;
-   }
+     if (garages.length === 0) {
+         displayDiv.innerText = "No more Garages available.";
+         return;
+     }
 
-   garages.forEach(garage => {
-       const garageCard = document.createElement('section');
-       garageCard.className = 'card';
+     garages.forEach(garage => {
+         console.log("Current garage:", garage); // Debugging line
 
-       const garageName = document.createElement('h2');
-       garageName.innerText = garage.garageName;
+         const garageCard = document.createElement('section');
+         garageCard.className = 'card';
 
-       const garageLocation = document.createElement('p');
-       garageLocation.innerText = `Location: ${garage.location}`;
+         const garageName = document.createElement('h2');
+         garageName.innerText = garage.garageName;
 
-       // Generate URL for the garage
-       const garageId = encodeURIComponent(garage.garageId);
-       const currentHostname = window.location.hostname;
-       const isLocal = currentHostname === 'localhost' || currentHostname === '127.0.0.1';
-       const baseUrl = isLocal ? 'http://localhost:8000/' : 'https://your-deployment-url.com/';
-       const garagePageUrl = `${baseUrl}viewGarage.html?id=${garageId}`;
+         const garageLocation = document.createElement('p');
+         garageLocation.innerText = `Location: ${garage.location}`;
 
-       // Clickable link element
-       const garageLink = document.createElement('a');
-       garageLink.href = garagePageUrl;
-       garageLink.innerText = "View Details";
-       garageLink.className = 'garageLink';
+    // Extract sellerId and garageId
+    const sellerId = encodeURIComponent(garage.sellerID); // Ensure property names match
+    const garageId = encodeURIComponent(garage.garageID);
 
-       garageCard.appendChild(garageName);
-       garageCard.appendChild(garageLocation);
-       garageCard.appendChild(garageLink);
+    // Construct the base URL
+    const currentHostname = window.location.hostname;
+    const isLocal = currentHostname === 'localhost' || currentHostname === '127.0.0.1';
+    const baseUrl = isLocal ? 'http://localhost:8000/' : 'https://your-deployment-url.com/';
 
-       displayDiv.appendChild(garageCard);
-   });
-}
-}
+    // Construct the garage page URL
+    const garagePageUrl = `${baseUrl}viewGarage.html?sellerId=${sellerId}&garageId=${garageId}`;
+    console.log("Garage Page URL:", garagePageUrl); // Debugging line
+         // Clickable link element
+         const garageLink = document.createElement('a');
+         garageLink.href = garagePageUrl;
+         garageLink.innerText = "View Details";
+         garageLink.className = 'garageLink';
+
+         garageCard.appendChild(garageName);
+         garageCard.appendChild(garageLocation);
+         garageCard.appendChild(garageLink);
+
+         displayDiv.appendChild(garageCard);
+     });
+ }
+ }
 
 const main = async () => {
    const viewAllGarages = new ViewAllGarages();
