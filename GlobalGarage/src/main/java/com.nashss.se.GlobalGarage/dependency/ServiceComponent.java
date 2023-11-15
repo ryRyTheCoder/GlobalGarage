@@ -28,5 +28,6 @@ public interface ServiceComponent {
     CreateItemActivity provideCreateItemActivity();
     GetAllGaragesActivity provideGetAllGaragesActivity();
     GetGaragesBySellerActivity provideGetAllGaragesBySellerActivity();
-
+    GetOneGarageActivity provideGetOneGarageActivity();
+    CreateMessageActivity provideCreateMessageActivity();
 }

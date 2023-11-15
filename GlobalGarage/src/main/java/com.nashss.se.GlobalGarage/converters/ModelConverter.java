@@ -1,13 +1,7 @@
 package com.nashss.se.GlobalGarage.converters;
 
-import com.nashss.se.GlobalGarage.dynamodb.models.Buyer;
-import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
-import com.nashss.se.GlobalGarage.dynamodb.models.Item;
-import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
-import com.nashss.se.GlobalGarage.models.BuyerModel;
-import com.nashss.se.GlobalGarage.models.GarageModel;
-import com.nashss.se.GlobalGarage.models.ItemModel;
-import com.nashss.se.GlobalGarage.models.SellerModel;
+import com.nashss.se.GlobalGarage.dynamodb.models.*;
+import com.nashss.se.GlobalGarage.models.*;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -111,5 +105,24 @@ public class ModelConverter {
                 .withStatus(item.getStatus())
                 .build();
     }
+    /**
+     * Converts a provided Message into MessageModel representation.
+     *
+     * @param message the Message to convert to MessageModel
+     * @return the converted MessageModel with fields mapped from message
+     */
+    public MessageModel toMessageModel(Message message) {
+        String timestampString = message.getTimestamp() != null ? message.getTimestamp().toString() : null;
 
+        return MessageModel.builder()
+                .withMessageID(message.getMessageID())
+                .withRelatedItemID(message.getRelatedItemID())
+                .withSenderType(message.getSenderType())
+                .withSenderID(message.getSenderID())
+                .withReceiverType(message.getReceiverType())
+                .withReceiverID(message.getReceiverID())
+                .withContent(message.getContent())
+                .withTimestamp(timestampString)
+                .build();
+    }
 }

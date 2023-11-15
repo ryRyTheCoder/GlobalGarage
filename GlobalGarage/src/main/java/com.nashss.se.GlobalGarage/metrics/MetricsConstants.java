@@ -29,6 +29,10 @@ public class MetricsConstants {
     public static final String CREATE_ITEM_FAIL_COUNT = "CreateItem.Failure.Count";
     public static final String ITEM_NOTFOUND_COUNT = "GetItem.ItemNotFoundException.Count";
 
+    // Constants for Message metrics
+    public static final String CREATE_MESSAGE_SUCCESS_COUNT = "CreateItem.Success.Count";
+    public static final String CREATE_MESSAGE_FAIL_COUNT = "CreateItem.Failure.Count";
+    public static final String MESSAGE_NOTFOUND_COUNT = "GetItem.ItemNotFoundException.Count";
 
     // Constants for updating records
     public static final String UPDATE_SELLER_SUCCESS_COUNT = "UpdateSeller.Success.Count";
