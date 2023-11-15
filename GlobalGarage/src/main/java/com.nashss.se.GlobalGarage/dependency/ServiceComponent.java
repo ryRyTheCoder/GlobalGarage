@@ -1,9 +1,11 @@
 package com.nashss.se.GlobalGarage.dependency;
 
+
 import com.nashss.se.GlobalGarage.activity.*;
 
 
 import dagger.Component;
+
 
 import javax.inject.Singleton;
 
@@ -25,6 +27,6 @@ public interface ServiceComponent {
     CreateBuyerActivity provideCreateBuyerActivity();
     CreateItemActivity provideCreateItemActivity();
     GetAllGaragesActivity provideGetAllGaragesActivity();
-    GetOneGarageActivity provideGetOneGarageActivity();
+    GetGaragesBySellerActivity provideGetAllGaragesBySellerActivity();
 
 }

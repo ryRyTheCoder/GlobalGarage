@@ -1,10 +1,8 @@
 package com.nashss.se.GlobalGarage.dynamodb;
 
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.ScanResultPage;
 import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -21,8 +19,10 @@ import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import java.io.IOException;
 import java.util.Base64;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -42,6 +42,51 @@ public class GarageDAO {
     public GarageDAO(DynamoDBMapper dynamoDbMapper, MetricsPublisher metricsPublisher) {
         this.mapper = dynamoDbMapper;
         this.metricsPublisher = metricsPublisher;
+    }
+
+    /**
+     * Gets a list of garages by a seller with pagination support.
+     *
+     * @param sellerId The seller's ID.
+     * @param limit The maximum number of items to return.
+     * @param lastEvaluatedKey The last evaluated key for pagination, in Base64-encoded string format.
+     * @return A list of garages.
+     */
+    public List<Garage> getGaragesBySeller(String sellerId, Integer limit, String lastEvaluatedKey) {
+        Garage garageKey = new Garage();
+        garageKey.setSellerID(sellerId);
+
+        DynamoDBQueryExpression<Garage> queryExpression = new DynamoDBQueryExpression<Garage>()
+                .withHashKeyValues(garageKey)
+                .withLimit(limit);
+
+        if (lastEvaluatedKey != null && !lastEvaluatedKey.isEmpty()) {
+            Map<String, AttributeValue> exclusiveStartKey = decodeLastEvaluatedKey(lastEvaluatedKey);
+            queryExpression.setExclusiveStartKey(exclusiveStartKey);
+        }
+
+        QueryResultPage<Garage> queryResult = mapper.queryPage(Garage.class, queryExpression);
+        this.lastEvaluatedKey = queryResult.getLastEvaluatedKey();
+
+        return queryResult.getResults();
+    }
+
+    /**
+     * Decodes the last evaluated key from a Base64-encoded string to a Map.
+     *
+     * @param lastEvaluatedKeyBase64 The Base64-encoded last evaluated key.
+     * @return A Map representing the last evaluated key.
+     */
+    private Map<String, AttributeValue> decodeLastEvaluatedKey(String lastEvaluatedKeyBase64) {
+        byte[] bytes = Base64.getDecoder().decode(lastEvaluatedKeyBase64);
+        try {
+            return new ObjectMapper().readValue(bytes, new TypeReference<Map<String, AttributeValue>>() {});
+        } catch (JsonProcessingException e) {
+            log.error("Error decoding last evaluated key", e);
+            throw new RuntimeException("Error decoding last evaluated key", e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
