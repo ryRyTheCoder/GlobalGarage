@@ -10,7 +10,7 @@ class ViewAllGarages extends BindingClass {
        this.dataStore = new DataStore();
        this.header = new Header(this.dataStore);
        this.client = new GlobalGarageClient();
-       this.dataStore.addChangeListener(this.displayGarages                 );
+       this.dataStore.addChangeListener(this.displayGarages);
        this.previousKeys = [];
        this.currentLastEvaluatedKey = null;
        console.log("ViewAllGarages constructor");

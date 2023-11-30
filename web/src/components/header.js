@@ -35,7 +35,7 @@ export default class Header extends BindingClass {
         const homeButton = document.createElement('a');
         homeButton.classList.add('header_home');
         homeButton.href = 'index.html';
-        homeButton.innerText = 'VendorsNearYou';
+        homeButton.innerText = 'GlobalGarage';
 
         const siteTitle = document.createElement('div');
         siteTitle.classList.add('site-title');
@@ -51,10 +51,16 @@ createUserInfoForHeader(currentUser) {
     if (currentUser) {
         const logoutButton = this.createLogoutButton(currentUser);
         userInfo.appendChild(logoutButton);
-        const createButton = this.createAccountButton(currentUser);
-                        userInfo.appendChild(createButton);
-  const myAccountButton = this.createMyAccountButton();
+
+        const createSellerButton = this.createSellerAccountButton(currentUser);
+                        userInfo.appendChild(createSellerButton);
+
+        const createBuyerButton = this.createBuyerAccountButton(currentUser);
+                        userInfo.appendChild(createBuyerButton);
+
+        const myAccountButton = this.createMyAccountButton();
         userInfo.appendChild(myAccountButton);
+
 
     } else {
 
@@ -81,12 +87,21 @@ createMyAccountButton() {
 
     return button;
 }
-createAccountButton() {
+createSellerAccountButton() {
     const button = document.createElement('a');
     button.classList.add('button');
-    button.href = 'createVendor.html';
-    button.innerText = 'Become a Vendor';
+    button.href = 'createSeller.html';
+    button.innerText = 'Start Selling';
+button.style.color = "#F9AA33";
+    return button;
+}
 
+createBuyerAccountButton() {
+    const button = document.createElement('a');
+    button.classList.add('button');
+    button.href = 'createBuyer.html';
+    button.innerText = 'Become a Buyer';
+button.style.color = "#F9AA33";
     return button;
 }
 
