@@ -7,7 +7,7 @@ import Authenticator from "./authenticator";
 export default class GlobalGarageClient extends BindingClass {
     constructor(props = {}) {
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages', 'getOneGarage'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages', 'getOneGarage', 'createSeller','createBuyer','getSeller','createGarage', 'getGaragesBySeller'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -57,6 +57,16 @@ export default class GlobalGarageClient extends BindingClass {
         return await this.authenticator.getUserToken();
     }
 
+        async getSeller(sellerId, errorCallback) {
+            try {
+                const response = await this.axiosClient.get(`/sellers/${sellerId}`);
+                return response.data;
+            } catch (error) {
+                this.handleError(error, errorCallback);
+            }
+        }
+
+
 async getAllGarages(lastEvaluatedKey, errorCallback) {
     try {
         const queryParams = lastEvaluatedKey ? { next: lastEvaluatedKey } : {};
@@ -83,6 +93,86 @@ async getOneGarage(sellerId, garageId, errorCallback) {
         return response.data;
     } catch (error) {
         this.handleError(error, errorCallback);
+    }
+}
+
+async createSeller(sellerDetails, errorCallback) {
+    try {
+        const token = await this.getTokenOrThrow("Only authenticated users can create sellers.");
+
+    const payload = {
+            username: sellerDetails.username,
+            email: sellerDetails.email,
+            location: sellerDetails.location,
+            contactInfo: sellerDetails.contactInfo
+        };
+
+        const response = await this.axiosClient.post('/sellers', payload, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        return response.data;
+    } catch (error) {
+        this.handleError(error, errorCallback);
+    }
+}
+
+async createBuyer(buyerDetails, errorCallback) {
+    try {
+        const token = await this.getTokenOrThrow("Only authenticated users can create buyers.");
+
+        const payload = {
+            username: buyerDetails.username,
+            email: buyerDetails.email,
+            location: buyerDetails.location
+        };
+
+        const response = await this.axiosClient.post('/buyers', payload, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+
+        return response.data;
+    } catch (error) {
+        this.handleError(error, errorCallback);
+    }
+}
+
+async createGarage(garageDetails, errorCallback) {
+    try {
+        const token = await this.getTokenOrThrow("Only authenticated users can create garages.");
+
+        const payload = {
+            garageName: garageDetails.garageName,
+            startDate: garageDetails.startDate,
+            endDate: garageDetails.endDate,
+            location: garageDetails.location,
+            description: garageDetails.description
+        };
+ console.log("Sending payload to server:", payload);
+        const response = await this.axiosClient.post('/garages', payload, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+  console.log("Server response for create garage:", response.data);
+        return response.data;
+ } catch (error) {
+        console.error("Error in createGarage:", error);  // Log the error
+        this.handleError(error, errorCallback);
+    }
+}
+
+async getGaragesBySeller(sellerId) {
+    try {
+        const response = await this.axiosClient.get(`/sellers/${sellerId}/garages`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching garages:", error);
+        throw error; // Rethrow the error for the caller to handle
     }
 }
 

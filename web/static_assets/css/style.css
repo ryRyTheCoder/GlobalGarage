@@ -18,8 +18,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: url("/images/cardbackground.jpeg");
-    padding: 4px 20px;
+    background-color: #344955;
+    padding: 20px 20px;
 }
 
 #showEventsButton {
@@ -76,8 +76,8 @@
 
 .card {
     color: var(--secondary-color);
-    background-image: url("/images/cardbackground.jpeg");
-    background-color: rgba(173, 216, 230, 0.5);
+    background-color: #344955;
+
     margin: 20px auto;
     padding: 15px 25px;
     max-width: 800px;
@@ -177,7 +177,7 @@
 }
 
 body {
-    background-image: url("/images/banner-bg.jpg");
+    background-image: url("/images/concreteBackground.jpg");
 }
 
 #pagination-controls {
@@ -186,7 +186,7 @@ body {
     padding: 15px 0;
 }
 
-#vendors-loading {
+#seller-loading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -312,8 +312,8 @@ label {
     text-align: center;
 }
 
-#vendorForm {
-    background-color: #fff;
+#sellerForm,#buyerForm ,#garageForm {
+ background-color: #F9AA33;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -322,22 +322,26 @@ label {
     text-align: left;
 }
 
-#vendorForm h1 {
+#sellerForm,#buyerForm , #garageForm {
     border-bottom: 2px solid #e9e9e9;
     padding-bottom: 10px;
     margin-bottom: 20px;
+ background-color: #F9AA33;
 }
 
-#vendorForm label {
+#sellerForm,#buyerForm, #garageForm {
+ background-color: #F9AA33;
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-#vendorForm input[type="text"],
-#vendorForm input[type="tel"],
-#vendorForm input[type="email"],
-#vendorForm textarea {
+#sellerForm input[type="text"],
+#sellerForm input[type="tel"],
+#sellerForm input[type="email"],
+#sellerForm textarea,
+#buyerForm input[type="text"],
+#buyerForm input[type="email"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -346,13 +350,14 @@ label {
     font-size: 16px;
 }
 
-#vendorForm textarea {
+#sellerForm textarea, #buyerForm textarea {
     min-height: 100px;
     resize: vertical; /* Allows vertical resizing */
 }
 
-#vendorForm input[type="submit"] {
-    background-color: #007BFF; /* Blue color */
+
+#sellerForm, input[type="submit"], #buyerForm input[type="submit"], #garageForm, input[type="submit"]{
+    background-color: #F9AA33;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -362,6 +367,11 @@ label {
     transition: background-color 0.3s;
 }
 
-#vendorForm input[type="submit"]:hover {
+#sellerForm input[type="submit"]:hover,#buyerForm input[type="submit"]:hover, {
     background-color: #0056b3; /* Darker blue on hover */
+}
+.vendor-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
 }

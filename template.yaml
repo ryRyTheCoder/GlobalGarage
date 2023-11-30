@@ -395,7 +395,48 @@ Resources:
             Method: get
             Auth:
               Authorizer: 'NONE'    
-                     
+
+  CreateMessageLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.CreateMessageLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /messages
+            Method: post
+
+  GetSellerLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.GetSellerLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /sellers/{sellerId}
+            Method: get
+
+                                         
   #-----------------------------------------------------
   # DynamoDB Configuration
   #-----------------------------------------------------
