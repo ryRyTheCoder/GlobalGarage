@@ -15,7 +15,7 @@ public class GetAllGaragesRequest {
      * @param lastEvaluatedKey The last evaluated key used for fetching the next set of results in a paginated query.
      */
 
-    private GetAllGaragesRequest(String lastEvaluatedKey) {
+    public GetAllGaragesRequest(String lastEvaluatedKey) {
         this.lastEvaluatedKey = lastEvaluatedKey;
     }
 

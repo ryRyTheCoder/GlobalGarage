@@ -26,7 +26,7 @@ public class CreateSellerRequest {
      * @param location     The location of the seller.
      * @param contactInfo  The contact information for the seller.
      */
-    private CreateSellerRequest(String sellerId, String username, String email, String location, String contactInfo) {
+    public CreateSellerRequest(String sellerId, String username, String email, String location, String contactInfo) {
         this.sellerId = sellerId;
         this.username = username;
         this.email = email;

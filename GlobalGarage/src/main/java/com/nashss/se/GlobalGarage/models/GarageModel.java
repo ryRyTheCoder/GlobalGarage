@@ -5,6 +5,10 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents a model of a garage sale in the system.
+ * This class contains details about a garage sale, including its identification, scheduling, location, and items for sale.
+ */
 
 public class GarageModel {
     private final String sellerID;
@@ -17,9 +21,9 @@ public class GarageModel {
     private final List<String> items;
     private final Boolean isActive;
 
-    private GarageModel(String sellerID, String garageID, String garageName, LocalDateTime startDate,
-                        LocalDateTime endDate, String location, String description,
-                        List<String> items, Boolean isActive) {
+    public GarageModel(String sellerID, String garageID, String garageName, LocalDateTime startDate,
+                       LocalDateTime endDate, String location, String description,
+                       List<String> items, Boolean isActive) {
         this.sellerID = sellerID;
         this.garageID = garageID;
         this.garageName = garageName;

@@ -23,7 +23,7 @@ public class CreateBuyerRequest {
      * @param contactInfo The contact information for the buyer.
      */
 
-    private CreateBuyerRequest(String buyerId, String username, String email, String location, String contactInfo) {
+    public CreateBuyerRequest(String buyerId, String username, String email, String location, String contactInfo) {
         this.buyerId = buyerId;
         this.username = username;
         this.email = email;

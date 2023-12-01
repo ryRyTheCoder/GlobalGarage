@@ -34,8 +34,8 @@ public class CreateItemRequest {
      * @param images      A set of image URLs associated with the item.
      */
 
-    private CreateItemRequest(String sellerID, String garageID, String name, String description,
-                              BigDecimal price, String category, Set<String> images) {
+    public CreateItemRequest(String sellerID, String garageID, String name, String description,
+                             BigDecimal price, String category, Set<String> images) {
         this.sellerID = sellerID;
         this.garageID = garageID;
         this.name = name;

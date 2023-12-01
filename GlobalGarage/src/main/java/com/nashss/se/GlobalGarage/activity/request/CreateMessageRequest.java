@@ -23,8 +23,8 @@ public class CreateMessageRequest {
      * @param content       The content of the message.
      */
 
-    private CreateMessageRequest(String relatedItemID, String senderType, String senderID,
-                                 String receiverType, String receiverID, String content) {
+    public CreateMessageRequest(String relatedItemID, String senderType, String senderID,
+                                String receiverType, String receiverID, String content) {
         this.relatedItemID = relatedItemID;
         this.senderType = senderType;
         this.senderID = senderID;
