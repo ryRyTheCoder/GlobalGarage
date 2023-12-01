@@ -3,6 +3,12 @@ package com.nashss.se.GlobalGarage.models;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Represents a model of a seller on the platform.
+ * This class encapsulates the seller's details including their ID, username, email,
+ * location, associated garages, messages, contact information, and the date of signup.
+ */
+
 public class SellerModel {
     private final String sellerID;
     private final String username;
@@ -13,9 +19,24 @@ public class SellerModel {
     private final String contactInfo;
     private final String signupDate;
 
-    private SellerModel(String sellerID, String username, String email, String location,
-                        Set<String> garages, Set<String> messages, String contactInfo,
-                        String signupDate) {
+    /**
+     * Constructs a new instance of SellerModel with detailed seller information.
+     * This constructor initializes the seller model with specific attributes related to
+     * the seller's identity and activities on the platform.
+     *
+     * @param sellerID     The unique identifier of the seller.
+     * @param username     The username of the seller.
+     * @param email        The email address of the seller.
+     * @param location     The geographic location of the seller.
+     * @param garages      A set of garage IDs associated with the seller.
+     * @param messages     A set of message IDs related to the seller.
+     * @param contactInfo  The contact information of the seller.
+     * @param signupDate   The date when the seller signed up on the platform.
+     */
+
+    public SellerModel(String sellerID, String username, String email, String location,
+                       Set<String> garages, Set<String> messages, String contactInfo,
+                       String signupDate) {
         this.sellerID = sellerID;
         this.username = username;
         this.email = email;

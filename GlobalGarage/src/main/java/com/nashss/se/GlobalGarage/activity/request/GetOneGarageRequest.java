@@ -17,7 +17,7 @@ public class GetOneGarageRequest {
      * @param garageId The ID of the garage to be retrieved.
      */
 
-    private GetOneGarageRequest(String sellerId, String garageId) {
+    public GetOneGarageRequest(String sellerId, String garageId) {
         this.sellerId = sellerId;
         this.garageId = garageId;
     }

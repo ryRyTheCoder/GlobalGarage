@@ -4,6 +4,12 @@ import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Represents a model of an item listed for sale in a garage sale.
+ * This class encapsulates all relevant details about an item,
+ * including its identification, description, pricing, and sale status.
+ */
+
 public class ItemModel {
     private final String garageID;
     private final String itemID;
@@ -17,9 +23,9 @@ public class ItemModel {
     private final Set<String> buyersInterested;
     private final String status;
 
-    private ItemModel(String garageID, String itemID, String sellerID, String name, String description,
-                      BigDecimal price, String category, Set<String> images, String dateListed,
-                      Set<String> buyersInterested, String status) {
+    public ItemModel(String garageID, String itemID, String sellerID, String name, String description,
+                     BigDecimal price, String category, Set<String> images, String dateListed,
+                     Set<String> buyersInterested, String status) {
         this.garageID = garageID;
         this.itemID = itemID;
         this.sellerID = sellerID;

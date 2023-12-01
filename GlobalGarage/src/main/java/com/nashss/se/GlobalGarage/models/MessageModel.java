@@ -2,6 +2,12 @@ package com.nashss.se.GlobalGarage.models;
 
 import java.util.Objects;
 
+/**
+ * Represents a model of a message exchanged within the platform.
+ * This class encapsulates details about the message, including its ID,
+ * related item, sender, receiver, content, and timestamp.
+ */
+
 public class MessageModel {
     private final String messageID;
     private final String relatedItemID;
@@ -12,9 +18,9 @@ public class MessageModel {
     private final String content;
     private final String timestamp;
 
-    private MessageModel(String messageID, String relatedItemID, String senderType,
-                          String senderID, String receiverType, String receiverID,
-                          String content, String timestamp) {
+    public MessageModel(String messageID, String relatedItemID, String senderType,
+                        String senderID, String receiverType, String receiverID,
+                        String content, String timestamp) {
         this.messageID = messageID;
         this.relatedItemID = relatedItemID;
         this.senderType = senderType;

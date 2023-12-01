@@ -14,7 +14,7 @@ public class GetSellerRequest {
      * @param sellerId The ID of the seller to be retrieved.
      */
 
-    private GetSellerRequest(String sellerId) {
+    public GetSellerRequest(String sellerId) {
         this.sellerId = sellerId;
     }
 

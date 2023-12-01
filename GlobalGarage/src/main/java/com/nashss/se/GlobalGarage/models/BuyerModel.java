@@ -3,6 +3,13 @@ package com.nashss.se.GlobalGarage.models;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Represents a model of a buyer in the system.
+ * This class encapsulates various properties of a buyer,
+ * including identification, contact information,
+ * items of interest, and messaging details.
+ */
+
 public class BuyerModel {
     private final String buyerID;
     private final String username;
@@ -12,8 +19,20 @@ public class BuyerModel {
     private final Set<String> messages;
     private final String signupDate;
 
-    private BuyerModel(String buyerID, String username, String email, String location,
-                       Set<String> itemsInterested, Set<String> messages, String signupDate) {
+    /**
+     * Initializes a BuyerModel with buyer details.
+     *
+     * @param buyerID Unique identifier for the buyer.
+     * @param username Buyer's username.
+     * @param email Buyer's email address.
+     * @param location Buyer's geographical location.
+     * @param itemsInterested Set of items the buyer is interested in.
+     * @param messages Set of buyer's messages.
+     * @param signupDate Date of buyer signup.
+     */
+
+    public BuyerModel(String buyerID, String username, String email, String location,
+                      Set<String> itemsInterested, Set<String> messages, String signupDate) {
         this.buyerID = buyerID;
         this.username = username;
         this.email = email;

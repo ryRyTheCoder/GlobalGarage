@@ -17,7 +17,7 @@ Local yard sales, rich in unique items and community engagement, remain constrai
 
 
 ### User Registration & Profile Management
-- U1 **As a seller**, I want to register on GlobalGarage so that I can list my items for sale and manage my profile.
+- U1 **As a seller**, I want to register on com so that I can list my items for sale and manage my profile.
 - U2 **As a buyer**, I want to create an account so I can express my interest in items and communicate with sellers.
 
 ### Item Listings
@@ -86,7 +86,7 @@ requirements._
 
 We will store items, sellers, buyers, garages, and messages in a DynamoDB tables.
 
-GlobalGarage will also provide a web interface for buyers to view and express interest in buying items and sellers to list and sell items.
+com will also provide a web interface for buyers to view and express interest in buying items and sellers to list and sell items.
 
 # 6. API
 
