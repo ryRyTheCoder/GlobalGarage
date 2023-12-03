@@ -23,6 +23,22 @@ public class ItemModel {
     private final Set<String> buyersInterested;
     private final String status;
 
+    /**
+     * Constructs an ItemModel with detailed information about an item.
+     *
+     * @param garageID          The identifier of the garage sale where the item is listed.
+     * @param itemID            The unique identifier of the item.
+     * @param sellerID          The identifier of the seller listing the item.
+     * @param name              The name of the item.
+     * @param description       A detailed description of the item.
+     * @param price             The price of the item.
+     * @param category          The category that the item belongs to.
+     * @param images            A set of image URLs representing the item.
+     * @param dateListed        The date when the item was listed.
+     * @param buyersInterested  A set of identifiers of buyers who have shown interest in the item.
+     * @param status            The current status of the item (e.g., available, sold).
+     */
+
     public ItemModel(String garageID, String itemID, String sellerID, String name, String description,
                      BigDecimal price, String category, Set<String> images, String dateListed,
                      Set<String> buyersInterested, String status) {

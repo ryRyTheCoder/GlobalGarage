@@ -1,4 +1,4 @@
- import vendorEventClient from '../api/vendorEventClient';
+import GlobalGarageClient from '../api/globalGarageClient';
 import BindingClass from "../util/bindingClass";
 
 /**
@@ -10,21 +10,24 @@ export default class Header extends BindingClass {
 
         const methodsToBind = [
             'addHeaderToPage', 'createSiteTitle', 'createUserInfoForHeader',
-            'createLoginButton', 'createLogoutButton','createMyAccountButton'
+            'createLoginButton', 'createLogoutButton', 'createMySellerAccountButton',
+            'createMyBuyerAccountButton', 'createBecomeBuyerButton', 'createStartSellingButton',
+            'createButton', 'isSeller', 'isBuyer'
         ];
         this.bindClassMethods(methodsToBind, this);
 
-        this.client = new vendorEventClient();
+        this.client = new GlobalGarageClient();
     }
 
-    /**
-     * Add the header to the page.
-     */
     async addHeaderToPage() {
         const currentUser = await this.client.getIdentity();
+          console.log("currentUser: ", currentUser);
+        const isSeller = await this.isSeller(currentUser.sub);
+       
+        const isBuyer = await this.isBuyer(currentUser.sub);
 
         const siteTitle = this.createSiteTitle();
-        const userInfo = this.createUserInfoForHeader(currentUser);
+        const userInfo = this.createUserInfoForHeader(currentUser, isSeller, isBuyer);
 
         const header = document.getElementById('header');
         header.appendChild(siteTitle);
@@ -44,33 +47,83 @@ export default class Header extends BindingClass {
         return siteTitle;
     }
 
-createUserInfoForHeader(currentUser) {
-    const userInfo = document.createElement('div');
-    userInfo.classList.add('user');
-
-    if (currentUser) {
-        const logoutButton = this.createLogoutButton(currentUser);
-        userInfo.appendChild(logoutButton);
-
-        const createSellerButton = this.createSellerAccountButton(currentUser);
-                        userInfo.appendChild(createSellerButton);
-
-        const createBuyerButton = this.createBuyerAccountButton(currentUser);
-                        userInfo.appendChild(createBuyerButton);
-
-        const myAccountButton = this.createMyAccountButton();
-        userInfo.appendChild(myAccountButton);
-
-
-    } else {
-
-        const loginButton = this.createLoginButton();
-        userInfo.appendChild(loginButton);
+    async isSeller(userId) {
+        try {
+            console.log("UserID: ", userId);
+            const seller = await this.client.getSeller("S" + userId);
+            return !!seller;
+        } catch (error) {
+            return false;
+        }
     }
 
-    return userInfo;
-}
+    async isBuyer(userId) {
+        try {
+            const buyer = await this.client.getBuyer("B" + userId);
+            return !!buyer;
+        } catch (error) {
+            return false;
+        }
+    }
 
+    createUserInfoForHeader(currentUser, isSeller, isBuyer) {
+        const userInfo = document.createElement('div');
+        userInfo.classList.add('user');
+
+        if (currentUser) {
+            userInfo.appendChild(this.createLogoutButton(currentUser));
+
+            if (isSeller) {
+                userInfo.appendChild(this.createMySellerAccountButton());
+            } else {
+                userInfo.appendChild(this.createStartSellingButton());
+            }
+
+            if (isBuyer) {
+                userInfo.appendChild(this.createMyBuyerAccountButton());
+            } else {
+                userInfo.appendChild(this.createBecomeBuyerButton());
+            }
+        } else {
+            userInfo.appendChild(this.createLoginButton());
+        }
+
+        return userInfo;
+    }
+
+    createMySellerAccountButton() {
+        const button = document.createElement('a');
+        button.classList.add('button');
+        button.href = 'MySellerAccount.html';
+        button.innerText = 'My Seller Account';
+        return button;
+    }
+
+    createMyBuyerAccountButton() {
+        const button = document.createElement('a');
+        button.classList.add('button');
+        button.href = 'MyBuyerAccount.html';
+        button.innerText = 'My Buyer Account';
+        return button;
+    }
+
+    createBecomeBuyerButton() {
+        const button = document.createElement('a');
+        button.classList.add('button');
+        button.href = 'createBuyer.html';
+        button.innerText = 'Become a Buyer';
+        button.style.color = "#F9AA33";
+        return button;
+    }
+
+    createStartSellingButton() {
+        const button = document.createElement('a');
+        button.classList.add('button');
+        button.href = 'createSeller.html';
+        button.innerText = 'Start Selling';
+        button.style.color = "#F9AA33";
+        return button;
+    }
 
     createLoginButton() {
         return this.createButton('Login', this.client.login);
@@ -79,42 +132,13 @@ createUserInfoForHeader(currentUser) {
     createLogoutButton(currentUser) {
         return this.createButton(`Logout: ${currentUser.name}`, this.client.logout);
     }
-createMyAccountButton() {
-    const button = document.createElement('a');
-    button.classList.add('button');
-    button.href = 'VendorAccount.html';
-    button.innerText = 'My Account';
-
-    return button;
-}
-createSellerAccountButton() {
-    const button = document.createElement('a');
-    button.classList.add('button');
-    button.href = 'createSeller.html';
-    button.innerText = 'Start Selling';
-button.style.color = "#F9AA33";
-    return button;
-}
-
-createBuyerAccountButton() {
-    const button = document.createElement('a');
-    button.classList.add('button');
-    button.href = 'createBuyer.html';
-    button.innerText = 'Become a Buyer';
-button.style.color = "#F9AA33";
-    return button;
-}
 
     createButton(text, clickHandler) {
         const button = document.createElement('a');
         button.classList.add('button');
         button.href = '#';
         button.innerText = text;
-
-        button.addEventListener('click', async () => {
-            await clickHandler();
-        });
-
+        button.addEventListener('click', async () => await clickHandler());
         return button;
     }
 }

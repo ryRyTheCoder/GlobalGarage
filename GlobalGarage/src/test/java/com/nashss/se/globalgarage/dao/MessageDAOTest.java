@@ -81,9 +81,9 @@ class MessageDAOTest {
     void updateUserMessages_SuccessfulUpdate_ReturnsTrue() {
         // Arrange
         String senderID = "sender123";
-        String senderType = "buyer"; // or "seller"
+        String senderType = "buyer";
         String receiverID = "receiver123";
-        String receiverType = "seller"; // or "buyer"
+        String receiverType = "seller";
         String messageID = "message123";
 
         // Mocking behavior for both buyer and seller

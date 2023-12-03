@@ -2,7 +2,7 @@ import axios from "axios";
 import BindingClass from "../util/bindingClass";
 import Authenticator from "./authenticator";
 /**
- * Client to call the VendorEventService.
+ * Client to call the GlobalGarageService.
  */
 export default class GlobalGarageClient extends BindingClass {
     constructor(props = {}) {

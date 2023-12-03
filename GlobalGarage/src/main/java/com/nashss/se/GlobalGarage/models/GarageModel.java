@@ -7,7 +7,8 @@ import java.util.Objects;
 
 /**
  * Represents a model of a garage sale in the system.
- * This class contains details about a garage sale, including its identification, scheduling, location, and items for sale.
+ * This class contains details about a garage sale, including its identification,
+ * scheduling, location, and items for sale.
  */
 
 public class GarageModel {
@@ -20,6 +21,20 @@ public class GarageModel {
     private final String description;
     private final List<String> items;
     private final Boolean isActive;
+
+    /**
+     * Constructs a new GarageModel with specified attributes.
+     *
+     * @param sellerID     The unique identifier of the seller.
+     * @param garageID     The unique identifier of the garage sale.
+     * @param garageName   The name of the garage sale.
+     * @param startDate    The start date and time of the garage sale.
+     * @param endDate      The end date and time of the garage sale.
+     * @param location     The location where the garage sale is held.
+     * @param description  A brief description of the garage sale.
+     * @param items        A list of items available at the garage sale.
+     * @param isActive     A flag indicating if the garage sale is active.
+     */
 
     public GarageModel(String sellerID, String garageID, String garageName, LocalDateTime startDate,
                        LocalDateTime endDate, String location, String description,

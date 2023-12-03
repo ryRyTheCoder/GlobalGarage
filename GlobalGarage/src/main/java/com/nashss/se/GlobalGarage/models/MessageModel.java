@@ -18,6 +18,19 @@ public class MessageModel {
     private final String content;
     private final String timestamp;
 
+    /**
+     * Constructs a MessageModel with the details of a message.
+     *
+     * @param messageID      The unique identifier of the message.
+     * @param relatedItemID  The identifier of the item related to the message, if any.
+     * @param senderType     The type of the sender (e.g., buyer, seller).
+     * @param senderID       The identifier of the sender of the message.
+     * @param receiverType   The type of the receiver (e.g., buyer, seller).
+     * @param receiverID     The identifier of the receiver of the message.
+     * @param content        The textual content of the message.
+     * @param timestamp      The timestamp indicating when the message was sent.
+     */
+
     public MessageModel(String messageID, String relatedItemID, String senderType,
                         String senderID, String receiverType, String receiverID,
                         String content, String timestamp) {
