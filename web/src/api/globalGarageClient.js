@@ -7,7 +7,7 @@ import Authenticator from "./authenticator";
 export default class GlobalGarageClient extends BindingClass {
     constructor(props = {}) {
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages', 'getOneGarage', 'createSeller','createBuyer','getSeller','createGarage', 'getGaragesBySeller'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages', 'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage', 'getGaragesBySeller'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -57,15 +57,22 @@ export default class GlobalGarageClient extends BindingClass {
         return await this.authenticator.getUserToken();
     }
 
-        async getSeller(sellerId, errorCallback) {
-            try {
-                const response = await this.axiosClient.get(`/sellers/${sellerId}`);
-                return response.data;
-            } catch (error) {
-                this.handleError(error, errorCallback);
-            }
+    async getSeller(sellerId, errorCallback) {
+        try {
+            const response = await this.axiosClient.get(`/sellers/${sellerId}`);
+            return response.data;
+        } catch (error) {
+            this.handleError(error, errorCallback);
         }
-
+    }
+    async getBuyer(buyerId, errorCallback) {
+        try {
+            const response = await this.axiosClient.get(`/buyers/${buyerId}`);
+            return response.data;
+        } catch (error) {
+            this.handleError(error, errorCallback);
+        }
+    }
 
 async getAllGarages(lastEvaluatedKey, errorCallback) {
     try {

@@ -6,6 +6,7 @@ import com.nashss.se.GlobalGarage.activity.CreateItemActivity;
 import com.nashss.se.GlobalGarage.activity.CreateMessageActivity;
 import com.nashss.se.GlobalGarage.activity.CreateSellerActivity;
 import com.nashss.se.GlobalGarage.activity.GetAllGaragesActivity;
+import com.nashss.se.GlobalGarage.activity.GetBuyerActivity;
 import com.nashss.se.GlobalGarage.activity.GetGaragesBySellerActivity;
 import com.nashss.se.GlobalGarage.activity.GetOneGarageActivity;
 import com.nashss.se.GlobalGarage.activity.GetSellerActivity;
@@ -82,4 +83,10 @@ public interface ServiceComponent {
      * @return GetSellerActivity instance.
      */
     GetSellerActivity provideGetSellerActivity();
+    /**
+     * Provides an instance of GetBuyerActivity.
+     *
+     * @return GetBuyerActivity instance.
+     */
+    GetBuyerActivity provideGetBuyerActivity();
 }
