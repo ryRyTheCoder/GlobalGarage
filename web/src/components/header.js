@@ -23,11 +23,11 @@ export default class Header extends BindingClass {
         const currentUser = await this.client.getIdentity();
           console.log("currentUser: ", currentUser);
         const isSeller = await this.isSeller(currentUser.sub);
-       
+
         const isBuyer = await this.isBuyer(currentUser.sub);
 
         const siteTitle = this.createSiteTitle();
-        const userInfo = this.createUserInfoForHeader(currentUser, isSeller, isBuyer);
+      const userInfo = this.createUserInfoForHeader(currentUser, isSeller, isBuyer, currentUser.sub);
 
         const header = document.getElementById('header');
         header.appendChild(siteTitle);
@@ -66,21 +66,21 @@ export default class Header extends BindingClass {
         }
     }
 
-    createUserInfoForHeader(currentUser, isSeller, isBuyer) {
+  createUserInfoForHeader(currentUser, isSeller, isBuyer, userId) {
         const userInfo = document.createElement('div');
         userInfo.classList.add('user');
 
         if (currentUser) {
             userInfo.appendChild(this.createLogoutButton(currentUser));
 
-            if (isSeller) {
-                userInfo.appendChild(this.createMySellerAccountButton());
-            } else {
+         if (isSeller) {
+                    userInfo.appendChild(this.createMySellerAccountButton("S" + userId));
+                } else {
                 userInfo.appendChild(this.createStartSellingButton());
             }
 
-            if (isBuyer) {
-                userInfo.appendChild(this.createMyBuyerAccountButton());
+          if (isBuyer) {
+                userInfo.appendChild(this.createMyBuyerAccountButton("B" + userId));
             } else {
                 userInfo.appendChild(this.createBecomeBuyerButton());
             }
@@ -91,18 +91,19 @@ export default class Header extends BindingClass {
         return userInfo;
     }
 
-    createMySellerAccountButton() {
+   createMySellerAccountButton(userId) {
         const button = document.createElement('a');
         button.classList.add('button');
-        button.href = 'MySellerAccount.html';
+        button.href = `MySellerAccount.html?sellerId=${userId}`;
         button.innerText = 'My Seller Account';
         return button;
     }
 
-    createMyBuyerAccountButton() {
+    // Modify the href to include the userId
+    createMyBuyerAccountButton(userId) {
         const button = document.createElement('a');
         button.classList.add('button');
-        button.href = 'MyBuyerAccount.html';
+        button.href = `MyBuyerAccount.html?buyerId=${userId}`;
         button.innerText = 'My Buyer Account';
         return button;
     }
