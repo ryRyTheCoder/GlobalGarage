@@ -10,8 +10,11 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.HashSet;
+
 import javax.inject.Inject;
 import javax.inject.Singleton;
+
 
 /**
  * Handles database operations for sellers using {@link Seller} to represent the model in DynamoDB.
@@ -34,6 +37,7 @@ public class SellerDAO {
         this.mapper = dynamoDbMapper;
         this.metricsPublisher = metricsPublisher;
     }
+
     /**
      * Creates a seller in the database.
      *
@@ -59,8 +63,8 @@ public class SellerDAO {
     /**
      * Retrieves a seller by their ID.
      *
-     * @param sellerID  the ID of the seller to retrieve.
-     * @return          the {@link Seller} object retrieved from the database.
+     * @param sellerID the ID of the seller to retrieve.
+     * @return the {@link Seller} object retrieved from the database.
      * @throws SellerNotFoundException if no seller is found with the given ID.
      */
 
@@ -76,10 +80,10 @@ public class SellerDAO {
     }
 
     /**
-     * Updates an existing seller's information in the database.
+     * Updates a seller in the database.
      *
-     * @param seller  the {@link Seller} object to be updated.
-     * @return        true if the update is successful, false otherwise.
+     * @param seller The seller information to update.
+     * @return The updated seller.
      */
 
     public boolean updateSeller(Seller seller) {
@@ -91,6 +95,36 @@ public class SellerDAO {
         } catch (Exception e) {
             metricsPublisher.addCount(MetricsConstants.UPDATE_SELLER_FAIL_COUNT, 1);
             log.error("Error updating seller: {}", seller.getSellerID(), e);
+            return false;
+        }
+    }
+
+    /**
+     * Updates a seller's garages in the database.
+     *
+     * @param sellerId The seller information to update.
+     * @param garageId The seller information to update.
+     * @return The updated seller.
+     */
+
+
+    public boolean updateSellerGarages(String sellerId, String garageId) {
+        Seller seller = mapper.load(Seller.class, sellerId);
+        if (seller == null) {
+            throw new SellerNotFoundException("Seller with ID " + sellerId + " does not exist.");
+        }
+
+        if (seller.getGarages() == null) {
+            seller.setGarages(new HashSet<>());
+        }
+        seller.getGarages().add(garageId);
+
+        try {
+            mapper.save(seller);
+            log.info("Seller garages updated successfully for seller ID: {}", sellerId);
+            return true;
+        } catch (Exception e) {
+            log.error("Error updating garages for seller ID: {}", sellerId, e);
             return false;
         }
     }

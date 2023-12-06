@@ -6,15 +6,12 @@ import com.nashss.se.GlobalGarage.converters.ModelConverter;
 import com.nashss.se.GlobalGarage.dynamodb.GarageDAO;
 import com.nashss.se.GlobalGarage.dynamodb.SellerDAO;
 import com.nashss.se.GlobalGarage.dynamodb.models.Garage;
-import com.nashss.se.GlobalGarage.dynamodb.models.Seller;
 import com.nashss.se.GlobalGarage.models.GarageModel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 
 import javax.inject.Inject;
@@ -68,10 +65,13 @@ public class CreateGarageActivity {
 
         boolean success = garageDao.createGarage(garage);
         if (success) {
-            // If garage creation is successful, update the seller's garages
-            success = updateSellerGarages(sellerID, garageID);
+            try {
+                sellerDao.updateSellerGarages(createGarageRequest.getSellerID(), garageID);
+            } catch (Exception e) {
+                log.error("Error updating seller's garages", e);
+                success = false;
+            }
         }
-
         String message = success ? "Garage created successfully." : "Failed to create garage.";
 
         GarageModel garageModel = modelConverter.toGarageModel(garage);
@@ -81,22 +81,5 @@ public class CreateGarageActivity {
                 .withMessage(message)
                 .withGarageModel(garageModel)
                 .build();
-    }
-
-    private boolean updateSellerGarages(String sellerID, String garageID) {
-        try {
-            Seller seller = sellerDao.getSeller(sellerID);
-            Set<String> garages = seller.getGarages();
-            if (garages == null) {
-                garages = new HashSet<>();
-            }
-            garages.add(garageID);
-            seller.setGarages(garages);
-            sellerDao.updateSeller(seller);
-            return true;
-        } catch (Exception e) {
-            log.error("Error updating seller's garages", e);
-            return false;
-        }
     }
 }

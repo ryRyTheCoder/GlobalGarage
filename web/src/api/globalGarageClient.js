@@ -7,7 +7,9 @@ import Authenticator from "./authenticator";
 export default class GlobalGarageClient extends BindingClass {
     constructor(props = {}) {
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages', 'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage', 'getGaragesBySeller'];
+        const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages',
+        'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage',
+        'getGaragesBySeller', 'updateSeller'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -197,6 +199,28 @@ async getGaragesBySeller(sellerId) {
         }
         if (errorCallback) {
             errorCallback(error);
+        }
+    }
+    async updateSeller(sellerId, sellerDetails, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can update seller details.");
+
+            const payload = {
+                username: sellerDetails.username,
+                email: sellerDetails.email,
+                location: sellerDetails.location,
+                contactInfo: sellerDetails.contactInfo
+            };
+
+            const response = await this.axiosClient.put(`/sellers/${sellerId}`, payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
+            return response.data;
+        } catch (error) {
+            this.handleError(error, errorCallback);
         }
     }
 }
