@@ -375,3 +375,124 @@ label {
     margin: 0 auto;
     padding: 20px;
 }
+.modal-container {
+    /* ... existing properties ... */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal {
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    max-width: 600px;
+    width: 90%;
+    margin: 20px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute; /* Position absolutely within .modal */
+    top: 1px; /* Distance from the top */
+    right: 5px; /* Distance from the right */
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #000; /* Optional: color of the close button */
+}
+
+
+
+#updateSellerModalContainer .modal-form .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#updateSellerModalContainer .modal-form label {
+    margin-right: 10px;
+    min-width: 120px;
+    text-align: right;
+}
+
+#updateSellerModalContainer .modal-form input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#updateSellerModalContainer .modal-form button {
+    background-color: #F9AA33;
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+#updateSellerModalContainer .modal-form .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#updateSellerModalContainer .modal-form label {
+    margin-right: 10px;
+    min-width: 120px;
+    text-align: right;
+}
+
+#updateSellerModalContainer .modal-form input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#updateSellerModalContainer .modal-form button {
+    background-color: #F9AA33; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.garage {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 0.5em;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background-color: #fff;
+}
+
+.garage h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.garage p {
+    margin: 5px 0;
+    font-size: 0.9em;
+    color: #666;
+}

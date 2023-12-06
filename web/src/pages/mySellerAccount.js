@@ -6,7 +6,7 @@ import DataStore from '../util/DataStore';
 class MySellerAccount extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'loadSellerData', 'displaySeller', 'loadSellerGarages', 'displayGarages', 'showLoading',  'hideLoading', 'redirectToCreateGarage'], this);
+        this.bindClassMethods(['mount', 'loadSellerData', 'displaySeller', 'loadSellerGarages', 'displayGarages', 'showLoading',  'hideLoading', 'redirectToCreateGarage', 'showUpdateSellerModal', 'handleUpdateSellerFormSubmit'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
         this.client = new GlobalGarageClient();
@@ -24,10 +24,10 @@ class MySellerAccount extends BindingClass {
         this.loadSellerData(sellerId);
         this.loadSellerGarages(sellerId);
         this.addCreateGarageButtonListener();
-    }
-
+        this.addUpdateSellerButtonListener();
+}
     async loadSellerData(sellerId) {
-        this.showLoading();
+//        this.showLoading();
 
         try {
             const result = await this.client.getSeller(sellerId);
@@ -42,11 +42,11 @@ class MySellerAccount extends BindingClass {
         }
     }
     showLoading() {
-//          document.getElementById('seller-loading').innerText = "(Loading seller...)";
+          document.getElementById('seller-loading').innerText = "(Loading seller...)";
     }
 
     hideLoading() {
-//      document.getElementById('seller-loading').style.display = 'none';
+      document.getElementById('seller-loading').style.display = 'none';
     }
     async loadSellerGarages(sellerId) {
         if (!sellerId) {
@@ -63,30 +63,35 @@ class MySellerAccount extends BindingClass {
         }
     }
 
-    displayGarages(garages) {
-        const garagesContainer = document.getElementById('my-garages-card');
-        garagesContainer.innerHTML = '<h2>My Garages</h2>';
+displayGarages(garages) {
+    const garagesListContainer = document.getElementById('garage-list-container');
+    garagesListContainer.innerHTML = ''; // Clear the current list
 
-        garages.forEach(garage => {
-            const garageElement = document.createElement('div');
-            garageElement.className = 'garage';
-            garageElement.innerHTML = `
-                <h3>${garage.garageName}</h3>
-                <p>Start Date: ${garage.startDate}</p>
-                <p>End Date: ${garage.endDate}</p>
-                <p>Location: ${garage.location}</p>
-                <p>Description: ${garage.description}</p>
-            `;
+    // Ensure the container uses a flexbox or grid layout
+    garagesListContainer.style.display = 'flex';
+    garagesListContainer.style.flexWrap = 'wrap'; // Allows wrapping to the next line
+    garagesListContainer.style.justifyContent = 'space-around'; // Evenly spaces children
 
-            // Make the garage element clickable
-            garageElement.addEventListener('click', () => {
-                // Assuming the garage object has sellerId and id properties
-                window.location.href = `viewGarage.html?sellerId=${encodeURIComponent(garage.sellerId)}&garageId=${encodeURIComponent(garage.garageId)}`;
-            });
+    garages.forEach(garage => {
+        const garageElement = document.createElement('div');
+        garageElement.className = 'garage';
+        garageElement.style.flex = '0 1 calc(33% - 1em)'; // Flex grow, shrink, and basis
 
-            garagesContainer.appendChild(garageElement);
+        garageElement.innerHTML = `
+            <h3>${garage.garageName}</h3>
+            <p>Start Date: ${garage.startDate}</p>
+            <p>End Date: ${garage.endDate}</p>
+            <p>Location: ${garage.location}</p>
+            <p>Description: ${garage.description}</p>
+        `;
+
+        garageElement.addEventListener('click', () => {
+            window.location.href = `viewGarage.html?sellerId=${encodeURIComponent(garage.sellerID)}&garageId=${encodeURIComponent(garage.garageID)}`;
         });
-    }
+
+        garagesListContainer.appendChild(garageElement);
+    });
+}
 
 
     displaySeller() {
@@ -133,6 +138,83 @@ class MySellerAccount extends BindingClass {
             console.error('Seller ID not found');
         }
     }
+    addUpdateSellerButtonListener() {
+        const updateSellerButton = document.getElementById('updateSellerButton');
+        if (updateSellerButton) {
+            updateSellerButton.addEventListener('click', this.showUpdateSellerModal);
+        } else {
+            console.error("Update Seller button not found in the DOM");
+        }
+    }
+
+
+     showUpdateSellerModal() {
+         const seller = this.dataStore.get('seller');
+         if (!seller) {
+             console.error('No seller data found');
+             return;
+         }
+
+         // Create and show the modal
+         const modalContainer = document.createElement('div');
+         modalContainer.className = 'modal-container';
+         modalContainer.id = 'updateSellerModalContainer';
+
+         modalContainer.innerHTML = `
+             <div class="modal">
+                 <span class="close-modal" onclick="this.parentElement.parentElement.remove()">&times;</span>
+                 <form id="updateSellerForm" class="modal-form">
+                     <div class="form-group">
+                         <label for="username">Username:</label>
+                         <input type="text" id="username" name="username" value="${seller.username}">
+                     </div>
+                     <div class="form-group">
+                         <label for="email">Email:</label>
+                         <input type="email" id="email" name="email" value="${seller.email}">
+                     </div>
+                     <div class="form-group">
+                         <label for="location">Location:</label>
+                         <input type="text" id="location" name="location" value="${seller.location}">
+                     </div>
+                     <div class="form-group">
+                         <label for="contactInfo">Contact Info:</label>
+                         <input type="text" id="contactInfo" name="contactInfo" value="${seller.contactInfo}">
+                     </div>
+                     <button type="submit">Update</button>
+                 </form>
+             </div>
+         `;
+
+         // Append the modal container to the body or a specific div in your HTML
+         document.body.appendChild(modalContainer);
+
+         // Now you can add the event listener to the form in the modal
+         document.getElementById('updateSellerForm').addEventListener('submit', this.handleUpdateSellerFormSubmit.bind(this));
+     }
+
+     async handleUpdateSellerFormSubmit(event) {
+         event.preventDefault();
+         console.log("Handling form submission for updating seller");
+
+         const formData = new FormData(event.target);
+         const updatedSellerDetails = {
+             username: formData.get('username'),
+             email: formData.get('email'),
+             location: formData.get('location'),
+             contactInfo: formData.get('contactInfo')
+         };
+
+         const sellerId = this.dataStore.get('sellerId');
+         try {
+             const updateResponse = await this.client.updateSeller(sellerId, updatedSellerDetails);
+             console.log('Update response:', updateResponse);
+             window.location.reload();
+         } catch (error) {
+             console.error('Error updating seller:', error);
+             // Handle error (e.g., show error message in modal)
+         }
+     }
+
 }
 
 const main = async () => {

@@ -43,28 +43,76 @@ class ViewGarage extends BindingClass {
         document.getElementById('garage-loading').style.display = 'none';
     }
 
-    displayGarage() {
-        const garage = this.dataStore.get('garage').garageModel;
-        const displayDiv = document.getElementById('garage-display');
+async displayGarage() {
+    const garage = this.dataStore.get('garage').garageModel;
+    const displayDiv = document.getElementById('garage-display');
 
-        const garageCard = document.createElement('section');
-        garageCard.className = 'garageCard';
+    // Garage information
+    const garageCard = document.createElement('section');
+    garageCard.className = 'garageCard';
 
-        const garageName = document.createElement('h1');
-        garageName.innerText = garage.garageName;
+    const garageName = document.createElement('h1');
+    garageName.innerText = garage.garageName;
 
-        const garageLocation = document.createElement('h3');
-        garageLocation.innerText = "Location: " + garage.location;
+    const garageDates = document.createElement('h3');
+    garageDates.innerText = `Start Date: ${garage.startDate} - End Date: ${garage.endDate}`;
 
-        const garageDescription = document.createElement('h3');
-        garageDescription.innerText = garage.description;
+    const garageLocation = document.createElement('h3');
+    garageLocation.innerText = "Location: " + garage.location;
 
-        garageCard.appendChild(garageName);
-        garageCard.appendChild(garageLocation);
-        garageCard.appendChild(garageDescription);
+    const garageDescription = document.createElement('p');
+    garageDescription.innerText = garage.description;
 
-        displayDiv.appendChild(garageCard);
+    garageCard.appendChild(garageName);
+    garageCard.appendChild(garageDates);
+    garageCard.appendChild(garageLocation);
+    garageCard.appendChild(garageDescription);
+
+    displayDiv.appendChild(garageCard);
+
+    // Container for items
+    const itemsContainer = document.createElement('div');
+    itemsContainer.id = 'items-container';
+    itemsContainer.className = 'items-container';
+
+    for (const itemId of garage.items) {
+        try {
+            const itemDetails = await this.getItemDetails(itemId);
+            const itemCard = this.createItemCard(itemDetails);
+            itemsContainer.appendChild(itemCard);
+        } catch (error) {
+            console.error(`Error fetching details for item ${itemId}:`, error);
+            // Handle error or show a placeholder/error message
+        }
     }
+
+    displayDiv.appendChild(itemsContainer);
+}
+async getItemDetails(itemId) {
+    // TODO: Implement the API call to fetch item details based on itemId
+    // Example: return await this.client.getItem(itemId);
+}
+
+createItemCard(itemDetails) {
+    const itemCard = document.createElement('div');
+    itemCard.className = 'item-card';
+
+    const itemName = document.createElement('h4');
+    itemName.innerText = itemDetails.name;
+
+    const itemPrice = document.createElement('p');
+    itemPrice.innerText = `Price: ${itemDetails.price}`;
+
+    const itemImage = document.createElement('img');
+    itemImage.src = itemDetails.imageUrl;
+    itemImage.alt = itemDetails.name;
+
+    itemCard.appendChild(itemImage);
+    itemCard.appendChild(itemName);
+    itemCard.appendChild(itemPrice);
+
+    return itemCard;
+}
 }
 
 const main = async () => {

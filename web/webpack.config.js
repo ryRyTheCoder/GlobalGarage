@@ -23,18 +23,10 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
-    viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
-    searchPlaylists: path.resolve(__dirname, 'src', 'pages', 'searchPlaylists.js'),
     test: path.resolve(__dirname, 'src', 'pages', 'test.js'),
-    viewAllEvents: path.resolve(__dirname, 'src', 'pages', 'viewAllEvents.js'),
-    viewAllVendors: path.resolve(__dirname, 'src', 'pages', 'viewAllVendors.js'),
-    oneEvent: path.resolve(__dirname, 'src', 'pages', 'oneEvent.js'),
-    viewVendor: path.resolve(__dirname, 'src', 'pages', 'viewVendor.js'),
     index: path.resolve(__dirname, 'src', 'pages', 'index.js'),
     createSeller: path.resolve(__dirname, 'src', 'pages', 'createSeller.js'),
     createBuyer: path.resolve(__dirname, 'src', 'pages', 'createBuyer.js'),
-    VendorAccount: path.resolve(__dirname, 'src', 'pages', 'VendorAccount.js'),
     viewAllGarages: path.resolve(__dirname, 'src', 'pages', 'ViewAllGarages.js'),
     viewOneGarage: path.resolve(__dirname, 'src', 'pages', 'viewOneGarage.js'),
     mySellerAccount: path.resolve(__dirname, 'src', 'pages', 'mySellerAccount.js'),

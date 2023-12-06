@@ -1,4 +1,4 @@
-import VendorEventClient from '../api/vendorEventClient';
+import GlobalGarageClient from '../api/globalGarageClient';
 import Header from '../components/header';
 import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
@@ -12,7 +12,7 @@ import DataStore from '../util/DataStore';
     constructor() {
         super();
         this.bindClassMethods(['clientEventLoad', 'clientVendorLoad', 'mount', 'displayEvents', 'displayVendors'], this);
-        this.client = new VendorEventClient();
+        this.client = new GlobalGarageClient();
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
         console.log("index constructor");
