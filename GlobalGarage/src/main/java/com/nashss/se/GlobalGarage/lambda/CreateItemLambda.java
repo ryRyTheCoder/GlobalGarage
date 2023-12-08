@@ -6,6 +6,8 @@ import com.nashss.se.GlobalGarage.activity.results.CreateItemResult;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 
+import java.util.Map;
+
 public class CreateItemLambda extends LambdaActivityRunner<CreateItemRequest, CreateItemResult>
         implements RequestHandler<AuthenticatedLambdaRequest<CreateItemRequest>, LambdaResponse> {
 
@@ -13,19 +15,25 @@ public class CreateItemLambda extends LambdaActivityRunner<CreateItemRequest, Cr
     public LambdaResponse handleRequest(AuthenticatedLambdaRequest<CreateItemRequest> input, Context context) {
         return super.runActivity(
             () -> {
-                // Extract the body of the request
+                // Extracting garageId from path parameters
+                Map<String, String> pathParameters = input.getPathParameters();
+                String garageId = pathParameters.get("garageId");
+
+                // Extracting item details from the request body
                 CreateItemRequest unauthenticatedRequest = input.fromBody(CreateItemRequest.class);
 
-                // Construct the CreateItemRequest with extracted data
-                return CreateItemRequest.builder()
-                        .withSellerID("5669b497-e324-44b8-9d6b-5bf27c182b9c")
-                        .withGarageID("12636ea9-c110-4026-bc00-c6bd4af93ed4")
-                        .withName(unauthenticatedRequest.getName())
-                        .withDescription(unauthenticatedRequest.getDescription())
-                        .withPrice(unauthenticatedRequest.getPrice())
-                        .withCategory(unauthenticatedRequest.getCategory())
-                        .withImages(unauthenticatedRequest.getImages())
-                        .build();
+                // Constructing CreateItemRequest with sellerId from user claims
+                return input.fromUserClaims(claims ->
+                        CreateItemRequest.builder()
+                                .withSellerID("S" + claims.get("sub"))
+                                .withGarageID(garageId)
+                                .withName(unauthenticatedRequest.getName())
+                                .withDescription(unauthenticatedRequest.getDescription())
+                                .withPrice(unauthenticatedRequest.getPrice())
+                                .withCategory(unauthenticatedRequest.getCategory())
+                                .withImages(unauthenticatedRequest.getImages())
+                                .build()
+                );
             },
             (request, serviceComponent) ->
                     serviceComponent.provideCreateItemActivity().handleRequest(request)

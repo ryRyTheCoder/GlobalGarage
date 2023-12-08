@@ -71,10 +71,51 @@ public class ItemDAO {
 
         if (item == null) {
             metricsPublisher.addCount(MetricsConstants.ITEM_NOTFOUND_COUNT, 1);
-            throw new ItemNotFoundException("Could not find item with garageID: " + garageId + " and itemID: " + itemId);
+            throw new ItemNotFoundException("Could not find item with garageID: " + garageId +
+                    " and itemID: " + itemId);
         }
         metricsPublisher.addCount(MetricsConstants.ITEM_NOTFOUND_COUNT, 0);
         return item;
+    }
+    /**
+     * Deletes an item from the database.
+     *
+     * @param garageId The ID of the garage from which the item is to be deleted.
+     * @param itemId   The ID of the item to be deleted.
+     * @return true if the deletion is successful, false otherwise.
+     */
+    public boolean deleteItem(String garageId, String itemId) {
+        try {
+            Item itemKey = new Item();
+            itemKey.setGarageID(garageId);
+            itemKey.setItemID(itemId);
+
+            mapper.delete(itemKey);
+            metricsPublisher.addCount(MetricsConstants.DELETE_ITEM_SUCCESS_COUNT, 1);
+            log.info("Item deleted successfully: {}", itemId);
+            return true;
+        } catch (Exception e) {
+            metricsPublisher.addCount(MetricsConstants.DELETE_ITEM_FAIL_COUNT, 1);
+            log.error("Error deleting item: {}", itemId, e);
+            return false;
+        }
+    }
+
+    /**
+     * Checks if an item exists in a specific garage.
+     *
+     * @param itemId   The ID of the item to check.
+     * @param garageId The ID of the garage where the item might exist.
+     * @return true if the item exists in the garage, false otherwise.
+     */
+    public boolean isItemExistsInGarage(String itemId, String garageId) {
+        try {
+            Item item = this.mapper.load(Item.class, garageId, itemId);
+            return item != null;
+        } catch (Exception e) {
+            log.error("Error checking item existence: {}", itemId, e);
+            return false;
+        }
     }
 
     /**

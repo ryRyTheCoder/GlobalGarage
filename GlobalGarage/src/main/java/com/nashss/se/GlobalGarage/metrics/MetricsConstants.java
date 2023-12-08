@@ -24,10 +24,14 @@ public class MetricsConstants {
     public static final String CREATE_BUYER_FAIL_COUNT = "CreateBuyer.Failure.Count";
     public static final String BUYER_NOTFOUND_COUNT = "GetBuyer.BuyerNotFoundException.Count";
 
-    // Constants for Item metrics
+    // Constants for Create Item metrics
     public static final String CREATE_ITEM_SUCCESS_COUNT = "CreateItem.Success.Count";
     public static final String CREATE_ITEM_FAIL_COUNT = "CreateItem.Failure.Count";
     public static final String ITEM_NOTFOUND_COUNT = "GetItem.ItemNotFoundException.Count";
+
+    // Constants for Delete Item metrics
+    public static final String DELETE_ITEM_SUCCESS_COUNT = "DeleteItem.Success.Count";
+    public static final String DELETE_ITEM_FAIL_COUNT = "DeleteItem.Failure.Count";
 
     // Constants for Message metrics
     public static final String CREATE_MESSAGE_SUCCESS_COUNT = "CreateItem.Success.Count";
