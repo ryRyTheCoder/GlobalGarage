@@ -496,6 +496,47 @@ Resources:
             Path: /items/{garageId}/{itemId}
             Method: get
 
+  DeleteItemLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.DeleteItemLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /items/{garageId}/{itemId}
+            Method: delete
+
+  CreateItemLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.CreateItemLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /items/{garageId}
+            Method: post
+
+
 
                                          
   #-----------------------------------------------------

@@ -70,6 +70,47 @@ class ItemDAOTest {
         assertFalse(itemDAO.updateItem(validItem));
         verify(mockMetricsPublisher).addCount(MetricsConstants.UPDATE_ITEM_FAIL_COUNT, 1);
     }
+    @Test
+    void deleteItem_ValidItem_ReturnsTrue() {
+        String garageId = "garage123";
+        String itemId = "item123";
+        doNothing().when(mockMapper).delete(any(Item.class));
+        assertTrue(itemDAO.deleteItem(garageId, itemId));
+        verify(mockMetricsPublisher).addCount(MetricsConstants.DELETE_ITEM_SUCCESS_COUNT, 1);
+    }
+
+    @Test
+    void deleteItem_FailedDeletion_ReturnsFalse() {
+        String garageId = "garage123";
+        String itemId = "item123";
+        doThrow(new RuntimeException()).when(mockMapper).delete(any(Item.class));
+        assertFalse(itemDAO.deleteItem(garageId, itemId));
+        verify(mockMetricsPublisher).addCount(MetricsConstants.DELETE_ITEM_FAIL_COUNT, 1);
+    }
+    @Test
+    void isItemExistsInGarage_ItemExists_ReturnsTrue() {
+        String garageId = "garage123";
+        String itemId = "item123";
+        Item sampleItem = createSampleItem();
+        when(mockMapper.load(Item.class, garageId, itemId)).thenReturn(sampleItem);
+        assertTrue(itemDAO.isItemExistsInGarage(itemId, garageId));
+    }
+
+    @Test
+    void isItemExistsInGarage_ItemNotExists_ReturnsFalse() {
+        String garageId = "garage123";
+        String itemId = "item123";
+        when(mockMapper.load(Item.class, garageId, itemId)).thenReturn(null);
+        assertFalse(itemDAO.isItemExistsInGarage(itemId, garageId));
+    }
+
+    @Test
+    void isItemExistsInGarage_ErrorOccurs_ReturnsFalse() {
+        String garageId = "garage123";
+        String itemId = "item123";
+        doThrow(new RuntimeException()).when(mockMapper).load(Item.class, garageId, itemId);
+        assertFalse(itemDAO.isItemExistsInGarage(itemId, garageId));
+    }
 
     private Item createSampleItem() {
         Item item = new Item();

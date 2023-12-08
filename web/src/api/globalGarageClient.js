@@ -9,7 +9,7 @@ export default class GlobalGarageClient extends BindingClass {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages',
         'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage',
-        'getGaragesBySeller', 'updateSeller', 'getItem', 'deleteItem'];
+        'getGaragesBySeller', 'updateSeller', 'getItem', 'deleteItem', 'createItem'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -59,17 +59,54 @@ export default class GlobalGarageClient extends BindingClass {
         return await this.authenticator.getUserToken();
     }
 
-    async deleteItem(garageId, itemId, errorCallback) {
+    async createItem(garageId, itemDetails, errorCallback) {
         try {
-            const token = await this.getTokenOrThrow("Only authenticated users can delete items.");
+            const token = await this.getTokenOrThrow("Only authenticated users can create items.");
 
-            await this.axiosClient.delete(`/garages/${garageId}/items/${itemId}`, {
+            const payload = {
+                name: itemDetails.name,
+                description: itemDetails.description,
+                price: itemDetails.price,
+                category: itemDetails.category,
+                images: itemDetails.images
+            };
+
+            // POST request to '/items/{garageId}'
+            const response = await this.axiosClient.post(`/items/${garageId}`, payload, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
             });
+
+            console.log("Item created successfully:", response.data);
+            return response.data;
+        } catch (error) {
+            console.error("Error in creating item:", error);
+            this.handleError(error, errorCallback);
+        }
+    }
+
+
+    async deleteItem(garageId, itemId, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can delete items.");
+
+            // Construct the payload
+            const payload = {
+                itemId: itemId,
+                garageId: garageId
+            };
+
+            // Send DELETE request with JSON body
+             await this.axiosClient.delete(`/items/${garageId}/${itemId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                data: payload
+            });
+
             console.log(`Item with ID ${itemId} deleted successfully from garage ${garageId}`);
-            // Optionally, return some kind of success message or status
             return { success: true, message: `Item deleted successfully` };
         } catch (error) {
             console.error(`Error deleting item with ID ${itemId}:`, error);

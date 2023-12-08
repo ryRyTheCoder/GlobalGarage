@@ -1,23 +1,25 @@
 package com.nashss.se.GlobalGarage.activity.request;
 
 /**
- * This class represents a request to get a single item.
- * It is used as part of the GetItemActivity API.
+ * This class represents a request to delete a single item.
+ * It is used as part of the DeleteItemActivity API.
  */
-public class GetItemRequest {
+public class DeleteItemRequest {
     private final String itemId;
     private final String garageId;
-
+    private final String sellerId;
     /**
-     * Constructs a new GetItemRequest with the specified item ID and garage ID.
+     * Constructs a new DeleteItemRequest with the specified item ID and garage ID.
      * This constructor is private and is intended to be used by the Builder class for creating an instance.
      *
-     * @param itemId   The ID of the item to be retrieved.
+     * @param itemId   The ID of the item to be deleted.
      * @param garageId The ID of the garage to which the item belongs.
+     * @param sellerId The ID of the seller to which the item belongs.
      */
-    private GetItemRequest(String itemId, String garageId) {
+    public DeleteItemRequest(String itemId, String garageId, String sellerId) {
         this.itemId = itemId;
         this.garageId = garageId;
+        this.sellerId = sellerId;
     }
 
     public String getItemId() {
@@ -28,11 +30,17 @@ public class GetItemRequest {
         return garageId;
     }
 
+    public String getSellerId() {
+        return sellerId;
+    }
+
+
     @Override
     public String toString() {
-        return "GetItemRequest{" +
+        return "DeleteItemRequest{" +
                 "itemId='" + itemId + '\'' +
                 ", garageId='" + garageId + '\'' +
+                ", sellerId='" + sellerId + '\'' +
                 '}';
     }
 
@@ -44,6 +52,7 @@ public class GetItemRequest {
     public static class Builder {
         private String itemId;
         private String garageId;
+        private String sellerId;
 
         public Builder withItemId(String itemId) {
             this.itemId = itemId;
@@ -54,9 +63,13 @@ public class GetItemRequest {
             this.garageId = garageId;
             return this;
         }
+        public Builder withSellerId(String sellerId) {
+            this.sellerId = sellerId;
+            return this;
+        }
 
-        public GetItemRequest build() {
-            return new GetItemRequest(itemId, garageId);
+        public DeleteItemRequest build() {
+            return new DeleteItemRequest(itemId, garageId,sellerId);
         }
     }
 }

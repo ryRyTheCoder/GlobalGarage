@@ -6,7 +6,7 @@ import DataStore from '../util/DataStore';
 class ViewGarage extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['clientLoaded', 'mount', 'displayGarage', 'showLoading', 'hideLoading', 'openModal', 'likeItem', 'displayItems', 'deleteItem', 'createGarageCard'], this);
+        this.bindClassMethods(['clientLoaded', 'mount', 'displayGarage', 'showLoading', 'hideLoading', 'openModal', 'likeItem', 'displayItems', 'deleteItem', 'createGarageCard', 'showCreateItemModal', 'createNewItem'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
         this.client = new GlobalGarageClient();
@@ -64,9 +64,20 @@ class ViewGarage extends BindingClass {
         const garageDisplayDiv = document.getElementById('garage-display');
         const itemsDisplayDiv = document.getElementById('items-display');
 
+        garageDisplayDiv.innerHTML = ''; // Clear existing content
+        itemsDisplayDiv.innerHTML = ''; // Clear existing content
+
         // Garage information
         const garageCard = this.createGarageCard(garage);
         garageDisplayDiv.appendChild(garageCard);
+
+        const currentUser = await this.header.client.getIdentity();
+        if (currentUser && await this.header.isSeller(currentUser.sub) && garage.sellerID === "S" + currentUser.sub) {
+            const createItemButton = document.createElement('button');
+            createItemButton.innerText = 'Create Item';
+              createItemButton.onclick = () => this.showCreateItemModal(garage.garageID, "S" + currentUser.sub);
+            garageDisplayDiv.appendChild(createItemButton);
+        }
 
         // Items display
         await this.displayItems(garage.garageID, garage.items, itemsDisplayDiv);
@@ -204,7 +215,7 @@ async openModal(itemDetails) {
     modalContent.appendChild(likeButton);
 
        const currentUser = await this.header.client.getIdentity();
-       if (currentUser && await this.header.isSeller(currentUser.sub)) {
+       if (currentUser) {
            if (itemDetails.sellerID === "S" + currentUser.sub) {
                // Add delete button
                const deleteButton = document.createElement('button');
@@ -225,6 +236,78 @@ async openModal(itemDetails) {
         console.log('Liking item:', itemId);
         // Update the 'buyersInterested' attribute for the item
     }
+    showCreateItemModal(garageId) {
+        const modalContainer = document.getElementById('item-modal');
+        const modalContent = document.getElementById('modal-content');
+        modalContent.innerHTML = ''; // Clear previous content
+
+        // Create form elements
+        const form = document.createElement('form');
+        form.id = 'create-item-form';
+        form.innerHTML = `
+            <div class="form-group">
+                <label for="itemName">Name:</label>
+                <input type="text" id="itemName" name="itemName" required>
+            </div>
+            <div class="form-group">
+                <label for="itemDescription">Description:</label>
+                <textarea id="itemDescription" name="itemDescription" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="itemPrice">Price:</label>
+                <input type="number" id="itemPrice" name="itemPrice" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="itemCategory">Category:</label>
+                <input type="text" id="itemCategory" name="itemCategory" required>
+            </div>
+            <div class="form-group">
+                <label for="itemImages">Images (URLs, comma-separated):</label>
+                <input type="text" id="itemImages" name="itemImages">
+            </div>
+            <button type="submit" class="btn btn-primary">Create Item</button>
+        `;
+
+        // Event listener for form submission
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            this.createNewItem(garageId);
+        });
+
+        modalContent.appendChild(form);
+        modalContainer.style.display = 'flex';
+    }
+
+    async createNewItem(garageId) {
+        const form = document.getElementById('create-item-form');
+
+        const itemName = form.itemName.value;
+        const itemDescription = form.itemDescription.value;
+        const itemPrice = form.itemPrice.value;
+        const itemCategory = form.itemCategory.value;
+        const itemImages = form.itemImages.value.split(',').map(url => url.trim()); // Split URLs by commas and trim whitespace
+
+        try {
+            const newItem = {
+                name: itemName,
+                description: itemDescription,
+                price: parseFloat(itemPrice),
+                category: itemCategory,
+                images: itemImages,
+            };
+
+            // API call to create the item
+            await this.client.createItem(garageId, newItem);
+            console.log('Item created:', newItem);
+
+            // Close modal and refresh
+            document.getElementById('item-modal').style.display = 'none';
+            this.clientLoaded();
+        } catch (error) {
+            console.error('Error creating new item:', error);
+        }
+    }
+
 }
 
 const main = async () => {
