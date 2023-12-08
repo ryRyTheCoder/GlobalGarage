@@ -19,20 +19,24 @@ export default class Header extends BindingClass {
         this.client = new GlobalGarageClient();
     }
 
-    async addHeaderToPage() {
-        const currentUser = await this.client.getIdentity();
-          console.log("currentUser: ", currentUser);
-        const isSeller = await this.isSeller(currentUser.sub);
+   async addHeaderToPage() {
+       const currentUser = await this.client.getIdentity();
+       console.log("currentUser: ", currentUser);
 
-        const isBuyer = await this.isBuyer(currentUser.sub);
+       let userInfo;
+       if (currentUser) {
+           const isSeller = await this.isSeller(currentUser.sub);
+           const isBuyer = await this.isBuyer(currentUser.sub);
+           userInfo = this.createUserInfoForHeader(currentUser, isSeller, isBuyer, currentUser.sub);
+       } else {
+           userInfo = this.createUserInfoForHeader(null, false, false, null);
+       }
 
-        const siteTitle = this.createSiteTitle();
-      const userInfo = this.createUserInfoForHeader(currentUser, isSeller, isBuyer, currentUser.sub);
-
-        const header = document.getElementById('header');
-        header.appendChild(siteTitle);
-        header.appendChild(userInfo);
-    }
+       const siteTitle = this.createSiteTitle();
+       const header = document.getElementById('header');
+       header.appendChild(siteTitle);
+       header.appendChild(userInfo);
+   }
 
     createSiteTitle() {
         const homeButton = document.createElement('a');

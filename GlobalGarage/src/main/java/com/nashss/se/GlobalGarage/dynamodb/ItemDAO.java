@@ -58,19 +58,20 @@ public class ItemDAO {
     }
 
     /**
-     * Retrieves an item by its ID.
+     * Retrieves an item by its garage ID and item ID.
      *
-     * @param itemID  the ID of the item to retrieve.
+     * @param garageId the ID of the garage containing the item.
+     * @param itemId   the ID of the item to retrieve.
      * @return        the {@link Item} object retrieved from the database.
-     * @throws ItemNotFoundException if no item is found with the given ID.
+     * @throws ItemNotFoundException if no item is found with the given IDs.
      */
-
-    public Item getItem(String itemID) {
-        Item item = this.mapper.load(Item.class, itemID);
+    public Item getItem(String garageId, String itemId) {
+        // Use DynamoDBMapper to load the item directly using its composite key
+        Item item = this.mapper.load(Item.class, garageId, itemId);
 
         if (item == null) {
             metricsPublisher.addCount(MetricsConstants.ITEM_NOTFOUND_COUNT, 1);
-            throw new ItemNotFoundException("Could not find item with ID: " + itemID);
+            throw new ItemNotFoundException("Could not find item with garageID: " + garageId + " and itemID: " + itemId);
         }
         metricsPublisher.addCount(MetricsConstants.ITEM_NOTFOUND_COUNT, 0);
         return item;

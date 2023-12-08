@@ -115,7 +115,7 @@ displayGarages() {
          garageLocation.innerText = `Location: ${garage.location}`;
 
     // Extract sellerId and garageId
-    const sellerId = encodeURIComponent(garage.sellerID); // Ensure property names match
+    const sellerId = encodeURIComponent(garage.sellerID);
     const garageId = encodeURIComponent(garage.garageID);
 
     // Construct the base URL

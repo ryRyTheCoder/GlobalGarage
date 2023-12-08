@@ -9,7 +9,7 @@ export default class GlobalGarageClient extends BindingClass {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages',
         'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage',
-        'getGaragesBySeller', 'updateSeller'];
+        'getGaragesBySeller', 'updateSeller', 'getItem', 'deleteItem'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -59,6 +59,25 @@ export default class GlobalGarageClient extends BindingClass {
         return await this.authenticator.getUserToken();
     }
 
+    async deleteItem(garageId, itemId, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can delete items.");
+
+            await this.axiosClient.delete(`/garages/${garageId}/items/${itemId}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            console.log(`Item with ID ${itemId} deleted successfully from garage ${garageId}`);
+            // Optionally, return some kind of success message or status
+            return { success: true, message: `Item deleted successfully` };
+        } catch (error) {
+            console.error(`Error deleting item with ID ${itemId}:`, error);
+            this.handleError(error, errorCallback);
+            return { success: false, message: `Error deleting item` };
+        }
+    }
+
     async getSeller(sellerId, errorCallback) {
         try {
             const response = await this.axiosClient.get(`/sellers/${sellerId}`);
@@ -84,7 +103,7 @@ async getAllGarages(lastEvaluatedKey, errorCallback) {
         const response = await this.axiosClient.get('garages', { params: queryParams });
         console.log("getAllGarages response data:", response.data);
 
-        // Destructure the necessary data from the response
+        // Destruct the necessary data from the response
         const { garageModels, lastEvaluatedKey: newLastEvaluatedKey } = response.data;
 
         return {
@@ -218,6 +237,14 @@ async getGaragesBySeller(sellerId) {
                 }
             });
 
+            return response.data;
+        } catch (error) {
+            this.handleError(error, errorCallback);
+        }
+    }
+    async getItem(garageId, itemId, errorCallback) {
+        try {
+            const response = await this.axiosClient.get(`/items/${garageId}/${itemId}`);
             return response.data;
         } catch (error) {
             this.handleError(error, errorCallback);

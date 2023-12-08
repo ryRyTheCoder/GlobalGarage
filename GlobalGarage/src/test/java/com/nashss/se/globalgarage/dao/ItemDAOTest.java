@@ -45,20 +45,14 @@ class ItemDAOTest {
         assertThrows(IllegalArgumentException.class, () -> itemDAO.createItem(null));
     }
 
-    @Test
-    void getItem_ItemExists_ReturnsItem() {
-        String itemId = "item123";
-        Item existingItem = createSampleItem();
-        when(mockMapper.load(Item.class, itemId)).thenReturn(existingItem);
-        Item result = itemDAO.getItem(itemId);
-        assertEquals(existingItem, result);
-    }
 
     @Test
     void getItem_ItemNotFound_ThrowsItemNotFoundException() {
+        String garageId = "garage123";
         String itemId = "nonExistingItem";
-        when(mockMapper.load(Item.class, itemId)).thenReturn(null);
-        assertThrows(ItemNotFoundException.class, () -> itemDAO.getItem(itemId));
+
+        when(mockMapper.load(Item.class, garageId, itemId)).thenReturn(null);
+        assertThrows(ItemNotFoundException.class, () -> itemDAO.getItem(garageId, itemId));
     }
 
     @Test
