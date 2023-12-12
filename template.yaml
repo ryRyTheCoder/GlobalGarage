@@ -263,8 +263,6 @@ Resources:
           Properties:
             Path: /sellers
             Method: post
-            Auth:
-              Authorizer: 'NONE'
 
   CreateGarageLambda:
     Type: AWS::Serverless::Function
@@ -307,8 +305,6 @@ Resources:
           Properties:
             Path: /buyers
             Method: post
-            Auth:
-              Authorizer: 'NONE'      
 
   CreateItemLambda:
     Type: AWS::Serverless::Function
