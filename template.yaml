@@ -497,7 +497,9 @@ Resources:
           Properties:
             Path: /items/{garageId}/{itemId}
             Method: get
-
+            Auth:
+              Authorizer: 'NONE'   
+              
   DeleteItemLambda:
     Type: AWS::Serverless::Function
     Properties:
