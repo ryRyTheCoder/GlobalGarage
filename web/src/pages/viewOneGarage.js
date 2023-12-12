@@ -157,7 +157,7 @@ class ViewGarage extends BindingClass {
         itemPrice.innerText = `Price: ${itemDetails.price}`;
 
         const itemImage = document.createElement('img');
-        itemImage.src = itemDetails.imageUrl;
+        itemImage.src = itemDetails.images;
         itemImage.alt = itemDetails.name;
 
         itemCard.appendChild(itemImage);
