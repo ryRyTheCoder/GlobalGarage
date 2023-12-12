@@ -222,7 +222,9 @@ Resources:
             Statement:
               - Effect: Allow
                 Action: dynamodb:*
-                Resource: !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/items"
+                Resource: 
+                  - !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/items"
+                  - !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/items/index/StatusDateListedIndex"
 
         - PolicyName: 'AccessGaragesTable'
           PolicyDocument:
@@ -536,9 +538,28 @@ Resources:
             Path: /items/{garageId}
             Method: post
 
-
-
-                                         
+  GetRecentItemsLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.GetRecentItemsLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        MusicPlaylistService:
+          Type: Api
+          Properties:
+            Path: /items/recent
+            Method: get
+            Auth:
+              Authorizer: 'NONE'   
+                                
   #-----------------------------------------------------
   # DynamoDB Configuration
   #-----------------------------------------------------
@@ -570,18 +591,31 @@ Resources:
   ItemsTable:
     Type: AWS::DynamoDB::Table
     Properties:
+      TableName: "items"
+      BillingMode: "PAY_PER_REQUEST"
       AttributeDefinitions:
         - AttributeName: "garageID"
           AttributeType: "S"
         - AttributeName: "itemID"
+          AttributeType: "S"
+        - AttributeName: "status"
+          AttributeType: "S"
+        - AttributeName: "dateListed"
           AttributeType: "S"
       KeySchema:
         - AttributeName: "garageID"
           KeyType: "HASH"
         - AttributeName: "itemID"
           KeyType: "RANGE"
-      BillingMode: "PAY_PER_REQUEST"
-      TableName: "items"
+      GlobalSecondaryIndexes:
+        - IndexName: "StatusDateListedIndex"
+          KeySchema:
+            - AttributeName: "status"
+              KeyType: "HASH"
+            - AttributeName: "dateListed"
+              KeyType: "RANGE"
+          Projection:
+            ProjectionType: "ALL"
 
   GaragesTable:
     Type: AWS::DynamoDB::Table

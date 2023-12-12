@@ -1,0 +1,357 @@
+{
+  "items": [
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "3868edd7-bd76-4fae-a059-fa45d2223ce9"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Bat"},
+          "description": {"S": "A high-quality youth baseball bat, ideal for young baseball players."},
+          "price": {"N": "45.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/baseballbat1.jpg",
+              "https://example.com/baseballbat2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "c1f9f7f3-62f1-4fae-98db-2ebe3a33e9ed"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Glove"},
+          "description": {"S": "A high-quality youth baseball glove, perfect for young baseball players."},
+          "price": {"N": "30.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/baseballglove1.jpg",
+              "https://example.com/baseballglove2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "62504117-de3a-401b-84ea-5cc7936ef968"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Helmet"},
+          "description": {"S": "A protective youth baseball helmet, designed for safety and comfort."},
+          "price": {"N": "25.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+             "https://example.com/baseballhelmet1.jpg",
+            "https://example.com/baseballhelmet2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "700fe768-4e65-46ea-8b2a-09faa4aba2ac"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Cleats"},
+          "description": {"S": "High-quality youth baseball cleats for better traction on the field."},
+          "price": {"N": "35.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/baseballcleats1.jpg",
+             "https://example.com/baseballcleats2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "37074f32-4c32-452c-8cb6-dbfeb7a10dea"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Bat Bag"},
+          "description": {"S": "A spacious youth baseball bat bag to carry all your gear."},
+          "price": {"N": "20.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/baseballbatbag1.jpg",
+              "https://example.com/baseballbatbag2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "f2fed47e-7b56-46f8-ae55-4a11c3fc5bc2"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Glove"},
+          "description": {"S": "A high-quality youth baseball glove for better catching and fielding."},
+          "price": {"N": "30.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/baseballglove1.jpg",
+              "https://example.com/baseballglove2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "775404e4-e61c-4532-9623-582877e92bc2"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Helmet"},
+          "description": {"S": "A protective youth baseball helmet for safe play on the field."},
+          "price": {"N": "25.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+             "https://example.com/baseballhelmet1.jpg",
+             "https://example.com/baseballhelmet2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
+          "itemID": {"S": "d7023bda-01d4-4b72-b2a0-7ad36a4d645d"},
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "name": {"S": "Youth Baseball Bat"},
+          "description": {"S": "A lightweight youth baseball bat for better hits at the plate."},
+          "price": {"N": "40.00"},
+          "category": {"S": "Sports Equipment"},
+          "images": {
+            "SS": [
+             "https://example.com/baseballbat3.jpg",
+            "https://example.com/baseballbat4.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T09:15"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "e5b03ed0-4752-4283-85ec-f6044e62c8a3"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "Jordan 4's UNC"},
+          "description": {"S": "Deadstock UNCs Size 9"},
+          "price": {"N": "1250.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+             "https://example.com/jordan4.jpg",
+              "https://example.com/unc4.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "e7a007a0-f5f2-4866-8448-2619be9cae09"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "Yeezy Red October"},
+          "description": {"S": "Slightly wore. Comes with OG box. Size 10.5"},
+          "price": {"N": "13550.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+            "https://example.com/redoct.jpg",
+              "https://example.com/kanye.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "c9a831a1-a0e4-4e60-9f50-a42b1a1c0801"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "Yeezy Slip-Ons"},
+          "description": {"S": "Size 9 "},
+          "price": {"N": "450.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+              "https://example.com/designerslipons1.jpg",
+             "https://example.com/designerslipons2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "63e4d105-b5cf-48bb-bf5e-6a75a50cdcaf"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "Fashionable Gucci Loafers"},
+          "description": {"S": "Step out in style with these fashionable loafers from top designers. Size 8.5"},
+          "price": {"N": "480.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+            "https://example.com/fashionableloafers1.jpg",
+              "https://example.com/fashionableloafers2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "7d223045-6217-4495-970b-77e04f22c599"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "Luxury Hermes Leather Boots"},
+          "description": {"S": "Elevate your style with these luxury leather boots handcrafted by Hermes. Size 9"},
+          "price": {"N": "1200.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+              "https://example.com/luxuryleatherboots1.jpg",
+             "https://example.com/luxuryleatherboots2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "6f20d813-b4f3-4fa0-840a-29f0600119cd"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "Louis Vuitton High Heels"},
+          "description": {"S": "Walk confidently in these designer high heels that make a statement. Size 11"},
+          "price": {"N": "2500.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+              "https://example.com/designerhighheels1.jpg",
+              "https://example.com/designerhighheels2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "40dd5d78-3715-4c0a-b68c-a6140ecba158"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "Jordan Eminem 3s"},
+          "description": {"S": "You dont have this one in your collection Size 10"},
+          "price": {"N": "42500.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+             "https://example.com/limitededitionsneakers1.jpg",
+              "https://example.com/limitededitionsneakers2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
+          "itemID": {"S": "99460fa0-ebc7-49b7-8663-08b1873a03fa"},
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "name": {"S": "MSCHF Boots"},
+          "description": {"S": "Surprisingly comfortable. Size 10"},
+          "price": {"N": "980.00"},
+          "category": {"S": "Footwear"},
+          "images": {
+            "SS": [
+             "https://example.com/luxuryleatherboots1.jpg",
+             "https://example.com/luxuryleatherboots2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-06T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    }
+  ]
+}

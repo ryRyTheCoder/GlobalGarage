@@ -496,3 +496,17 @@ label {
     font-size: 0.9em;
     color: #666;
 }
+.items-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    grid-gap: 20px; /* Adjust the space between items */
+    padding: 20px; /* Optional: adds some space around the grid */
+}
+
+.item-card {
+    background-color: white; /* White background for each item */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: adds a slight shadow for depth */
+    padding: 15px; /* Space inside each card */
+    text-align: center; /* Center the text inside the card */
+    border-radius: 10px; /* Optional: rounded corners */
+}

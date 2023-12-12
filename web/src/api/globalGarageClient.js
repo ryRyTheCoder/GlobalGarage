@@ -9,7 +9,7 @@ export default class GlobalGarageClient extends BindingClass {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages',
         'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage',
-        'getGaragesBySeller', 'updateSeller', 'getItem', 'deleteItem', 'createItem'];
+        'getGaragesBySeller', 'updateSeller', 'getItem', 'deleteItem', 'createItem', 'getRecentItems'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -231,16 +231,42 @@ async createGarage(garageDetails, errorCallback) {
     }
 }
 
-async getGaragesBySeller(sellerId) {
+    async getGaragesBySeller(sellerId) {
+        try {
+            const response = await this.axiosClient.get(`/sellers/${sellerId}/garages`);
+            return response.data;
+        } catch (error) {
+            console.error("Error fetching garages:", error);
+            throw error; // Rethrow the error for the caller to handle
+        }
+    }
+async getRecentItems(lastEvaluatedKey, errorCallback) {
     try {
-        const response = await this.axiosClient.get(`/sellers/${sellerId}/garages`);
-        return response.data;
+        // Prepare query parameters
+        const queryParams = (typeof lastEvaluatedKey === 'string' && lastEvaluatedKey.length > 0) ? { next: lastEvaluatedKey } : {};
+        console.log("[getRecentItems] Making API call to items/recent with params:", queryParams);
+
+        // Make the GET request to the 'items/recent' endpoint
+        const response = await this.axiosClient.get('items/recent', { params: queryParams });
+        console.log("[getRecentItems] Response data:", response.data);
+
+        // Destructure the necessary data from the response
+        const { itemModels, lastEvaluatedKey: newLastEvaluatedKey } = response.data;
+
+        console.log("[getRecentItems] Items received:", itemModels);
+        console.log("[getRecentItems] New lastEvaluatedKey:", newLastEvaluatedKey);
+
+        return {
+            items: itemModels,
+            lastEvaluatedKey: newLastEvaluatedKey
+        };
     } catch (error) {
-        console.error("Error fetching garages:", error);
-        throw error; // Rethrow the error for the caller to handle
+        console.error("[getRecentItems] Error:", error);
+        if (errorCallback) {
+            errorCallback(error);
+        }
     }
 }
-
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.

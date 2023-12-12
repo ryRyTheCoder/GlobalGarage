@@ -1,0 +1,357 @@
+{
+  "items": [
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "3ae94111-2bdc-4641-91de-087c50550147"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Vintage Wall Clock"},
+          "description": {"S": "An elegant vintage wall clock from the early 20th century, featuring intricate woodwork and a classic pendulum design."},
+          "price": {"N": "150.00"},
+          "category": {"S": "Antique Timepieces"},
+          "images": {
+            "SS": [
+            "https://example.com/vintagewallclock1.jpg",
+              "https://example.com/vintagewallclock2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "1d2f0cfb-cb95-4a4d-a37c-5db1a506aaa8"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Handcrafted Wooden Jewelry Box"},
+          "description": {"S": "Exquisite handcrafted wooden jewelry box from the late 19th century, adorned with intricate carvings and velvet lining."},
+          "price": {"N": "120.00"},
+          "category": {"S": "Vintage Decor"},
+          "images": {
+            "SS": [
+            "https://example.com/woodenjewelrybox1.jpg",
+             "https://example.com/woodenjewelrybox2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "6118e045-ca2e-4582-9dd6-8ecafc1325ce"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Antique Oil Painting"},
+          "description": {"S": "Early 20th-century oil painting, featuring a serene landscape scene. Artist unknown, but the work exhibits excellent craftsmanship."},
+          "price": {"N": "200.00"},
+          "category": {"S": "Art and Paintings"},
+          "images": {
+            "SS": [
+              "https://example.com/antiqueoilpainting1.jpg",
+              "https://example.com/antiqueoilpainting2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+           "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "ac6c64b6-f2d2-4d5e-ab4c-2ca7a9bc6c6c"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Vintage Porcelain Tea Set"},
+          "description": {"S": "A delicate and beautifully preserved porcelain tea set from the early 1900s, featuring floral designs."},
+          "price": {"N": "165.00"},
+          "category": {"S": "Antique Kitchenware"},
+          "images": {
+            "SS": [
+            "https://example.com/vintageteaset1.jpg",
+             "https://example.com/vintageteaset2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "ca35298d-5b68-4d61-a8ec-8d47f828be2d"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Victorian Silverware Set"},
+          "description": {"S": "An exquisite silverware set from the Victorian era, including intricately designed forks, knives, and spoons."},
+          "price": {"N": "250.00"},
+          "category": {"S": "Antique Dining"},
+          "images": {
+            "SS": [
+              "https://example.com/silverwareset1.jpg",
+             "https://example.com/silverwareset2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+           "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "509c2a0f-310a-4dba-aa6c-16193f9883b0"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Vintage Typewriter"},
+          "description": {"S": "A beautifully preserved vintage typewriter from the mid-20th century, perfect for collectors and enthusiasts."},
+          "price": {"N": "180.00"},
+          "category": {"S": "Antique Office Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/vintagetypewriter1.jpg",
+              "https://example.com/vintagetypewriter2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+           "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "7404a071-b3ab-4781-98a8-3571f59ff273"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Vintage Leather Armchair"},
+          "description": {"S": "A well-preserved vintage leather armchair from the 1950s, offering both comfort and style."},
+          "price": {"N": "220.00"},
+          "category": {"S": "Antique Furniture"},
+          "images": {
+            "SS": [
+              "https://example.com/vintagearmchair1.jpg",
+             "https://example.com/vintagearmchair2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"},
+          "itemID": {"S": "311c0829-8229-4991-be46-e7b1b0a8b207"},
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "name": {"S": "Vintage Vinyl Record Collection"},
+          "description": {"S": "A curated collection of vintage vinyl records from the 1960s and 1970s, featuring classic rock, jazz, and more."},
+          "price": {"N": "150.00"},
+          "category": {"S": "Music and Records"},
+          "images": {
+            "SS": [
+             "https://example.com/vinylrecordcollection1.jpg",
+             "https://example.com/vinylrecordcollection2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T09:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "2f642b27-db6b-4b29-bbdb-740789d8377b"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Outdoor Patio Set"},
+          "description": {"S": "A complete outdoor patio set including a table, chairs, and umbrella for your summer gatherings."},
+          "price": {"N": "300.00"},
+          "category": {"S": "Outdoor Furniture"},
+          "images": {
+            "SS": [
+              "https://example.com/patioset1.jpg",
+            "https://example.com/patioset2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "0128dc2a-0bac-4447-946e-e3fb2423e199"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Summer BBQ Grill"},
+          "description": {"S": "A high-quality barbecue grill, perfect for outdoor summer cookouts and gatherings."},
+          "price": {"N": "150.00"},
+          "category": {"S": "Outdoor Cooking"},
+          "images": {
+            "SS": [
+              "https://example.com/bbqgrill1.jpg",
+             "https://example.com/bbqgrill2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "bbc14602-f510-475a-9aa5-0099415a3955"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Vintage Beach Cruiser Bike"},
+          "description": {"S": "A classic vintage beach cruiser bike, perfect for leisurely rides by the beach or around town."},
+          "price": {"N": "120.00"},
+          "category": {"S": "Outdoor Recreation"},
+          "images": {
+            "SS": [
+              "https://example.com/beachcruiser1.jpg",
+            "https://example.com/beachcruiser2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "63739f12-1c16-4f8c-8bd9-cadb0001fbab"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Inflatable Swimming Pool"},
+          "description": {"S": "A large inflatable swimming pool, perfect for hot summer days and family fun."},
+          "price": {"N": "80.00"},
+          "category": {"S": "Outdoor Recreation"},
+          "images": {
+            "SS": [
+              "https://example.com/swimmingpool1.jpg",
+              "https://example.com/swimmingpool2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "e32de659-0a54-4f26-ab9b-56a1b582751e"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Outdoor Hammock Chair"},
+          "description": {"S": "A comfortable outdoor hammock chair, perfect for relaxing in your backyard during summer."},
+          "price": {"N": "50.00"},
+          "category": {"S": "Outdoor Furniture"},
+          "images": {
+            "SS": [
+             "https://example.com/hammockchair1.jpg",
+              "https://example.com/hammockchair2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "2227380d-bc7a-469d-8c5e-b7cafc25e8cd"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Outdoor Picnic Set"},
+          "description": {"S": "A complete outdoor picnic set, perfect for enjoying meals in the park or at the beach."},
+          "price": {"N": "70.00"},
+          "category": {"S": "Outdoor Dining"},
+          "images": {
+            "SS": [
+              "https://example.com/picnicset1.jpg",
+              "https://example.com/picnicset2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "42581679-2c45-4cfc-89b1-a2b9bb2e8b71"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Vintage Record Collection"},
+          "description": {"S": "A collection of rare vintage vinyl records, featuring classic albums from various genres."},
+          "price": {"N": "150.00"},
+          "category": {"S": "Music"},
+          "images": {
+            "SS": [
+              "https://example.com/records1.jpg",
+             "https://example.com/records2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
+          "itemID": {"S": "1d8c5942-c3b1-42c2-89eb-8c08e5b13bd6"},
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "name": {"S": "Antique Typewriter"},
+          "description": {"S": "A beautifully preserved antique typewriter, a collector's item with historical charm."},
+          "price": {"N": "120.00"},
+          "category": {"S": "Antiques"},
+          "images": {
+            "SS": [
+              "https://example.com/typewriter1.jpg",
+              "https://example.com/typewriter2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    }
+  ]
+}

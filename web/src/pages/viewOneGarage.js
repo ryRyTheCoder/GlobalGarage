@@ -112,20 +112,23 @@ class ViewGarage extends BindingClass {
         itemsContainer.id = 'items-container';
         itemsContainer.className = 'items-container';
 
-        if (!itemIds || itemIds.length === 0) {
-            console.log("No items to display");
-            return;
-        }
-
-        for (const itemId of itemIds) {
-            try {
-                const itemDetails = await this.getItemDetails(garageId, itemId);
-                if (itemDetails) {
-                    const itemCard = this.createItemCard(itemDetails);
-                    itemsContainer.appendChild(itemCard);
+ // Check if there are no items or the items array is empty
+    if (!itemIds || itemIds.length === 0) {
+        const noItemsMessage = document.createElement('p');
+        noItemsMessage.innerText = "No items to display";
+        noItemsMessage.className = 'no-items-message';
+        itemsContainer.appendChild(noItemsMessage);
+        } else {
+            for (const itemId of itemIds) {
+                try {
+                    const itemDetails = await this.getItemDetails(garageId, itemId);
+                    if (itemDetails) {
+                        const itemCard = this.createItemCard(itemDetails);
+                        itemsContainer.appendChild(itemCard);
+                    }
+                } catch (error) {
+                    console.error(`Error fetching details for item ${itemId}:`, error);
                 }
-            } catch (error) {
-                console.error(`Error fetching details for item ${itemId}:`, error);
             }
         }
 

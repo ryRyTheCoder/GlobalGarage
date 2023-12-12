@@ -11,6 +11,7 @@ import com.nashss.se.GlobalGarage.activity.GetBuyerActivity;
 import com.nashss.se.GlobalGarage.activity.GetGaragesBySellerActivity;
 import com.nashss.se.GlobalGarage.activity.GetItemActivity;
 import com.nashss.se.GlobalGarage.activity.GetOneGarageActivity;
+import com.nashss.se.GlobalGarage.activity.GetRecentItemsActivity;
 import com.nashss.se.GlobalGarage.activity.GetSellerActivity;
 import com.nashss.se.GlobalGarage.activity.UpdateSellerActivity;
 
@@ -110,4 +111,10 @@ public interface ServiceComponent {
      * @return DeleteItemActivity instance.
      */
     DeleteItemActivity provideDeleteItemActivity();
+    /**
+     * Provides an instance of GetRecentItemsActivity.
+     *
+     * @return GetRecentItemsActivity instance.
+     */
+    GetRecentItemsActivity provideGetRecentItemsActivity();
 }
