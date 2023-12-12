@@ -23,7 +23,6 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    test: path.resolve(__dirname, 'src', 'pages', 'test.js'),
     index: path.resolve(__dirname, 'src', 'pages', 'index.js'),
     createSeller: path.resolve(__dirname, 'src', 'pages', 'createSeller.js'),
     createBuyer: path.resolve(__dirname, 'src', 'pages', 'createBuyer.js'),

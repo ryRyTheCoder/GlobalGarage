@@ -9,3 +9,5 @@
 
 rootProject.name = 'GlobalGarage'
 include('GlobalGarage')
+include 'data'
+

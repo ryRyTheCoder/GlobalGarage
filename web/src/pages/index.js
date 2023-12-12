@@ -3,159 +3,76 @@ import Header from '../components/header';
 import BindingClass from '../util/bindingClass';
 import DataStore from '../util/DataStore';
 
-/**
- * Logic needed for the view upcoming Events and feature vendors of the website index page.
- */
 
  class Index extends BindingClass {
     // Constructor
     constructor() {
         super();
-        this.bindClassMethods(['clientEventLoad', 'clientVendorLoad', 'mount', 'displayEvents', 'displayVendors'], this);
+        this.bindClassMethods(['clientRecentItemsLoad',  'mount', 'displayRecentItems'], this);
         this.client = new GlobalGarageClient();
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
-        console.log("index constructor");
-        const PAGINATION_CONSTANT = 4;
+
     }
 
-    /**
-    * Once the client is loaded, get the event and event list.
-    */
-    async clientEventLoad() {
-        document.getElementById('upcoming-events-display').innerText = "(Loading events...)";
+async clientRecentItemsLoad(lastEvaluatedKey = null) {
+    const displayDiv = document.getElementById('recent-items-display');
+    displayDiv.innerText = "(Loading recent items...)";
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
-        const date = urlParams.get('date');
+    try {
+        console.log("[clientRecentItemsLoad] Called with lastEvaluatedKey:", lastEvaluatedKey);
 
-        const result = await this.client.getAllEvents(id, date);
-        console.log("Result:", result);
-        const events = result.events;
-        console.log("Received events:", events);
+        // Update the API call to include lastEvaluatedKey if available
+         const queryParams = (typeof lastEvaluatedKey === 'string' && lastEvaluatedKey.length > 0) ? { next: lastEvaluatedKey } : {};
+        const result = await this.client.getRecentItems(queryParams); // Pass queryParams
 
-        this.dataStore.set('events', events); 
+        console.log("[clientRecentItemsLoad] Received result:", result);
 
-        this.displayEvents();
+        this.dataStore.set('recentItems', result.items);
+        this.displayRecentItems();
+
+        // Handle the pagination key for the next call
+        if (result.lastEvaluatedKey) {
+            console.log("[clientRecentItemsLoad] Next pagination key:", result.lastEvaluatedKey);
+            // Store the lastEvaluatedKey or use it to fetch more items as needed
+        }
+    } catch (error) {
+        console.error("[clientRecentItemsLoad] Error fetching recent items:", error);
+        displayDiv.innerText = "Failed to fetch recent items.";
     }
+}
 
-    /**
-    * Once the client is loaded, get the vendor metadata vendor list.
-    */
-    async clientVendorLoad() {
-        document.getElementById('featured-vendors-display').innerText = "(Loading vendors...)";
+ // Display Recent Items method
+displayRecentItems() {
+    const recentItems = this.dataStore.get('recentItems') || [];
+    console.log("[displayRecentItems] Displaying items:", recentItems);
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
-        const date = urlParams.get('name');
+    const displayDiv = document.getElementById('recent-items-display');
+    displayDiv.innerText = recentItems.length > 0 ? "" : "No recent items available.";
 
-        const result = await this.client.getAllVendors(id, name);
-        console.log("Result:", result);
-        const vendors = result.vendors;
-        console.log("Received vendors:", vendors);
+    recentItems.forEach(item => {
+        console.log("[displayRecentItems] Item:", item);
+        const itemCard = document.createElement('section');
+        itemCard.className = 'styleForCard';
 
-        this.dataStore.set('vendors', vendors);
+        const itemName = document.createElement('h2');
+        itemName.innerText = item.name;
 
-        this.displayVendors();
-    }
+        const itemDescription = document.createElement('p');
+        itemDescription.innerText = item.description;
 
-    // Display Events method to loop through each event in the eventsList and display the event
-    displayEvents() {
-        const events = this.dataStore.get('events');
-        const arrayEvents = Array.from(events);
-        const displayDiv = document.getElementById('upcoming-events-display');
-        displayDiv.innerText = events.length > 0 ? "" : "No events available.";
-
-        for (let i = 0; i < 4; i++) {
-            event = arrayEvents[i];
-            const eventCard = document.createElement('section');
-            eventCard.className = 'styleForCard';
-
-            const eventId = encodeURIComponent(event.id);
-            const date = encodeURIComponent(event.date);
-
-            const currentHostname = window.location.hostname;
-
-            const isLocal = currentHostname === 'localhost' || currentHostname === '127.0.0.1';
-            const baseUrl = isLocal ? 'http://localhost:8000/' : 'https://d3hqn9u6ae71hc.cloudfront.net/';
-
-            const eventPageUrl = `${baseUrl}oneEvent.html?id=${eventId}&date=${date}`;
-
-            const eventName = document.createElement('h2');
-            eventName.innerText = event.name;
-
-            const eventDate = document.createElement('h3');
-            eventDate.innerText = formatDate(event.date);
-
-            eventCard.appendChild(eventName);
-            eventCard.appendChild(eventDate);
-
-
-            displayDiv.appendChild(eventCard);
-
-            eventCard.addEventListener('click', () => {
-                 window.location.href = eventPageUrl;
-                 console.log('Created Event listener' + eventPageUrl);
-            });
-        };
-    }
-
-    // Display Vendors method to loop through each vendor in the vendorList and display the vendor
-    displayVendors() {
-        const vendors = this.dataStore.get('vendors');
-        const arrayVendors = Array.from(vendors);
-        const displayDiv = document.getElementById('featured-vendors-display');
-        displayDiv.innerText = vendors.length > 0 ? "" : "No more Vendors available.";
-
-         for (let i = 0; i < 4; i++) {
-            const vendor = arrayVendors[i];
-            const vendorCard = document.createElement('section');
-            vendorCard.className = 'styleForCard';
-
-            const vendorId = encodeURIComponent(vendor.id);
-            const name = encodeURIComponent(vendor.name);
-
-            const currentHostname = window.location.hostname;
-
-            const isLocal = currentHostname === 'localhost' || currentHostname === '127.0.0.1';
-            const baseUrl = isLocal ? 'http://localhost:8000/' : 'https://d3hqn9u6ae71hc.cloudfront.net/';
-
-            const vendorPageUrl = `${baseUrl}viewVendor.html?id=${vendorId}&name=${encodeURIComponent(name)}`;
-
-            const vendorName = document.createElement('h2');
-            vendorName.innerText = vendor.name;
-
-            const vendorBio = document.createElement('h3');
-            vendorBio.innerText = vendor.bio;
-
-            vendorCard.appendChild(vendorName);
-            vendorCard.appendChild(vendorBio);
-
-            displayDiv.appendChild(vendorCard);
-
-            vendorCard.addEventListener('click', () => {
-                window.location.href = vendorPageUrl;
-                console.log('Created Event listener' + vendorPageUrl);
-            });
-        };
-    }
+        itemCard.appendChild(itemName);
+        itemCard.appendChild(itemDescription);
+        displayDiv.appendChild(itemCard);
+    });
+}
 
     mount() {
     this.header.addHeaderToPage();
-    this.clientEventLoad();
-    this.clientVendorLoad();
+    this.clientRecentItemsLoad();
     }
  }
-    function formatDate(dateStr) {
-        const dateObj = new Date(dateStr);
-        return dateObj.toLocaleString('en-US', {
-            month: 'long',
-            day: 'numeric',
-            year: 'numeric',
-            hour: '2-digit',
-            hour12: true
-        });
-    }
+
 /**
  * Main method to run when the page contents have loaded.
  */

@@ -6,9 +6,25 @@ import com.nashss.se.GlobalGarage.metrics.MetricsConstants;
 import com.nashss.se.GlobalGarage.metrics.MetricsPublisher;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.QueryResultPage;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.IOException;
+import java.util.Base64;
+import java.util.HashMap;
+
+import java.util.List;
+
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -22,6 +38,7 @@ public class ItemDAO {
     private final DynamoDBMapper mapper;
     private final MetricsPublisher metricsPublisher;
     private final Logger log = LogManager.getLogger();
+    private Map<String, AttributeValue> lastEvaluatedKey = null;
 
     /**
      * Instantiates an ItemDAO object.
@@ -137,4 +154,69 @@ public class ItemDAO {
             return false;
         }
     }
+    /**
+     * Retrieves a list of recent items, sorted by their listed date.
+     * @param status Available status
+     * @param limit            The maximum number of items to return.
+     * @param encodedLastEvaluatedKey The last evaluated key for pagination, in Base64-encoded string format.
+     * @return A pair of a list of recent items and the last evaluated key for pagination.
+     */
+    public Pair<List<Item>, Map<String, AttributeValue>> getRecentItems(String status, Integer limit,
+                                                                        String encodedLastEvaluatedKey) {
+        Map<String, String> expressionAttributeNames = new HashMap<>();
+        expressionAttributeNames.put("#status", "status");
+
+        Map<String, AttributeValue> expressionAttributeValues = new HashMap<>();
+        expressionAttributeValues.put(":statusVal", new AttributeValue().withS(status));
+
+        DynamoDBQueryExpression<Item> queryExpression = new DynamoDBQueryExpression<Item>()
+                .withIndexName("StatusDateListedIndex")
+                .withConsistentRead(false)
+                .withKeyConditionExpression("#status = :statusVal")
+                .withExpressionAttributeNames(expressionAttributeNames)
+                .withExpressionAttributeValues(expressionAttributeValues)
+                .withLimit(limit)
+                .withScanIndexForward(false);
+
+        if (encodedLastEvaluatedKey != null && !encodedLastEvaluatedKey.isEmpty()) {
+            Map<String, AttributeValue> exclusiveStartKey = decodeLastEvaluatedKey(encodedLastEvaluatedKey);
+            queryExpression.setExclusiveStartKey(exclusiveStartKey);
+        }
+
+        QueryResultPage<Item> queryResult = mapper.queryPage(Item.class, queryExpression);
+        this.lastEvaluatedKey = queryResult.getLastEvaluatedKey();
+
+        return Pair.of(queryResult.getResults(), queryResult.getLastEvaluatedKey());
+    }
+
+    /**
+     * Decodes the last evaluated key from a Base64-encoded string to a Map.
+     *
+     * @param lastEvaluatedKeyBase64 The Base64-encoded last evaluated key.
+     * @return A Map representing the last evaluated key.
+     */
+    private Map<String, AttributeValue> decodeLastEvaluatedKey(String lastEvaluatedKeyBase64) {
+        byte[] bytes = Base64.getDecoder().decode(lastEvaluatedKeyBase64);
+        try {
+            return new ObjectMapper().readValue(bytes, new TypeReference<Map<String, AttributeValue>>() {
+            });
+        } catch (JsonProcessingException e) {
+            log.error("Error decoding last evaluated key", e);
+            throw new RuntimeException("Error decoding last evaluated key", e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    /**
+     * Gets the last evaluated key used in the last scan or query operation.
+     * This key can be used for pagination in subsequent requests to continue where the last
+     * query or scan left off. It's particularly useful in iterative data fetching operations.
+     *
+     * @return A map of AttributeValue representing the last evaluated key.
+     */
+
+    public Map<String, AttributeValue> getLastEvaluatedKey() {
+        return this.lastEvaluatedKey;
+    }
+
 }

@@ -1,0 +1,356 @@
+{
+  "items": [
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "e780ec88-28ed-4dd3-8c45-25c7e0a9cdf7"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Vintage Brass Telescope"},
+          "description": {"S": "An exquisite 19th-century naval brass telescope, well-preserved and fully functional."},
+          "price": {"N": "250.00"},
+          "category": {"S": "Antiques"},
+          "images": {
+            "SS": [
+              "https://example.com/image1.jpg",
+              "https://example.com/image2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+      },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "a2b3c4d5-e6f7-g8h9-i0j1-k2l3m4n5o6p7"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Vintage Porcelain Vase"},
+          "description": {"S": "Elegant early 20th-century porcelain vase with intricate floral designs, perfect for collectors."},
+          "price": {"N": "180.00"},
+          "category": {"S": "Antiques"},
+          "images": {
+            "SS": [
+              "https://example.com/vaseimage1.jpg",
+              "https://example.com/vaseimage2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "q8r9s0t1-u2v3-w4x5-y6z7-89ab0c1d2e3f"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Antique Wooden Chess Set"},
+          "description": {"S": "A complete, hand-carved wooden chess set from the late 1800s, in excellent condition."},
+          "price": {"N": "350.00"},
+          "category": {"S": "Collectibles"},
+          "images": {
+            "SS": [
+              "https://example.com/chessset1.jpg",
+              "https://example.com/chessset2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "g4h5i6j7-k8l9-m0n1-o2p3-q4r5s6t7u8v9"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Retro 1950s Diner Jukebox"},
+          "description": {"S": "Authentic 1950s diner-style jukebox, fully restored and operational, a nostalgic music lover's dream."},
+          "price": {"N": "600.00"},
+          "category": {"S": "Retro Electronics"},
+          "images": {
+            "SS": [
+              "https://example.com/jukebox1.jpg",
+              "https://example.com/jukebox2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "w0x1y2z3-a4b5-c6d7-e8f9-g0h1i2j3k4l5"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Vintage Railroad Pocket Watch"},
+          "description": {"S": "A meticulously maintained 1920s railroad pocket watch, a timeless piece for collectors."},
+          "price": {"N": "275.00"},
+          "category": {"S": "Vintage Timepieces"},
+          "images": {
+            "SS": [
+              "https://example.com/pocketwatch1.jpg",
+              "https://example.com/pocketwatch2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "m6n7o8p9-q0r1-s2t3-u4v5-w6x7y8z9a0b1"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Antique Oak Writing Desk"},
+          "description": {"S": "Elegant Victorian-era oak writing desk, with intricate carvings and in pristine condition."},
+          "price": {"N": "450.00"},
+          "category": {"S": "Antique Furniture"},
+          "images": {
+            "SS": [
+              "https://example.com/writingdesk1.jpg",
+              "https://example.com/writingdesk2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "c2d3e4f5-g6h7-i8j9-k0l1-m2n3o4p5q6r7"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Classic Vinyl Record Collection"},
+          "description": {"S": "A curated collection of classic vinyl records from the 1960s and 1970s, including rare editions."},
+          "price": {"N": "500.00"},
+          "category": {"S": "Vinyl Records"},
+          "images": {
+            "SS": [
+              "https://example.com/vinyl1.jpg",
+              "https://example.com/vinyl2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"},
+          "itemID": {"S": "s8t9u0v1-w2x3-y4z5-a6b7-c8d9e0f1g2h3"},
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "name": {"S": "Vintage Camera Collection"},
+          "description": {"S": "A set of three classic cameras from the 1950s, including a Kodak Brownie, a Polaroid Land Camera, and a Leica IIIf."},
+          "price": {"N": "300.00"},
+          "category": {"S": "Photography"},
+          "images": {
+            "SS": [
+              "https://example.com/camera1.jpg",
+              "https://example.com/camera2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-02T15:45"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "30b1f054-3901-4a0f-83db-6e64504e7e92"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "Smart Home Assistant"},
+          "description": {"S": "Latest generation voice-activated smart home assistant with AI capabilities, compatible with multiple smart home devices."},
+          "price": {"N": "100.00"},
+          "category": {"S": "Smart Home Electronics"},
+          "images": {
+            "SS": [
+              "https://example.com/smarthome1.jpg",
+              "https://example.com/smarthome2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "ca100cf2-e588-47e6-858b-7fbae2460f47"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "4K Ultra HD Drone Camera"},
+          "description": {"S": "A state-of-the-art drone equipped with a 4K Ultra HD camera, perfect for aerial photography and videography."},
+          "price": {"N": "250.00"},
+          "category": {"S": "Drones and Cameras"},
+          "images": {
+            "SS": [
+              "https://example.com/dronecamera1.jpg",
+              "https://example.com/dronecamera2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "67d8cbb7-1a2f-4f88-a02c-6da11e90d063"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "Virtual Reality Gaming Headset"},
+          "description": {"S": "Immersive virtual reality headset with advanced motion tracking, providing a cutting-edge gaming experience."},
+          "price": {"N": "150.00"},
+          "category": {"S": "Gaming Technology"},
+          "images": {
+            "SS": [
+              "https://example.com/vrheadset1.jpg",
+              "https://example.com/vrheadset2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "f16ec690-dde0-4a9b-ba23-13c03ef41715"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "Wireless Noise-Cancelling Headphones"},
+          "description": {"S": "High-quality wireless headphones with advanced noise-cancelling features, offering superb audio experience."},
+          "price": {"N": "120.00"},
+          "category": {"S": "Audio Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/headphones1.jpg",
+              "https://example.com/headphones2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "b328c0b0-6a07-44e1-8551-ff88e51b4990"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "Portable Solar Charger"},
+          "description": {"S": "Eco-friendly, portable solar charger with high-efficiency panels, ideal for outdoor adventures or emergency power."},
+          "price": {"N": "80.00"},
+          "category": {"S": "Green Tech"},
+          "images": {
+            "SS": [
+              "https://example.com/solarcharger1.jpg",
+               "https://example.com/solarcharger2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "7cf7ac48-0d08-4a69-9a9f-5aa16b47e48f"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "Smart Fitness Tracker"},
+          "description": {"S": "Advanced fitness tracker with heart rate monitoring, sleep tracking, and smartphone connectivity for health enthusiasts."},
+          "price": {"N": "90.00"},
+          "category": {"S": "Wearable Technology"},
+          "images": {
+            "SS": [
+              "https://example.com/fitnesstracker1.jpg",
+              "https://example.com/fitnesstracker2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "d01f90e8-5bc2-4f3c-9384-1d14d1a8e8bb"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "Compact Bluetooth Speaker"},
+          "description": {"S": "High-fidelity compact Bluetooth speaker with exceptional sound quality and a sleek, portable design."},
+          "price": {"N": "60.00"},
+          "category": {"S": "Portable Audio"},
+          "images": {
+            "SS": [
+               "https://example.com/bluetoothspeaker1.jpg",
+              "https://example.com/bluetoothspeaker2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"},
+          "itemID": {"S": "8f0ff69d-d8a1-4d92-89f9-93a0f7f679fc"},
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "name": {"S": "Wireless Charging Pad"},
+          "description": {"S": "Sleek and efficient wireless charging pad, compatible with a wide range of smartphones and devices."},
+          "price": {"N": "45.00"},
+          "category": {"S": "Mobile Accessories"},
+          "images": {
+            "SS": [
+              "https://example.com/wirelesscharging1.jpg",
+              "https://example.com/wirelesscharging2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-03T11:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    }
+  ]
+}

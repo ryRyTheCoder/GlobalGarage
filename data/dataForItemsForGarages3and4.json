@@ -1,0 +1,356 @@
+{
+  "items": [
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "3e3e6ac0-9537-4d2e-84f3-16ecf777c2ff"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "Victorian Cameo Brooch"},
+          "description": {"S": "Elegant late 19th-century cameo brooch, featuring finely carved shell in a detailed gold setting."},
+          "price": {"N": "150.00"},
+          "category": {"S": "Vintage Jewelry"},
+          "images": {
+            "SS": [
+              "https://example.com/cameobrooch1.jpg",
+              "https://example.com/cameobrooch2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+  }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "a15d20b5-622a-45c5-8d21-0c67d65e8b19"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "1920s Art Deco Table Lamp"},
+          "description": {"S": "A stunning Art Deco style table lamp from the 1920s, featuring geometric patterns and vibrant glass."},
+          "price": {"N": "175.00"},
+          "category": {"S": "Vintage Lighting"},
+          "images": {
+            "SS": [
+              "https://example.com/artdecotablelamp1.jpg",
+              "https://example.com/artdecotablelamp2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "61f15e3e-66f5-4426-9e04-14f6f15e3e0f"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "Vintage Leather Suitcase"},
+          "description": {"S": "Classic early 20th-century leather suitcase, showcasing excellent craftsmanship with authentic patina."},
+          "price": {"N": "130.00"},
+          "category": {"S": "Vintage Luggage"},
+          "images": {
+            "SS": [
+             "https://example.com/vintagesuitcase1.jpg",
+              "https://example.com/vintagesuitcase2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "c7abf8b0-d7b0-4847-9f67-dc61a7abf8b0"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "Antique Cast Iron Skillet"},
+          "description": {"S": "A well-seasoned, late 19th-century cast iron skillet, perfect for collectors of classic kitchenware."},
+          "price": {"N": "95.00"},
+          "category": {"S": "Vintage Kitchenware"},
+          "images": {
+            "SS": [
+              "https://example.com/castironskillet1.jpg",
+              "https://example.com/castironskillet2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "92a6f51e-1e24-45cc-89c6-7d8b92a6f51e"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "Retro 1960s Record Player"},
+          "description": {"S": "Authentic 1960s record player in excellent condition, a must-have for vintage audio enthusiasts."},
+          "price": {"N": "110.00"},
+          "category": {"S": "Vintage Electronics"},
+          "images": {
+            "SS": [
+              "https://example.com/recordplayer1.jpg",
+              "https://example.com/recordplayer2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "d6b470a1-4ef1-4d69-8a7d-3e3d6b470a1e"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "Vintage Brass Telescope"},
+          "description": {"S": "An exquisite late 19th-century naval brass telescope, well-preserved and fully functional, ideal for collectors."},
+          "price": {"N": "200.00"},
+          "category": {"S": "Antique Scientific Instruments"},
+          "images": {
+            "SS": [
+              "https://example.com/brasstelescope1.jpg",
+             "https://example.com/brasstelescope2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "a9f4b9c5-8d8e-47f9-80ca-0510a9f4b9c5"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "Antique Oak Writing Desk"},
+          "description": {"S": "Elegant Victorian-era oak writing desk, featuring intricate carvings and multiple drawers, in pristine condition."},
+          "price": {"N": "220.00"},
+          "category": {"S": "Antique Furniture"},
+          "images": {
+            "SS": [
+              "https://example.com/oakwritingdesk1.jpg",
+             "https://example.com/oakwritingdesk2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
+          "itemID": {"S": "6e8a7d8b-95e3-4f3e-bcd0-6a1f6e8a7d8b"},
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "name": {"S": "Vintage Rotary Phone"},
+          "description": {"S": "A classic mid-20th-century rotary phone in mint condition, a perfect piece for retro enthusiasts."},
+          "price": {"N": "85.00"},
+          "category": {"S": "Retro Electronics"},
+          "images": {
+            "SS": [
+              "https://example.com/vintagerotaryphone1.jpg",
+              "https://example.com/vintagerotaryphone2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-05T15:20"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "eb7bbd44-07a3-46f3-a8e0-118fc6a8f55b"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Gently Used Camping Tent"},
+          "description": {"S": "A spacious four-person camping tent, used only a few times and in great condition."},
+          "price": {"N": "50.00"},
+          "category": {"S": "Outdoor Gear"},
+          "images": {
+            "SS": [
+              "https://example.com/campingtent1.jpg",
+              "https://example.com/campingtent2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "7514b298-69f4-4f0d-9ce6-3d8fe10e56c2"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Electric Juicer"},
+          "description": {"S": "Compact and efficient electric juicer, perfect for making fresh juices. Lightly used and in excellent working condition."},
+          "price": {"N": "30.00"},
+          "category": {"S": "Kitchen Appliances"},
+          "images": {
+            "SS": [
+              "https://example.com/electricjuicer1.jpg",
+              "https://example.com/electricjuicer2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "45f00605-bfb0-4548-a171-023aaa6aebd9"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Board Game Collection"},
+          "description": {"S": "A collection of classic board games including Monopoly, Scrabble, and Risk. All games are complete and in good condition."},
+          "price": {"N": "25.00"},
+          "category": {"S": "Games and Puzzles"},
+          "images": {
+            "SS": [
+             "https://example.com/boardgamecollection1.jpg",
+              "https://example.com/boardgamecollection2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "386dcae9-3456-4608-be3f-0498e5cff2c2"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Vintage Film Camera"},
+          "description": {"S": "Analog film camera from the 1980s, in great condition. Perfect for photography enthusiasts and collectors."},
+          "price": {"N": "40.00"},
+          "category": {"S": "Photography Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/vintagefilmcamera1.jpg",
+              "https://example.com/vintagefilmcamera2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "61b3fcb2-4ad0-46d7-b73a-70d9404e33b3"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Garden Tool Set"},
+          "description": {"S": "Complete set of garden tools including a spade, rake, and pruning shears. Lightly used and in good condition."},
+          "price": {"N": "35.00"},
+          "category": {"S": "Gardening Equipment"},
+          "images": {
+            "SS": [
+              "https://example.com/gardentoolset1.jpg",
+              "https://example.com/gardentoolset2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "b74968d7-898d-473c-996d-d2e4646ffbc1"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Set of Hardcover Novels"},
+          "description": {"S": "A collection of classic hardcover novels, including titles by Hemingway, Austen, and Dickens. Well-kept and in good condition."},
+          "price": {"N": "20.00"},
+          "category": {"S": "Books"},
+          "images": {
+            "SS": [
+              "https://example.com/hardcovernovels1.jpg",
+              "https://example.com/hardcovernovels2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "a753442e-86d1-4b83-962d-3a79e2cfb391"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Portable Bluetooth Speaker"},
+          "description": {"S": "Compact and durable Bluetooth speaker with excellent sound quality. Perfect for outdoor activities or casual listening."},
+          "price": {"N": "25.00"},
+          "category": {"S": "Electronics"},
+          "images": {
+            "SS": [
+              "https://example.com/bluetoothspeaker1.jpg",
+             "https://example.com/bluetoothspeaker2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
+          "itemID": {"S": "a8f1439d-2e61-418b-b3af-b7bf21ed740c"},
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "name": {"S": "Decorative Ceramic Vases"},
+          "description": {"S": "A set of three decorative ceramic vases, each with a unique and elegant design. Perfect for home decor."},
+          "price": {"N": "35.00"},
+          "category": {"S": "Home Decor"},
+          "images": {
+            "SS": [
+            "https://example.com/ceramicvases1.jpg",
+             "https://example.com/ceramicvases2.jpg"
+            ]
+          },
+          "dateListed": {"S": "2023-12-04T14:30"},
+         "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "status": {"S": "available"}
+        }
+      }
+    }
+  ]
+}

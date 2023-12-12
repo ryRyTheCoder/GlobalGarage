@@ -1,0 +1,116 @@
+{
+  "sellers": [
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S88a7763f-c2f1-4b41-9c9a-1d4a512eca29"},
+          "username": {"S": "VintageCollector"},
+          "email": {"S": "vintage.collector@antiquesmail.com"},
+          "location": {"S": "Old Town, Charleston"},
+          "garages": {"SS": ["45f8d132-bc1a-4f2a-a8f7-487b2c1dd2b5"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 843-555-0123, Instagram: VintageTreasures, Facebook: CharlestonAntiques"},
+          "signupDate": {"S": "2023-12-02T15:45:30.000Z"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S4c8a23d2-ef61-4117-984e-2a578f9b9b47"},
+          "username": {"S": "TechGuru2023"},
+          "email": {"S": "tech.enthusiast@futuretech.com"},
+          "location": {"S": "Silicon Valley, CA"},
+          "garages": {"SS": ["b1f0c1d2-e5a7-4dfe-82c3-f16bdc0a4e4a"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 650-555-0111, Instagram: TechGuru_2023, Facebook: FutureTechGuru"},
+          "signupDate": {"S": "2023-12-03T11:30:15.000Z"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
+          "username": {"S": "VintageFinds"},
+          "email": {"S": "antiques@vintagecharm.com"},
+          "location": {"S": "New Orleans, LA"},
+          "garages": {"SS": ["9b34f1c7-6e10-47d9-ada6-75a8f1234567"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 504-555-0198, Instagram: VintageFindsNOLA, Facebook: NOLAVintage"},
+          "signupDate": {"S": "2023-12-05T15:20:30.000Z"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
+          "username": {"S": "JonesGarageCleanOut"},
+          "email": {"S": "jonesgarage@example.com"},
+          "location": {"S": "Austin, TX"},
+          "garages": {"SS": ["7d6e4f3b-2c57-4f4b-8d22-123f65432100"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 512-789-4561, Instagram: JonesGarageATX, Facebook: JonesGarageCleanOut"},
+          "signupDate": {"S": "2023-12-04T14:30:00.000Z"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S06e2a5c-9c98-4a07-a955-21d3f45c0003"},
+          "username": {"S": "SmithEstateSales"},
+          "email": {"S": "smith.estate@example.com"},
+          "location": {"S": "Savannah, GA"},
+          "garages": {"SS": ["9f7b6d5c-1e4f-4d53-ae7b-1234567890ab"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 912-555-1234, Instagram: SmithEstateSales, Facebook: SmithsEstateSaleGA"},
+          "signupDate": {"S": "2023-12-03T09:45:00.000Z"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
+          "username": {"S": "OBrienSummerClean"},
+          "email": {"S": "obrien.cleanout@example.com"},
+          "location": {"S": "Boulder, CO"},
+          "garages": {"SS": ["4a9c8d3e-5b72-4a06-8e8a-abcdef123456"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 303-555-6789, Instagram: OBrienSummer, Facebook: OBrienCleanoutCO"},
+          "signupDate": {"S": "2023-12-04T14:30:00.000Z"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
+          "username": {"S": "LittleLeagueGearPro"},
+          "email": {"S": "littleleaguegear@example.com"},
+          "location": {"S": "Austin, TX"},
+          "garages": {"SS": ["2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 512-555-0198, Instagram: LeagueGearTX, Facebook: LittleLeagueGearAustin"},
+          "signupDate": {"S": "2023-12-05T09:15:00.000Z"}
+        }
+      }
+    },
+    {
+      "PutRequest": {
+        "Item": {
+          "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
+          "username": {"S": "ShoeAficionado"},
+          "email": {"S": "shoelover@example.com"},
+          "location": {"S": "San Francisco, CA"},
+          "garages": {"SS": ["3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"]},
+          "messages": {"SS": [" "]},
+          "contactInfo": {"S": "Phone: 415-555-0264, Instagram: SFShoeStyles, Facebook: TheShoeCornerSF"},
+          "signupDate": {"S": "2023-12-06T14:30:00.000Z"}
+        }
+      }
+    }
+  ]
+}
