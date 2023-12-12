@@ -12,8 +12,7 @@
           "category": {"S": "Vintage Jewelry"},
           "images": {
             "SS": [
-              "https://example.com/cameobrooch1.jpg",
-              "https://example.com/cameobrooch2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -34,8 +33,7 @@
           "category": {"S": "Vintage Lighting"},
           "images": {
             "SS": [
-              "https://example.com/artdecotablelamp1.jpg",
-              "https://example.com/artdecotablelamp2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -56,8 +54,7 @@
           "category": {"S": "Vintage Luggage"},
           "images": {
             "SS": [
-             "https://example.com/vintagesuitcase1.jpg",
-              "https://example.com/vintagesuitcase2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -78,8 +75,7 @@
           "category": {"S": "Vintage Kitchenware"},
           "images": {
             "SS": [
-              "https://example.com/castironskillet1.jpg",
-              "https://example.com/castironskillet2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -100,8 +96,7 @@
           "category": {"S": "Vintage Electronics"},
           "images": {
             "SS": [
-              "https://example.com/recordplayer1.jpg",
-              "https://example.com/recordplayer2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -122,8 +117,7 @@
           "category": {"S": "Antique Scientific Instruments"},
           "images": {
             "SS": [
-              "https://example.com/brasstelescope1.jpg",
-             "https://example.com/brasstelescope2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -144,8 +138,7 @@
           "category": {"S": "Antique Furniture"},
           "images": {
             "SS": [
-              "https://example.com/oakwritingdesk1.jpg",
-             "https://example.com/oakwritingdesk2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -166,8 +159,7 @@
           "category": {"S": "Retro Electronics"},
           "images": {
             "SS": [
-              "https://example.com/vintagerotaryphone1.jpg",
-              "https://example.com/vintagerotaryphone2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T15:20"},
@@ -188,8 +180,7 @@
           "category": {"S": "Outdoor Gear"},
           "images": {
             "SS": [
-              "https://example.com/campingtent1.jpg",
-              "https://example.com/campingtent2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},
@@ -210,8 +201,7 @@
           "category": {"S": "Kitchen Appliances"},
           "images": {
             "SS": [
-              "https://example.com/electricjuicer1.jpg",
-              "https://example.com/electricjuicer2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},
@@ -232,8 +222,7 @@
           "category": {"S": "Games and Puzzles"},
           "images": {
             "SS": [
-             "https://example.com/boardgamecollection1.jpg",
-              "https://example.com/boardgamecollection2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},
@@ -254,8 +243,7 @@
           "category": {"S": "Photography Equipment"},
           "images": {
             "SS": [
-              "https://example.com/vintagefilmcamera1.jpg",
-              "https://example.com/vintagefilmcamera2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},
@@ -276,8 +264,7 @@
           "category": {"S": "Gardening Equipment"},
           "images": {
             "SS": [
-              "https://example.com/gardentoolset1.jpg",
-              "https://example.com/gardentoolset2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},
@@ -298,8 +285,7 @@
           "category": {"S": "Books"},
           "images": {
             "SS": [
-              "https://example.com/hardcovernovels1.jpg",
-              "https://example.com/hardcovernovels2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},
@@ -320,8 +306,7 @@
           "category": {"S": "Electronics"},
           "images": {
             "SS": [
-              "https://example.com/bluetoothspeaker1.jpg",
-             "https://example.com/bluetoothspeaker2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},
@@ -342,8 +327,7 @@
           "category": {"S": "Home Decor"},
           "images": {
             "SS": [
-            "https://example.com/ceramicvases1.jpg",
-             "https://example.com/ceramicvases2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-04T14:30"},

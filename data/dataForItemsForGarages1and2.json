@@ -12,8 +12,7 @@
           "category": {"S": "Antiques"},
           "images": {
             "SS": [
-              "https://example.com/image1.jpg",
-              "https://example.com/image2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -34,8 +33,7 @@
           "category": {"S": "Antiques"},
           "images": {
             "SS": [
-              "https://example.com/vaseimage1.jpg",
-              "https://example.com/vaseimage2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -56,8 +54,7 @@
           "category": {"S": "Collectibles"},
           "images": {
             "SS": [
-              "https://example.com/chessset1.jpg",
-              "https://example.com/chessset2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -78,8 +75,7 @@
           "category": {"S": "Retro Electronics"},
           "images": {
             "SS": [
-              "https://example.com/jukebox1.jpg",
-              "https://example.com/jukebox2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -100,8 +96,7 @@
           "category": {"S": "Vintage Timepieces"},
           "images": {
             "SS": [
-              "https://example.com/pocketwatch1.jpg",
-              "https://example.com/pocketwatch2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -122,8 +117,7 @@
           "category": {"S": "Antique Furniture"},
           "images": {
             "SS": [
-              "https://example.com/writingdesk1.jpg",
-              "https://example.com/writingdesk2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -144,8 +138,7 @@
           "category": {"S": "Vinyl Records"},
           "images": {
             "SS": [
-              "https://example.com/vinyl1.jpg",
-              "https://example.com/vinyl2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -166,8 +159,7 @@
           "category": {"S": "Photography"},
           "images": {
             "SS": [
-              "https://example.com/camera1.jpg",
-              "https://example.com/camera2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-02T15:45"},
@@ -188,8 +180,7 @@
           "category": {"S": "Smart Home Electronics"},
           "images": {
             "SS": [
-              "https://example.com/smarthome1.jpg",
-              "https://example.com/smarthome2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},
@@ -210,8 +201,7 @@
           "category": {"S": "Drones and Cameras"},
           "images": {
             "SS": [
-              "https://example.com/dronecamera1.jpg",
-              "https://example.com/dronecamera2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},
@@ -232,8 +222,7 @@
           "category": {"S": "Gaming Technology"},
           "images": {
             "SS": [
-              "https://example.com/vrheadset1.jpg",
-              "https://example.com/vrheadset2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},
@@ -254,8 +243,7 @@
           "category": {"S": "Audio Equipment"},
           "images": {
             "SS": [
-              "https://example.com/headphones1.jpg",
-              "https://example.com/headphones2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},
@@ -276,8 +264,7 @@
           "category": {"S": "Green Tech"},
           "images": {
             "SS": [
-              "https://example.com/solarcharger1.jpg",
-               "https://example.com/solarcharger2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},
@@ -298,8 +285,7 @@
           "category": {"S": "Wearable Technology"},
           "images": {
             "SS": [
-              "https://example.com/fitnesstracker1.jpg",
-              "https://example.com/fitnesstracker2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},
@@ -320,8 +306,7 @@
           "category": {"S": "Portable Audio"},
           "images": {
             "SS": [
-               "https://example.com/bluetoothspeaker1.jpg",
-              "https://example.com/bluetoothspeaker2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},
@@ -342,8 +327,7 @@
           "category": {"S": "Mobile Accessories"},
           "images": {
             "SS": [
-              "https://example.com/wirelesscharging1.jpg",
-              "https://example.com/wirelesscharging2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-03T11:30"},

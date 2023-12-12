@@ -283,8 +283,7 @@ Resources:
           Properties:
             Path: /garages
             Method: post
-            Auth:
-              Authorizer: 'NONE'
+
 
   CreateBuyerLambda:
     Type: AWS::Serverless::Function
@@ -325,8 +324,7 @@ Resources:
           Properties:
             Path: /items
             Method: post
-            Auth:
-              Authorizer: 'NONE'      
+
 
   GetAllGaragesLambda:
     Type: AWS::Serverless::Function
@@ -433,7 +431,9 @@ Resources:
           Properties:
             Path: /sellers/{sellerId}
             Method: get
-
+            Auth:
+              Authorizer: 'NONE'    
+              
   GetBuyerLambda:
     Type: AWS::Serverless::Function
     Properties:
@@ -453,6 +453,8 @@ Resources:
           Properties:
             Path: /buyers/{buyerId}
             Method: get
+            Auth:
+              Authorizer: 'NONE'    
 
   UpdateSellerLambda:
     Type: AWS::Serverless::Function

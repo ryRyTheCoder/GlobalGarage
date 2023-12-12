@@ -12,8 +12,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "https://example.com/baseballbat1.jpg",
-              "https://example.com/baseballbat2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -34,8 +33,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "https://example.com/baseballglove1.jpg",
-              "https://example.com/baseballglove2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -57,8 +55,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-             "https://example.com/baseballhelmet1.jpg",
-            "https://example.com/baseballhelmet2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -79,8 +76,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "https://example.com/baseballcleats1.jpg",
-             "https://example.com/baseballcleats2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -101,8 +97,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "https://example.com/baseballbatbag1.jpg",
-              "https://example.com/baseballbatbag2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -123,8 +118,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "https://example.com/baseballglove1.jpg",
-              "https://example.com/baseballglove2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -145,8 +139,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-             "https://example.com/baseballhelmet1.jpg",
-             "https://example.com/baseballhelmet2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -167,8 +160,7 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-             "https://example.com/baseballbat3.jpg",
-            "https://example.com/baseballbat4.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-05T09:15"},
@@ -189,8 +181,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-             "https://example.com/jordan4.jpg",
-              "https://example.com/unc4.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
@@ -211,8 +202,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-            "https://example.com/redoct.jpg",
-              "https://example.com/kanye.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
@@ -233,8 +223,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "https://example.com/designerslipons1.jpg",
-             "https://example.com/designerslipons2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
@@ -255,8 +244,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-            "https://example.com/fashionableloafers1.jpg",
-              "https://example.com/fashionableloafers2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
@@ -277,8 +265,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "https://example.com/luxuryleatherboots1.jpg",
-             "https://example.com/luxuryleatherboots2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
@@ -299,8 +286,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "https://example.com/designerhighheels1.jpg",
-              "https://example.com/designerhighheels2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
@@ -321,8 +307,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-             "https://example.com/limitededitionsneakers1.jpg",
-              "https://example.com/limitededitionsneakers2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
@@ -343,8 +328,7 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-             "https://example.com/luxuryleatherboots1.jpg",
-             "https://example.com/luxuryleatherboots2.jpg"
+              "/images/placeholder.jpg"
             ]
           },
           "dateListed": {"S": "2023-12-06T14:30"},
