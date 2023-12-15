@@ -36,7 +36,7 @@ public class UpdateBuyerResult {
         return buyer;
     }
 
-    // Builder
+    //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
         return new Builder();
     }

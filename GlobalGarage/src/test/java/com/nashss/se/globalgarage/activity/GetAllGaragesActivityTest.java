@@ -12,6 +12,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.MockitoAnnotations.openMocks;
 import static org.junit.jupiter.api.Assertions.*;
 import java.nio.charset.StandardCharsets;
@@ -35,28 +38,22 @@ public class GetAllGaragesActivityTest {
     }
 
     @Test
-    public void handleRequest_ReturnsAllGarages() {
+    public void handleRequest_WithLimit_ReturnsLimitedGarages() {
         // GIVEN
-        Map<String, AttributeValue> decodedKeyMap = new HashMap<>();
-        decodedKeyMap.put("dummyKey", new AttributeValue().withS("dummyValue"));
+        final int limit = 3;
+        String encodedLastEvaluatedKey = createEncodedLastEvaluatedKey();
+        GetAllGaragesRequest request = new GetAllGaragesRequest.Builder()
+                .withLastEvaluatedKey(encodedLastEvaluatedKey)
+                .withLimit(limit)
+                .build();
 
-        // Create a valid JSON string and encode it to Base64
-        String validJson = "{\"dummyKey\":\"dummyValue\"}";
-        String encodedLastEvaluatedKey = Base64.getEncoder().encodeToString(validJson.getBytes(StandardCharsets.UTF_8));
+        List<Garage> limitedDummyGarages = createDummyGarages(limit);
+        Mockito.when(garageDao.getAllGaragesWithLimit(any(), eq(limit))).thenReturn(limitedDummyGarages);
 
-        GetAllGaragesRequest request = new GetAllGaragesRequest(encodedLastEvaluatedKey);
-        List<Garage> dummyGarages = createDummyGarages();
-        Map<String, AttributeValue> newLastEvaluatedKey = new HashMap<>();
-
-        Mockito.when(garageDao.getAllGarages(decodedKeyMap)).thenReturn(dummyGarages);
-        Mockito.when(garageDao.getLastEvaluatedKey()).thenReturn(newLastEvaluatedKey);
-
-        for (Garage garage : dummyGarages) {
+        limitedDummyGarages.forEach(garage -> {
             GarageModel garageModel = createSampleGarageModel(garage);
             Mockito.when(modelConverter.toGarageModel(garage)).thenReturn(garageModel);
-        }
-
-
+        });
 
         // WHEN
         GetAllGaragesResult result = getAllGaragesActivity.handleRequest(request);
@@ -64,14 +61,14 @@ public class GetAllGaragesActivityTest {
         // THEN
         assertNotNull(result);
         assertTrue(result.isSuccess());
-        assertEquals(dummyGarages.size(), result.getGarageModels().size());
+        assertEquals(limitedDummyGarages.size(), result.getGarageModels().size());
         assertEquals("Garages fetched successfully.", result.getMessage());
         assertNotNull(result.getLastEvaluatedKey());
     }
 
-    private List<Garage> createDummyGarages() {
+    private List<Garage> createDummyGarages(int limit) {
         List<Garage> garages = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < limit; i++) {
             Garage garage = new Garage();
             garage.setSellerID("seller" + i);
             garage.setGarageID("garage" + i);
@@ -92,12 +89,16 @@ public class GetAllGaragesActivityTest {
                 garage.getSellerID(),
                 garage.getGarageID(),
                 garage.getGarageName(),
-                garage.getStartDate(),
-                garage.getEndDate(),
+                garage.getStartDate().toString(),
+                garage.getEndDate().toString(),
                 garage.getLocation(),
                 garage.getDescription(),
                 garage.getItems(),
                 garage.getIsActive()
         );
+    }
+    private String createEncodedLastEvaluatedKey() {
+        String validJson = "{\"dummyKey\":\"dummyValue\"}";
+        return Base64.getEncoder().encodeToString(validJson.getBytes(StandardCharsets.UTF_8));
     }
 }

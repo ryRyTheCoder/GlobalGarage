@@ -18,6 +18,16 @@ export default class Header extends BindingClass {
 
         this.client = new GlobalGarageClient();
     }
+        /**
+         * Formats a date string to a more readable format.
+         * @param {string} isoString - ISO date string to format.
+         * @returns {string} Formatted date string.
+         */
+        static formatDateTime(isoString) {
+            const options = { month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return new Date(isoString).toLocaleString('en-US', options);
+        }
+
 
    async addHeaderToPage() {
        const currentUser = await this.client.getIdentity();

@@ -91,7 +91,8 @@ class ViewGarage extends BindingClass {
         garageName.innerText = garage.garageName;
 
         const garageDates = document.createElement('h3');
-        garageDates.innerText = `Start Date: ${garage.startDate} - End Date: ${garage.endDate}`;
+        garageDates.innerText = `Start Date: ${Header.formatDateTime(garage.startDate)} - End Date: ${Header.formatDateTime(garage.endDate)}`;
+
 
         const garageLocation = document.createElement('h3');
         garageLocation.innerText = "Location: " + garage.location;
@@ -212,11 +213,11 @@ async openModal(itemDetails) {
     modalContent.appendChild(itemDateListed);
 
     // Fetch current user's identity and determine if they are a buyer
-    const currentUser = await this.header.client.getIdentity();
-    const isBuyer = currentUser && await this.header.isBuyer(currentUser.sub);
+    const currentUserID = await this.header.client.getIdentity();
+    const isBuyer = currentUserID && await this.header.isBuyer(currentUserID.sub);
 
     // Check if the user is a buyer and not the seller of the item
-    const shouldShowLikeButton = isBuyer && itemDetails.sellerID !== "S" + currentUser.sub;
+    const shouldShowLikeButton = isBuyer && itemDetails.sellerID !== "S" + currentUserID.sub;
 
     // Like Button - append if the user is a buyer and not the seller of the item
     if (shouldShowLikeButton) {

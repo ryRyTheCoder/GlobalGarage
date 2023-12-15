@@ -55,7 +55,7 @@ class MyBuyerAccount extends BindingClass {
             this.dataStore.set('buyer', result.buyerModel);
             this.dataStore.set('itemsInterested', result.buyerModel.itemsInterested);
             this.displayBuyer();
-            this.loadInterestedItemsDetails();  // Call this method here
+            this.loadInterestedItemsDetails();
         } catch (error) {
             console.error("Error loading buyer data:", error);
             this.hideLoading();
@@ -65,6 +65,7 @@ class MyBuyerAccount extends BindingClass {
 
     async loadInterestedItemsDetails() {
         const itemsInterested = this.dataStore.get('itemsInterested');
+         console.log("Items interested:", itemsInterested);
             if (itemsInterested.length === 0) {
                 // If there are no interested items, display a message
                 this.displayNoItemsMessage();
@@ -72,8 +73,9 @@ class MyBuyerAccount extends BindingClass {
         for (const concatenatedId of itemsInterested) {
             const [itemId, garageId] = concatenatedId.split(":");
             try {
-                const itemDetails = await this.client.getItem(itemId, garageId);
-                this.displayItemDetails(itemDetails.itemModel);
+                const itemDetails = await this.client.getItem(garageId, itemId);
+                console.log("Item details response:", itemDetails);
+                this.displayItemDetails(itemDetails);
             } catch (error) {
                 console.error(`Error loading details for item ${itemId}:`, error);
                 // Handle error
@@ -112,42 +114,44 @@ class MyBuyerAccount extends BindingClass {
         displayDiv.appendChild(buyerCard);
     }
 
-    displayItemDetails(itemDetails) {
-        const itemsDisplayDiv = document.getElementById('interested-items-display');
+displayItemDetails(itemDetails) {
+    const itemsDisplayDiv = document.getElementById('interested-items-display');
+    itemsDisplayDiv.className = 'flex-container'; // Set class for flex styling
 
+    if (itemDetails && itemDetails.itemModel) {
+        const item = itemDetails.itemModel;
+        console.log("Displaying item details:", item);
 
+        // Create item card
+        const itemCard = document.createElement('div');
+        itemCard.className = 'item-card flex-item'; // Add 'flex-item' class for flex item styling
 
-        itemDetails.forEach(item => {
-            // Create item card
-            const itemCard = document.createElement('div');
-            itemCard.className = 'itemCard';
+        // Item Image
+        const itemImage = document.createElement('img');
+        itemImage.src = item.images;
+        itemImage.alt = item.name;
+        itemCard.appendChild(itemImage);
 
-            // Item Image
-            const itemImage = document.createElement('img');
-            itemImage.src = item.imageUrl;
-            itemImage.alt = item.name;
-            itemCard.appendChild(itemImage);
+        // Item Name
+        const itemName = document.createElement('h4');
+        itemName.innerText = item.name;
+        itemCard.appendChild(itemName);
 
-            // Item Name
-            const itemName = document.createElement('h3');
-            itemName.innerText = item.name;
-            itemCard.appendChild(itemName);
+        // Item Price
+        const itemPrice = document.createElement('p');
+        itemPrice.innerText = "Price: " + item.price;
+        itemCard.appendChild(itemPrice);
 
-            // Item Price
-            const itemPrice = document.createElement('p');
-            itemPrice.innerText = "Price: " + item.price;
-            itemCard.appendChild(itemPrice);
-
-            // Add click event to navigate to the garage this item belongs to
-            itemCard.addEventListener('click', () => {
-                // Redirecting to the garage page with both garageId and sellerId in the URL
-                window.location.href = `/viewOneGarage?garageId=${item.garageId}&sellerId=${item.sellerId}`;
-            });
-
-            itemsDisplayDiv.appendChild(itemCard);
+        // Add click event
+        itemCard.addEventListener('click', () => {
+            window.location.href = `/viewGarage.html?sellerId=${item.sellerID}&garageId=${item.garageID}`;
         });
 
+        itemsDisplayDiv.appendChild(itemCard);
+    } else {
+        console.error("Invalid item details received:", itemDetails);
     }
+}
 
 showLoading() {
     const loadingElement = document.getElementById('buyer-loading');

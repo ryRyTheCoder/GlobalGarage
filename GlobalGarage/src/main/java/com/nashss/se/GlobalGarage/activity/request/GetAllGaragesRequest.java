@@ -6,6 +6,7 @@ package com.nashss.se.GlobalGarage.activity.request;
  */
 public class GetAllGaragesRequest {
     private final String lastEvaluatedKey;
+    private final Integer limit;
 
     /**
      * Constructs a new GetAllGaragesRequest with a specified key for pagination.
@@ -13,12 +14,15 @@ public class GetAllGaragesRequest {
      * primarily for pagination purposes.
      *
      * @param lastEvaluatedKey The last evaluated key used for fetching the next set of results in a paginated query.
+     * @param limit            The desired limit for responses
      */
 
-    public GetAllGaragesRequest(String lastEvaluatedKey) {
+    public GetAllGaragesRequest(String lastEvaluatedKey, Integer limit) {
         this.lastEvaluatedKey = lastEvaluatedKey;
+        this.limit = limit;
     }
 
+    //Getters
     /**
      * Retrieves the last evaluated key used in the paginated query.
      * This key is used to fetch the next set of results from where the previous query ended.
@@ -30,12 +34,18 @@ public class GetAllGaragesRequest {
         return lastEvaluatedKey;
     }
 
+    public Integer getLimit() {
+        return limit;
+    }
+
     @Override
     public String toString() {
         return "GetAllGaragesRequest{" +
                 "lastEvaluatedKey=" + lastEvaluatedKey +
+                ", limit=" + limit +
                 '}';
     }
+
     //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
         return new Builder();
@@ -43,14 +53,20 @@ public class GetAllGaragesRequest {
 
     public static class Builder {
         private String lastEvaluatedKey;
+        private Integer limit;
 
         public Builder withLastEvaluatedKey(String lastEvaluatedKey) {
             this.lastEvaluatedKey = lastEvaluatedKey;
             return this;
         }
 
+        public Builder withLimit(Integer limit) {
+            this.limit = limit;
+            return this;
+        }
+
         public GetAllGaragesRequest build() {
-            return new GetAllGaragesRequest(lastEvaluatedKey);
+            return new GetAllGaragesRequest(lastEvaluatedKey, limit);
         }
     }
 }

@@ -56,13 +56,20 @@ public class GetAllGaragesActivity {
      */
 
     public GetAllGaragesResult handleRequest(final GetAllGaragesRequest request) {
-        log.info("Received GetAllGaragesRequest with lastEvaluatedKey: {}", request.getLastEvaluatedKey());
+        log.info("Received GetAllGaragesRequest with lastEvaluatedKey: {} and limit: {}",
+                request.getLastEvaluatedKey(), request.getLimit());
 
         // Decode the lastEvaluatedKey if present
         Map<String, AttributeValue> lastEvaluatedKeyDecoded = decodeLastEvaluatedKey(request.getLastEvaluatedKey());
 
-        // Fetch garages from the database
-        List<Garage> garages = garageDao.getAllGarages(lastEvaluatedKeyDecoded);
+        // Check if limit is set and fetch garages accordingly
+        List<Garage> garages;
+        if (request.getLimit() != null && request.getLimit() > 0) {
+            garages = garageDao.getAllGaragesWithLimit(lastEvaluatedKeyDecoded, request.getLimit());
+        } else {
+            garages = garageDao.getAllGarages(lastEvaluatedKeyDecoded);
+        }
+
         Map<String, AttributeValue> newLastEvaluatedKey = garageDao.getLastEvaluatedKey();
 
         // Convert garages to garage models

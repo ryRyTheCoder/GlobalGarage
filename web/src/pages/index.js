@@ -8,7 +8,7 @@ import DataStore from '../util/DataStore';
     // Constructor
     constructor() {
         super();
-        this.bindClassMethods(['clientRecentItemsLoad',  'mount', 'displayRecentItems'], this);
+        this.bindClassMethods(['clientRecentItemsLoad', 'clientUpcomingGaragesLoad', 'mount', 'displayRecentItems', 'displayUpcomingGarages'], this);
         this.client = new GlobalGarageClient();
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
@@ -61,15 +61,67 @@ displayRecentItems() {
         const itemDescription = document.createElement('p');
         itemDescription.innerText = item.description;
 
+        itemCard.addEventListener('click', () => {
+            window.location.href = `/viewGarage.html?sellerId=${item.sellerID}&garageId=${item.garageID}`;
+        });
         itemCard.appendChild(itemName);
         itemCard.appendChild(itemDescription);
         displayDiv.appendChild(itemCard);
     });
 }
+ async clientUpcomingGaragesLoad() {
+        const displayDiv = document.getElementById('upcoming-events-display');
+        displayDiv.innerText = "(Loading upcoming garages...)";
+
+        try {
+            // Call getAllGarages with a limit of 3
+            const result = await this.client.getAllGarages(null, 3);
+
+            console.log("[clientUpcomingGaragesLoad] Received result:", result);
+
+            this.dataStore.set('upcomingGarages', result.garages);
+            this.displayUpcomingGarages();
+        } catch (error) {
+            console.error("[clientUpcomingGaragesLoad] Error fetching upcoming garages:", error);
+            displayDiv.innerText = "Failed to fetch upcoming garages.";
+        }
+    }
+
+    displayUpcomingGarages() {
+        const upcomingGarages = this.dataStore.get('upcomingGarages') || [];
+        console.log("[displayUpcomingGarages] Displaying garages:", upcomingGarages);
+
+        const displayDiv = document.getElementById('upcoming-events-display');
+        displayDiv.innerText = upcomingGarages.length > 0 ? "" : "No upcoming garages available.";
+
+        upcomingGarages.forEach(garage => {
+            console.log("[displayUpcomingGarages] Garage:", garage);
+            const garageCard = document.createElement('section');
+            garageCard.className = 'styleForCard';
+
+            const garageName = document.createElement('h2');
+            garageName.innerText = garage.garageName;
+
+            const garageDates = document.createElement('p');
+            garageDates.innerText = `Start Date: ${Header.formatDateTime(garage.startDate)} - End Date: ${Header.formatDateTime(garage.endDate)}`;
+
+            garageCard.addEventListener('click', () => {
+                window.location.href = `/viewGarage.html?sellerId=${garage.sellerID}&garageId=${garage.garageID}`;
+            });
+
+            garageCard.appendChild(garageName);
+            garageCard.appendChild(garageDates);
+            displayDiv.appendChild(garageCard);
+        });
+    }
+
+
+
 
     mount() {
     this.header.addHeaderToPage();
     this.clientRecentItemsLoad();
+    this.clientUpcomingGaragesLoad();
     }
  }
 

@@ -25,9 +25,18 @@ public class GetAllGaragesLambda extends LambdaActivityRunner<GetAllGaragesReque
                 // Retrieve the 'next' query parameter, which is the Base64 encoded lastEvaluatedKey
                 Map<String, String> queryParameters = input.getQueryStringParameters();
                 String lastEvaluatedKeyBase64 = queryParameters != null ? queryParameters.get("next") : null;
-
+                String limitParam = queryParameters != null ? queryParameters.get("limit") : null;
+                Integer limit = null;
+                if (limitParam != null) {
+                    try {
+                        limit = Integer.parseInt(limitParam);
+                    } catch (NumberFormatException e) {
+                        log.error("Invalid limit parameter: {}", limitParam, e);
+                    }
+                }
                 return GetAllGaragesRequest.builder()
                         .withLastEvaluatedKey(lastEvaluatedKeyBase64)
+                        .withLimit(limit)
                         .build();
             },
             (request, serviceComponent) -> serviceComponent.provideGetAllGaragesActivity().handleRequest(request)

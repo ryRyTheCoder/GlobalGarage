@@ -8,7 +8,7 @@ export default class GlobalGarageClient extends BindingClass {
     constructor(props = {}) {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages',
-        'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage',
+        'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage','expressInterest',
         'getGaragesBySeller', 'updateSeller', 'updateBuyer','getItem', 'deleteItem', 'createItem', 'getRecentItems'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
@@ -85,18 +85,21 @@ export default class GlobalGarageClient extends BindingClass {
             this.handleError(error, errorCallback);
         }
     }
-    async expressInterest(itemId, garageId) {
+    async expressInterest(itemID, garageID) {
         try {
-            // Construct the request body
-            const body = { itemId, garageId };
+            // Retrieve the token
+            const token = await this.getTokenOrThrow("Only authenticated users can express interest.");
 
-            // Make the API call to express interest
-            const response = await this.axiosClient.post('/express-interest', body);
+            const payload = { itemID, garageID };
 
-            // Return the response from the server
+            const response = await this.axiosClient.put('/express-interest', payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
             return response.data;
         } catch (error) {
-            // Handle any errors that occur during the API call
             console.error('Error in expressInterest:', error);
             throw error; // Rethrow the error to be handled by the caller
         }
@@ -147,45 +150,56 @@ export default class GlobalGarageClient extends BindingClass {
         }
     }
 
-async getAllGarages(lastEvaluatedKey, errorCallback) {
-    try {
-        const queryParams = lastEvaluatedKey ? { next: lastEvaluatedKey } : {};
-        console.log("Making API call to getAllGarages with params:", queryParams);
+    async getAllGarages(lastEvaluatedKey, limit, errorCallback) {
+        try {
+            // Initialize query parameters
+            const queryParams = {};
+            if (lastEvaluatedKey) {
+                queryParams.next = lastEvaluatedKey;
+            }
+            if (limit) {
+                queryParams.limit = limit;
+            }
+            console.log("Making API call to getAllGarages with params:", queryParams);
 
-        const response = await this.axiosClient.get('garages', { params: queryParams });
-        console.log("getAllGarages response data:", response.data);
+            // Make API call with query parameters
+            const response = await this.axiosClient.get('garages', { params: queryParams });
+            console.log("getAllGarages response data:", response.data);
 
-        // Destruct the necessary data from the response
-        const { garageModels, lastEvaluatedKey: newLastEvaluatedKey } = response.data;
+            // Destructure the necessary data from the response
+            const { garageModels, lastEvaluatedKey: newLastEvaluatedKey } = response.data;
 
-        return {
-            garages: garageModels,
-            lastEvaluatedKey: newLastEvaluatedKey
-        };
-    } catch (error) {
-        console.error("Error in getAllGarages:", error);
-        this.handleError(error, errorCallback);
+            return {
+                garages: garageModels,
+                lastEvaluatedKey: newLastEvaluatedKey
+            };
+        } catch (error) {
+            console.error("Error in getAllGarages:", error);
+            this.handleError(error, errorCallback);
+        }
     }
-}
-async getOneGarage(sellerId, garageId, errorCallback) {
-    try {
-        const response = await this.axiosClient.get(`garages/${sellerId}/${garageId}`);
-        return response.data;
-    } catch (error) {
-        this.handleError(error, errorCallback);
+
+    async getOneGarage(sellerId, garageId, errorCallback) {
+        console.log(`[getOneGarage] Fetching garage with sellerId: ${sellerId}, garageId: ${garageId}`);
+        try {
+            const response = await this.axiosClient.get(`garages/${sellerId}/${garageId}`);
+            console.log('[getOneGarage] Response received:', response.data);
+            return response.data;
+        } catch (error) {
+            console.error('[getOneGarage] Error fetching garage:', error);
+            this.handleError(error, errorCallback);
+        }
     }
-}
+    async createSeller(sellerDetails, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can create sellers.");
 
-async createSeller(sellerDetails, errorCallback) {
-    try {
-        const token = await this.getTokenOrThrow("Only authenticated users can create sellers.");
-
-    const payload = {
-            username: sellerDetails.username,
-            email: sellerDetails.email,
-            location: sellerDetails.location,
-            contactInfo: sellerDetails.contactInfo
-        };
+        const payload = {
+                username: sellerDetails.username,
+                email: sellerDetails.email,
+                location: sellerDetails.location,
+                contactInfo: sellerDetails.contactInfo
+            };
 
         const response = await this.axiosClient.post('/sellers', payload, {
             headers: {
@@ -199,89 +213,89 @@ async createSeller(sellerDetails, errorCallback) {
     }
 }
 
-async createBuyer(buyerDetails, errorCallback) {
-    try {
-        const token = await this.getTokenOrThrow("Only authenticated users can create buyers.");
-
-        const payload = {
-            username: buyerDetails.username,
-            email: buyerDetails.email,
-            location: buyerDetails.location
-        };
-
-        const response = await this.axiosClient.post('/buyers', payload, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
-
-        return response.data;
-    } catch (error) {
-        this.handleError(error, errorCallback);
-    }
-}
-
-async createGarage(garageDetails, errorCallback) {
-    try {
-        const token = await this.getTokenOrThrow("Only authenticated users can create garages.");
-
-        const payload = {
-            garageName: garageDetails.garageName,
-            startDate: garageDetails.startDate,
-            endDate: garageDetails.endDate,
-            location: garageDetails.location,
-            description: garageDetails.description
-        };
- console.log("Sending payload to server:", payload);
-        const response = await this.axiosClient.post('/garages', payload, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
-  console.log("Server response for create garage:", response.data);
-        return response.data;
- } catch (error) {
-        console.error("Error in createGarage:", error);  // Log the error
-        this.handleError(error, errorCallback);
-    }
-}
-
-    async getGaragesBySeller(sellerId) {
+    async createBuyer(buyerDetails, errorCallback) {
         try {
-            const response = await this.axiosClient.get(`/sellers/${sellerId}/garages`);
+            const token = await this.getTokenOrThrow("Only authenticated users can create buyers.");
+
+            const payload = {
+                username: buyerDetails.username,
+                email: buyerDetails.email,
+                location: buyerDetails.location
+            };
+
+            const response = await this.axiosClient.post('/buyers', payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+
             return response.data;
         } catch (error) {
-            console.error("Error fetching garages:", error);
-            throw error; // Rethrow the error for the caller to handle
+            this.handleError(error, errorCallback);
         }
     }
-async getRecentItems(lastEvaluatedKey, errorCallback) {
-    try {
-        // Prepare query parameters
-        const queryParams = (typeof lastEvaluatedKey === 'string' && lastEvaluatedKey.length > 0) ? { next: lastEvaluatedKey } : {};
-        console.log("[getRecentItems] Making API call to items/recent with params:", queryParams);
 
-        // Make the GET request to the 'items/recent' endpoint
-        const response = await this.axiosClient.get('items/recent', { params: queryParams });
-        console.log("[getRecentItems] Response data:", response.data);
+    async createGarage(garageDetails, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can create garages.");
 
-        // Destructure the necessary data from the response
-        const { itemModels, lastEvaluatedKey: newLastEvaluatedKey } = response.data;
-
-        console.log("[getRecentItems] Items received:", itemModels);
-        console.log("[getRecentItems] New lastEvaluatedKey:", newLastEvaluatedKey);
-
-        return {
-            items: itemModels,
-            lastEvaluatedKey: newLastEvaluatedKey
-        };
-    } catch (error) {
-        console.error("[getRecentItems] Error:", error);
-        if (errorCallback) {
-            errorCallback(error);
+            const payload = {
+                garageName: garageDetails.garageName,
+                startDate: garageDetails.startDate,
+                endDate: garageDetails.endDate,
+                location: garageDetails.location,
+                description: garageDetails.description
+            };
+     console.log("Sending payload to server:", payload);
+            const response = await this.axiosClient.post('/garages', payload, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+      console.log("Server response for create garage:", response.data);
+            return response.data;
+     } catch (error) {
+            console.error("Error in createGarage:", error);
+            this.handleError(error, errorCallback);
         }
     }
-}
+
+        async getGaragesBySeller(sellerId) {
+            try {
+                const response = await this.axiosClient.get(`/sellers/${sellerId}/garages`);
+                return response.data;
+            } catch (error) {
+                console.error("Error fetching garages:", error);
+                throw error;
+            }
+        }
+    async getRecentItems(lastEvaluatedKey, errorCallback) {
+        try {
+            // Prepare query parameters
+            const queryParams = (typeof lastEvaluatedKey === 'string' && lastEvaluatedKey.length > 0) ? { next: lastEvaluatedKey } : {};
+            console.log("[getRecentItems] Making API call to items/recent with params:", queryParams);
+
+            // Make the GET request to the 'items/recent' endpoint
+            const response = await this.axiosClient.get('items/recent', { params: queryParams });
+            console.log("[getRecentItems] Response data:", response.data);
+
+            // Destructure the necessary data from the response
+            const { itemModels, lastEvaluatedKey: newLastEvaluatedKey } = response.data;
+
+            console.log("[getRecentItems] Items received:", itemModels);
+            console.log("[getRecentItems] New lastEvaluatedKey:", newLastEvaluatedKey);
+
+            return {
+                items: itemModels,
+                lastEvaluatedKey: newLastEvaluatedKey
+            };
+        } catch (error) {
+            console.error("[getRecentItems] Error:", error);
+            if (errorCallback) {
+                errorCallback(error);
+            }
+        }
+    }
     /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.

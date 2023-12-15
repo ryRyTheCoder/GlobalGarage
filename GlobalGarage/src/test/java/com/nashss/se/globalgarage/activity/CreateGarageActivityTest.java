@@ -96,7 +96,7 @@ public class CreateGarageActivityTest {
 
     private GarageModel createSampleGarageModelFromGarage(Garage garage) {
         return new GarageModel(garage.getSellerID(), UUID.randomUUID().toString(),
-                garage.getGarageName(), garage.getStartDate(), garage.getEndDate(),
+                garage.getGarageName(), garage.getStartDate().toString(), garage.getEndDate().toString(),
                 garage.getLocation(), garage.getDescription(), new ArrayList<>(), true);
     }
 
