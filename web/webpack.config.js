@@ -29,6 +29,7 @@ module.exports = {
     viewAllGarages: path.resolve(__dirname, 'src', 'pages', 'ViewAllGarages.js'),
     viewOneGarage: path.resolve(__dirname, 'src', 'pages', 'viewOneGarage.js'),
     mySellerAccount: path.resolve(__dirname, 'src', 'pages', 'mySellerAccount.js'),
+    myBuyerAccount: path.resolve(__dirname, 'src', 'pages', 'myBuyerAccount.js'),
     createGarage: path.resolve(__dirname, 'src', 'pages', 'createGarage.js'),
   },
   output: {

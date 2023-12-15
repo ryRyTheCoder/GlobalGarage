@@ -258,7 +258,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /sellers
@@ -278,7 +278,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /garages
@@ -299,7 +299,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /buyers
@@ -319,7 +319,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /items
@@ -340,7 +340,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /garages
@@ -362,7 +362,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /garages/{sellerId}/{garageId}
@@ -384,7 +384,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /sellers/{sellerId}/garages
@@ -406,7 +406,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /messages
@@ -426,7 +426,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /sellers/{sellerId}
@@ -448,7 +448,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /buyers/{buyerId}
@@ -470,11 +470,32 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /sellers/{sellerId}
             Method: put
+
+  UpdateBuyerLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessRole.Arn
+      CodeUri: GlobalGarage
+      Handler: com.nashss.se.GlobalGarage.lambda.UpdateBuyerLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        GlobalGarageService:
+          Type: Api
+          Properties:
+            Path: /buyers/{buyerId}
+            Method: put
+           
 
   GetItemLambda:
     Type: AWS::Serverless::Function
@@ -490,7 +511,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /items/{garageId}/{itemId}
@@ -512,7 +533,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /items/{garageId}/{itemId}
@@ -532,7 +553,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /items/{garageId}
@@ -552,7 +573,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        GlobalGarageService:
           Type: Api
           Properties:
             Path: /items/recent

@@ -98,7 +98,7 @@ export default class Header extends BindingClass {
    createMySellerAccountButton(userId) {
         const button = document.createElement('a');
         button.classList.add('button');
-        button.href = `MySellerAccount.html?sellerId=${userId}`;
+        button.href = `mySellerAccount.html?sellerId=${userId}`;
         button.innerText = 'My Seller Account';
         return button;
     }
