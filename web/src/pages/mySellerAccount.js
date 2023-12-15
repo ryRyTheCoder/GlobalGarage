@@ -79,8 +79,8 @@ displayGarages(garages) {
 
         garageElement.innerHTML = `
             <h3>${garage.garageName}</h3>
-            <p>Start Date: ${garage.startDate}</p>
-            <p>End Date: ${garage.endDate}</p>
+            <p>Start Date: ${Header.formatDateTime(garage.startDate)}</p>
+            <p>End Date: ${Header.formatDateTime(garage.endDate)}</p>
             <p>Location: ${garage.location}</p>
             <p>Description: ${garage.description}</p>
         `;
@@ -220,6 +220,10 @@ displayGarages(garages) {
 const main = async () => {
     const mySellerAccount = new MySellerAccount();
     mySellerAccount.mount();
+
+     const messagesCard = document.getElementById('my-messages-card');
+     messagesCard.style.display = 'none';
+
 };
 
 window.addEventListener('DOMContentLoaded', main);

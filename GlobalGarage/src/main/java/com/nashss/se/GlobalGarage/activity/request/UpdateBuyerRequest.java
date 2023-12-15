@@ -17,7 +17,7 @@ public class UpdateBuyerRequest {
      * Creates a new instance of UpdateBuyerRequest.
      * This constructor is private and only used by the Builder class to create an instance.
      *
-     * @param buyerID The unique identifier of the buyer. This is typically prefixed with 'B' followed by the user's sub claim.
+     * @param buyerID The unique identifier of the buyer.
      * @param username The updated username of the buyer.
      * @param email The updated email address of the buyer.
      * @param location The updated location of the buyer.
@@ -58,7 +58,7 @@ public class UpdateBuyerRequest {
                 '}';
     }
 
-    // Builder
+    //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
         return new Builder();
     }

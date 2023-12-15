@@ -6,6 +6,7 @@ import com.nashss.se.GlobalGarage.activity.CreateItemActivity;
 import com.nashss.se.GlobalGarage.activity.CreateMessageActivity;
 import com.nashss.se.GlobalGarage.activity.CreateSellerActivity;
 import com.nashss.se.GlobalGarage.activity.DeleteItemActivity;
+import com.nashss.se.GlobalGarage.activity.ExpressInterestActivity;
 import com.nashss.se.GlobalGarage.activity.GetAllGaragesActivity;
 import com.nashss.se.GlobalGarage.activity.GetBuyerActivity;
 import com.nashss.se.GlobalGarage.activity.GetGaragesBySellerActivity;
@@ -13,8 +14,8 @@ import com.nashss.se.GlobalGarage.activity.GetItemActivity;
 import com.nashss.se.GlobalGarage.activity.GetOneGarageActivity;
 import com.nashss.se.GlobalGarage.activity.GetRecentItemsActivity;
 import com.nashss.se.GlobalGarage.activity.GetSellerActivity;
-import com.nashss.se.GlobalGarage.activity.UpdateSellerActivity;
 import com.nashss.se.GlobalGarage.activity.UpdateBuyerActivity;
+import com.nashss.se.GlobalGarage.activity.UpdateSellerActivity;
 
 import dagger.Component;
 
@@ -124,4 +125,10 @@ public interface ServiceComponent {
      * @return UpdateSellerActivity instance.
      */
     UpdateBuyerActivity provideUpdateBuyerActivity();
+    /**
+     * Provides an instance of ExpressInterestActivity.
+     *
+     * @return ExpressInterestActivity instance.
+     */
+    ExpressInterestActivity provideExpressInterestActivity();
 }

@@ -106,7 +106,8 @@ displayGarages() {
          console.log("Current garage:", garage); // Debugging line
 
          const garageCard = document.createElement('section');
-         garageCard.className = 'card';
+
+         garageCard.className = 'flex-item';
 
          const garageName = document.createElement('h2');
          garageName.innerText = garage.garageName;

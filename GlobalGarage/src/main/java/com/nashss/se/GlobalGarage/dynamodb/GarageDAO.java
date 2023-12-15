@@ -191,7 +191,31 @@ public class GarageDAO {
 
         return scanResult.getResults();
     }
+    /**
+     * Retrieves all garages from the database with pagination and limit support.
+     * This method returns a list of garages, limited by the provided 'lastEvaluatedKey' parameter
+     * for pagination purposes and the 'limit' parameter to restrict the number of results.
+     *
+     * @param exclusiveStartKey A map of AttributeValue representing the last evaluated key for pagination.
+     * @param limit The maximum number of garages to return.
+     * @return A list of Garage objects.
+     */
+    public List<Garage> getAllGaragesWithLimit(Map<String, AttributeValue> exclusiveStartKey, int limit) {
+        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
 
+        if (limit > 0) {
+            scanExpression.withLimit(limit);
+        }
+
+        if (exclusiveStartKey != null && !exclusiveStartKey.isEmpty()) {
+            scanExpression.setExclusiveStartKey(exclusiveStartKey);
+        }
+
+        ScanResultPage<Garage> scanResult = mapper.scanPage(Garage.class, scanExpression);
+        this.lastEvaluatedKey = scanResult.getLastEvaluatedKey();
+
+        return scanResult.getResults();
+    }
     /**
      * Gets the last evaluated key used in the last scan or query operation.
      * This key can be used for pagination in subsequent requests to continue where the last

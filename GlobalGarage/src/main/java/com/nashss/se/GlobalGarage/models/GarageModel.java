@@ -1,7 +1,5 @@
 package com.nashss.se.GlobalGarage.models;
 
-import java.time.LocalDateTime;
-
 import java.util.List;
 import java.util.Objects;
 
@@ -15,8 +13,8 @@ public class GarageModel {
     private final String sellerID;
     private final String garageID;
     private final String garageName;
-    private final LocalDateTime startDate;
-    private final LocalDateTime endDate;
+    private final String startDate;
+    private final String endDate;
     private final String location;
     private final String description;
     private final List<String> items;
@@ -36,8 +34,8 @@ public class GarageModel {
      * @param isActive     A flag indicating if the garage sale is active.
      */
 
-    public GarageModel(String sellerID, String garageID, String garageName, LocalDateTime startDate,
-                       LocalDateTime endDate, String location, String description,
+    public GarageModel(String sellerID, String garageID, String garageName, String startDate,
+                       String endDate, String location, String description,
                        List<String> items, Boolean isActive) {
         this.sellerID = sellerID;
         this.garageID = garageID;
@@ -64,11 +62,11 @@ public class GarageModel {
         return garageName;
     }
 
-    public LocalDateTime getStartDate() {
+    public String getStartDate() {
         return startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public String getEndDate() {
         return endDate;
     }
 
@@ -125,8 +123,8 @@ public class GarageModel {
         private String sellerID;
         private String garageID;
         private String garageName;
-        private LocalDateTime startDate;
-        private LocalDateTime endDate;
+        private String startDate;
+        private String endDate;
         private String location;
         private String description;
         private List<String> items;
@@ -147,12 +145,12 @@ public class GarageModel {
             return this;
         }
 
-        public Builder withStartDate(LocalDateTime startDate) {
+        public Builder withStartDate(String startDate) {
             this.startDate = startDate;
             return this;
         }
 
-        public Builder withEndDate(LocalDateTime endDate) {
+        public Builder withEndDate(String endDate) {
             this.endDate = endDate;
             return this;
         }
