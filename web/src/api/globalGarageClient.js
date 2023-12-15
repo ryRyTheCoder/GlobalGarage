@@ -9,7 +9,7 @@ export default class GlobalGarageClient extends BindingClass {
         super();
         const methodsToBind = ['clientLoaded', 'getIdentity', 'logout','login','getAllGarages',
         'getOneGarage', 'createSeller','createBuyer','getSeller','getBuyer', 'createGarage',
-        'getGaragesBySeller', 'updateSeller', 'getItem', 'deleteItem', 'createItem', 'getRecentItems'];
+        'getGaragesBySeller', 'updateSeller', 'updateBuyer','getItem', 'deleteItem', 'createItem', 'getRecentItems'];
         this.bindClassMethods(methodsToBind, this);
         this.authenticator = new Authenticator();
         this.props = props;
@@ -85,7 +85,22 @@ export default class GlobalGarageClient extends BindingClass {
             this.handleError(error, errorCallback);
         }
     }
+    async expressInterest(itemId, garageId) {
+        try {
+            // Construct the request body
+            const body = { itemId, garageId };
 
+            // Make the API call to express interest
+            const response = await this.axiosClient.post('/express-interest', body);
+
+            // Return the response from the server
+            return response.data;
+        } catch (error) {
+            // Handle any errors that occur during the API call
+            console.error('Error in expressInterest:', error);
+            throw error; // Rethrow the error to be handled by the caller
+        }
+    }
 
     async deleteItem(garageId, itemId, errorCallback) {
         try {
@@ -305,6 +320,29 @@ async getRecentItems(lastEvaluatedKey, errorCallback) {
             this.handleError(error, errorCallback);
         }
     }
+
+    async updateBuyer(buyerId, buyerDetails, errorCallback) {
+        try {
+            const token = await this.getTokenOrThrow("Only authenticated users can update buyer details.");
+
+            const payload = {
+                username: buyerDetails.username,
+                email: buyerDetails.email,
+                location: buyerDetails.location
+            };
+
+            const response = await this.axiosClient.put(`/buyers/${buyerId}`, payload, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+
+            return response.data;
+        } catch (error) {
+            this.handleError(error, errorCallback);
+        }
+    }
+
     async getItem(garageId, itemId, errorCallback) {
         try {
             const response = await this.axiosClient.get(`/items/${garageId}/${itemId}`);

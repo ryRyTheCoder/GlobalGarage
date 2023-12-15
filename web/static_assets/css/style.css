@@ -404,11 +404,12 @@ label {
 
 .close-modal {
     position: absolute; /* Position absolutely within .modal */
-    top: 1px; /* Distance from the top */
-    right: 5px; /* Distance from the right */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
     font-size: 1.5em;
     cursor: pointer;
-    color: #000; /* Optional: color of the close button */
+    color: #344955;
+    z-index: 2000;
 }
 
 
@@ -497,16 +498,34 @@ label {
     color: #666;
 }
 .items-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row */
-    grid-gap: 20px; /* Adjust the space between items */
-    padding: 20px; /* Optional: adds some space around the grid */
+ display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px; /* Adjust the space between items */
 }
 
+
 .item-card {
-    background-color: white; /* White background for each item */
-    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: adds a slight shadow for depth */
-    padding: 15px; /* Space inside each card */
-    text-align: center; /* Center the text inside the card */
-    border-radius: 10px; /* Optional: rounded corners */
+ flex-basis: calc(25% - 20px);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+}
+.item-card img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+.item-card p, .item-card h4 {
+    color: #344955; /* Change the color of all <p> and <h4> elements within an item card */
+}
+
+#modal-content img {
+    max-width: 85%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }

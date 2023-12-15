@@ -114,17 +114,7 @@ displayGarages() {
          const garageLocation = document.createElement('p');
          garageLocation.innerText = `Location: ${garage.location}`;
 
-//    // Extract sellerId and garageId
-//    const sellerId = encodeURIComponent(garage.sellerID);
-//    const garageId = encodeURIComponent(garage.garageID);
-//
-//    // Construct the base URL
-//    const currentHostname = window.location.hostname;
-//    const isLocal = currentHostname === 'localhost' || currentHostname === '127.0.0.1';
-//    const baseUrl = isLocal ? 'http://localhost:8000/' : 'https://your-deployment-url.com/';
-//
-//    // Construct the garage page URL
-//    const garagePageUrl = `${baseUrl}viewGarage.html?sellerId=${sellerId}&garageId=${garageId}`;
+
   const garagePageUrl = `viewGarage.html?sellerId=${encodeURIComponent(garage.sellerID)}&garageId=${encodeURIComponent(garage.garageID)}`;
     console.log("Garage Page URL:", garagePageUrl); // Debugging line
          // Clickable link element

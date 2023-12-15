@@ -14,6 +14,7 @@ import com.nashss.se.GlobalGarage.activity.GetOneGarageActivity;
 import com.nashss.se.GlobalGarage.activity.GetRecentItemsActivity;
 import com.nashss.se.GlobalGarage.activity.GetSellerActivity;
 import com.nashss.se.GlobalGarage.activity.UpdateSellerActivity;
+import com.nashss.se.GlobalGarage.activity.UpdateBuyerActivity;
 
 import dagger.Component;
 
@@ -117,4 +118,10 @@ public interface ServiceComponent {
      * @return GetRecentItemsActivity instance.
      */
     GetRecentItemsActivity provideGetRecentItemsActivity();
+    /**
+     * Provides an instance of UpdateBuyerActivity.
+     *
+     * @return UpdateSellerActivity instance.
+     */
+    UpdateBuyerActivity provideUpdateBuyerActivity();
 }

@@ -211,11 +211,20 @@ async openModal(itemDetails) {
     itemDateListed.innerText = `Date Listed: ${itemDetails.dateListed}`;
     modalContent.appendChild(itemDateListed);
 
-    // Like Button
-    const likeButton = document.createElement('button');
-    likeButton.innerText = '❤ Like';
-    likeButton.onclick = () => this.likeItem(itemDetails.itemID);
-    modalContent.appendChild(likeButton);
+    // Fetch current user's identity and determine if they are a buyer
+    const currentUser = await this.header.client.getIdentity();
+    const isBuyer = currentUser && await this.header.isBuyer(currentUser.sub);
+
+    // Check if the user is a buyer and not the seller of the item
+    const shouldShowLikeButton = isBuyer && itemDetails.sellerID !== "S" + currentUser.sub;
+
+    // Like Button - append if the user is a buyer and not the seller of the item
+    if (shouldShowLikeButton) {
+        const likeButton = document.createElement('button');
+        likeButton.innerText = '❤ Like';
+        likeButton.onclick = () => this.likeItem(itemDetails.itemID, itemDetails.garageID);
+        modalContent.appendChild(likeButton);
+    }
 
        const currentUser = await this.header.client.getIdentity();
        if (currentUser) {
@@ -234,11 +243,17 @@ async openModal(itemDetails) {
       modalContainer.style.display = 'flex';
 }
 
-    likeItem(itemId) {
-        // API call to like the item
-        console.log('Liking item:', itemId);
-        // Update the 'buyersInterested' attribute for the item
+    async likeItem(itemId, garageId) {
+        try {
+            // API call to express interest in the item
+            console.log('Expressing interest in item:', itemId);
+            const response = await this.client.expressInterest(itemId, garageId);
+            console.log('Interest expressed:', response);
+        } catch (error) {
+            console.error('Error expressing interest:', error);
+        }
     }
+
     showCreateItemModal(garageId) {
         const modalContainer = document.getElementById('item-modal');
         const modalContent = document.getElementById('modal-content');
