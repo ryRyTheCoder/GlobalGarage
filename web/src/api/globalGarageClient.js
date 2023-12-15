@@ -85,7 +85,22 @@ export default class GlobalGarageClient extends BindingClass {
             this.handleError(error, errorCallback);
         }
     }
+    async expressInterest(itemId, garageId) {
+        try {
+            // Construct the request body
+            const body = { itemId, garageId };
 
+            // Make the API call to express interest
+            const response = await this.axiosClient.post('/express-interest', body);
+
+            // Return the response from the server
+            return response.data;
+        } catch (error) {
+            // Handle any errors that occur during the API call
+            console.error('Error in expressInterest:', error);
+            throw error; // Rethrow the error to be handled by the caller
+        }
+    }
 
     async deleteItem(garageId, itemId, errorCallback) {
         try {
