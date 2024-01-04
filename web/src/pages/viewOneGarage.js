@@ -108,7 +108,7 @@ class ViewGarage extends BindingClass {
         return garageCard;
     }
 
-    async displayItems(garageId, itemIds, itemsDisplayDiv) {
+async displayItems(garageId, itemIds, itemsDisplayDiv, currentUserInterestedItems) {
         const itemsContainer = document.createElement('div');
         itemsContainer.id = 'items-container';
         itemsContainer.className = 'items-container';
@@ -120,17 +120,17 @@ class ViewGarage extends BindingClass {
         noItemsMessage.className = 'no-items-message';
         itemsContainer.appendChild(noItemsMessage);
         } else {
-            for (const itemId of itemIds) {
-                try {
-                    const itemDetails = await this.getItemDetails(garageId, itemId);
-                    if (itemDetails) {
-                        const itemCard = this.createItemCard(itemDetails);
-                        itemsContainer.appendChild(itemCard);
-                    }
-                } catch (error) {
-                    console.error(`Error fetching details for item ${itemId}:`, error);
+     for (const itemId of itemIds) {
+            try {
+                const itemDetails = await this.getItemDetails(garageId, itemId);
+                if (itemDetails) {
+                    const itemCard = this.createItemCard(itemDetails, currentUserInterestedItems);
+                    itemsContainer.appendChild(itemCard);
                 }
+            } catch (error) {
+                console.error(`Error fetching details for item ${itemId}:`, error);
             }
+        }
         }
 
         itemsDisplayDiv.appendChild(itemsContainer);
@@ -146,9 +146,16 @@ class ViewGarage extends BindingClass {
         }
     }
 
-    createItemCard(itemDetails) {
+    createItemCard(itemDetails, currentUserInterestedItems) {
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
+
+        // Buyers Interested Badge
+        const buyersBadge = document.createElement('div');
+        buyersBadge.className = 'buyers-badge';
+        buyersBadge.innerText = itemDetails.buyersInterested ? itemDetails.buyersInterested.length : 0;
+        itemCard.appendChild(buyersBadge);
+
         itemCard.onclick = () => this.openModal(itemDetails);
 
         const itemName = document.createElement('h4');
@@ -223,9 +230,15 @@ async openModal(itemDetails) {
     if (shouldShowLikeButton) {
         const likeButton = document.createElement('button');
         likeButton.innerText = '❤ Like';
-        likeButton.onclick = () => this.likeItem(itemDetails.itemID, itemDetails.garageID);
-        modalContent.appendChild(likeButton);
+ const concatenatedId = `${itemDetails.itemID}:${itemDetails.garageID}`;
+    if (currentUserInterestedItems && currentUserInterestedItems.includes(concatenatedId)) {
+        likeButton.classList.add('liked');  // Add a class to change the button's appearance
     }
+    likeButton.onclick = () => this.likeItem(itemDetails.itemID, itemDetails.garageID);
+    itemCard.appendChild(likeButton);
+
+    return itemCard;
+}
 
        const currentUser = await this.header.client.getIdentity();
        if (currentUser) {
@@ -254,6 +267,17 @@ async openModal(itemDetails) {
             console.error('Error expressing interest:', error);
         }
     }
+
+    //Image Upload 
+async function handleImageUpload(event) {
+    const files = event.target.files;
+    for (let i = 0; i < files.length; i++) {
+        await uploadImage(files[i]);
+    }
+}
+
+// Attach the event listener to your file input
+document.getElementById('image-upload').addEventListener('change', handleImageUpload);
 
     showCreateItemModal(garageId) {
         const modalContainer = document.getElementById('item-modal');

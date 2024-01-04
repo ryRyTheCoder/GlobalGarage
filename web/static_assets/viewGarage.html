@@ -24,7 +24,10 @@
     <div class="modal">
         <span class="close-modal" onclick="document.getElementById('item-modal').style.display='none'">&times;</span>
         <div id="modal-content">
-            <!-- Item details will be injected here -->
+            <div class="upload-container">
+                <label for="image-upload">Upload Images:</label>
+                <input type="file" id="image-upload" name="images" accept="image/*" multiple>
+            </div>
         </div>
     </div>
 </div>

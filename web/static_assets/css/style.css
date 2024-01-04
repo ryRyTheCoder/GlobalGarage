@@ -532,3 +532,17 @@ label {
     height: auto;
     border-radius: 4px;
 }
+.buyers-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: red;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 0.8em;
+}
+
+.liked {
+    color: red;
+}
