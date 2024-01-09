@@ -12,10 +12,10 @@
           "category": {"S": "Vintage Jewelry"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/victorianCameoBrooch.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-10T15:20"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -33,10 +33,10 @@
           "category": {"S": "Vintage Lighting"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/1920sArtDecoTableLamp.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-11T15:20"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -54,10 +54,10 @@
           "category": {"S": "Vintage Luggage"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageLeatherSuitcase.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-12T15:20"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -75,10 +75,10 @@
           "category": {"S": "Vintage Kitchenware"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/antiqueCastIronSkillet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-11T15:20"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -96,10 +96,10 @@
           "category": {"S": "Vintage Electronics"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/retro1960sRecordPlayer.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-12T15:20"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -111,16 +111,16 @@
           "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
           "itemID": {"S": "d6b470a1-4ef1-4d69-8a7d-3e3d6b470a1e"},
           "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
-          "name": {"S": "Vintage Brass Telescope"},
-          "description": {"S": "An exquisite late 19th-century naval brass telescope, well-preserved and fully functional, ideal for collectors."},
+          "name": {"S": "Vintage Flute"},
+          "description": {"S": "An exquisite late 19th-century flute, well-preserved and fully functional, ideal for collectors."},
           "price": {"N": "200.00"},
-          "category": {"S": "Antique Scientific Instruments"},
+          "category": {"S": "Antique Instruments"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageFlute.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-13T15:20"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -132,16 +132,16 @@
           "garageID": {"S": "9b34f1c7-6e10-47d9-ada6-75a8f1234567"},
           "itemID": {"S": "a9f4b9c5-8d8e-47f9-80ca-0510a9f4b9c5"},
           "sellerID": {"S": "S3e56f1e-4f93-4d0b-b5e9-f9d123456789"},
-          "name": {"S": "Antique Oak Writing Desk"},
-          "description": {"S": "Elegant Victorian-era oak writing desk, featuring intricate carvings and multiple drawers, in pristine condition."},
+          "name": {"S": "Antique Pen Set"},
+          "description": {"S": "Elegant Victorian-era pen set in pristine condition."},
           "price": {"N": "220.00"},
-          "category": {"S": "Antique Furniture"},
+          "category": {"S": "Antiques"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/antiquePenSet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-11T15:20"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -159,10 +159,10 @@
           "category": {"S": "Retro Electronics"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageRotaryPhone.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T15:20"},
+          "dateListed": {"S": "2024-01-12T15:20"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -180,10 +180,10 @@
           "category": {"S": "Outdoor Gear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/gentlyUsedCampingTent.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-11T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -201,10 +201,10 @@
           "category": {"S": "Kitchen Appliances"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/electricJuicer.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-11T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -218,14 +218,14 @@
           "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
           "name": {"S": "Board Game Collection"},
           "description": {"S": "A collection of classic board games including Monopoly, Scrabble, and Risk. All games are complete and in good condition."},
-          "price": {"N": "25.00"},
+          "price": {"N": "50.00"},
           "category": {"S": "Games and Puzzles"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/boardGameCollection.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-10T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -239,14 +239,14 @@
           "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
           "name": {"S": "Vintage Film Camera"},
           "description": {"S": "Analog film camera from the 1980s, in great condition. Perfect for photography enthusiasts and collectors."},
-          "price": {"N": "40.00"},
+          "price": {"N": "400.00"},
           "category": {"S": "Photography Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageFilmCamera.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-10T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -264,10 +264,10 @@
           "category": {"S": "Gardening Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/gardenToolSet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-10T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -285,10 +285,10 @@
           "category": {"S": "Books"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/setofHardcoverNovels.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-10T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -300,16 +300,16 @@
           "garageID": {"S": "7d6e4f3b-2c57-4f4b-8d22-123f65432100"},
           "itemID": {"S": "a753442e-86d1-4b83-962d-3a79e2cfb391"},
           "sellerID": {"S": "S5e1d87b-22e8-4c91-9073-8f7654321000"},
-          "name": {"S": "Portable Bluetooth Speaker"},
+          "name": {"S": "Portable Waterproof Speaker"},
           "description": {"S": "Compact and durable Bluetooth speaker with excellent sound quality. Perfect for outdoor activities or casual listening."},
           "price": {"N": "25.00"},
           "category": {"S": "Electronics"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/portableBluetoothSpeaker.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-10T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -327,10 +327,10 @@
           "category": {"S": "Home Decor"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/decorativeCeramicVases.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-10T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }

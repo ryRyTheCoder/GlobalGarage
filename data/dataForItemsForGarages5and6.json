@@ -12,10 +12,10 @@
           "category": {"S": "Antique Timepieces"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageWallClock.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
+          "dateListed": {"S": "2024-01-12T12:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -33,10 +33,10 @@
           "category": {"S": "Vintage Decor"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/handcraftedWoodenJewelryBox.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
+          "dateListed": {"S": "2024-01-12T12:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -54,10 +54,10 @@
           "category": {"S": "Art and Paintings"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/antiqueOilPainting.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
+          "dateListed": {"S": "2024-01-12T12:30"},
            "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -75,10 +75,10 @@
           "category": {"S": "Antique Kitchenware"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintagePorcelainTeaSet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -96,10 +96,10 @@
           "category": {"S": "Antique Dining"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/victorianSilverwareSet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
+          "dateListed": {"S": "2024-01-12T14:30"},
            "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -117,11 +117,11 @@
           "category": {"S": "Antique Office Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageTypewriter.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
-           "buyersInterested": {"SS": ["buyer1","buyer2"]},
+          "dateListed": {"S": "2024-01-12T14:30"},
+          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
       }
@@ -138,10 +138,10 @@
           "category": {"S": "Antique Furniture"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageLeatherArmchair.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -159,10 +159,10 @@
           "category": {"S": "Music and Records"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageVinylRecordCollection.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-03T09:45"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -180,10 +180,10 @@
           "category": {"S": "Outdoor Furniture"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/outdoorPatioSet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -201,10 +201,10 @@
           "category": {"S": "Outdoor Cooking"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/summerBBQGrill.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -222,10 +222,10 @@
           "category": {"S": "Outdoor Recreation"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageBeachCruiserBike.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -243,10 +243,10 @@
           "category": {"S": "Outdoor Recreation"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/inflatableSwimmingPool.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -264,10 +264,10 @@
           "category": {"S": "Outdoor Furniture"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/outdoorHammockChair.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -286,10 +286,10 @@
           "category": {"S": "Outdoor Dining"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/outdoorPicnicSet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -301,16 +301,16 @@
           "garageID": {"S": "4a9c8d3e-5b72-4a06-8e8a-abcdef123456"},
           "itemID": {"S": "42581679-2c45-4cfc-89b1-a2b9bb2e8b71"},
           "sellerID": {"S": "S07d3e1a-8bfc-4a49-a0e7-3345d7f01234"},
-          "name": {"S": "Vintage Record Collection"},
-          "description": {"S": "A collection of rare vintage vinyl records, featuring classic albums from various genres."},
+          "name": {"S": "Vintage Accordion"},
+          "description": {"S": "A vintage accordion. Works as it should"},
           "price": {"N": "150.00"},
           "category": {"S": "Music"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/vintageAccordion.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -328,10 +328,10 @@
           "category": {"S": "Antiques"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/antiqueTypewriter.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-04T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
