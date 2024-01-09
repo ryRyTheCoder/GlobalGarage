@@ -12,10 +12,10 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballBat.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -33,10 +33,10 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballGlove.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -55,10 +55,10 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballHelmet.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -76,10 +76,10 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballCleats.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -97,10 +97,10 @@
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballBatBag.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -112,16 +112,16 @@
           "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
           "itemID": {"S": "f2fed47e-7b56-46f8-ae55-4a11c3fc5bc2"},
           "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
-          "name": {"S": "Youth Baseball Glove"},
-          "description": {"S": "A high-quality youth baseball glove for better catching and fielding."},
+          "name": {"S": "Youth Baseball Hitting Glove"},
+          "description": {"S": "A high-quality youth baseball glove for better hitting."},
           "price": {"N": "30.00"},
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballHittingGlove.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -133,16 +133,16 @@
           "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
           "itemID": {"S": "775404e4-e61c-4532-9623-582877e92bc2"},
           "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
-          "name": {"S": "Youth Baseball Helmet"},
-          "description": {"S": "A protective youth baseball helmet for safe play on the field."},
+          "name": {"S": "Youth Baseball Pants"},
+          "description": {"S": "Lightly worn youth baseball pants"},
           "price": {"N": "25.00"},
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballPants.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -154,16 +154,16 @@
           "garageID": {"S": "2c4d6e8f-0a1b-2c3d-4e5f-6a7b8c9d0e1f"},
           "itemID": {"S": "d7023bda-01d4-4b72-b2a0-7ad36a4d645d"},
           "sellerID": {"S": "S1a2b3c4-d5e6-f7g8-h9i0-j1k2l3m4n5o6"},
-          "name": {"S": "Youth Baseball Bat"},
-          "description": {"S": "A lightweight youth baseball bat for better hits at the plate."},
+          "name": {"S": "Youth Baseball Arm Guard"},
+          "description": {"S": "A lightweight youth baseball arm guard."},
           "price": {"N": "40.00"},
           "category": {"S": "Sports Equipment"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/youthBaseballArmGuard.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-05T09:15"},
+          "dateListed": {"S": "2024-01-13T16:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -181,10 +181,10 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/jordan4'sUNC.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -202,10 +202,10 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/yeezyRedOctober.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -223,10 +223,10 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/yeezySlip-Ons.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -244,10 +244,10 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/gucciLoafers.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -265,10 +265,10 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/hermesLeatherBoots.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
           "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -286,10 +286,10 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/louisVuittonHighHeels.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -301,16 +301,16 @@
           "garageID": {"S": "3e4f5g6h-7i8j-9k0l-1m2n-3o4p5q6r7s8t"},
           "itemID": {"S": "40dd5d78-3715-4c0a-b68c-a6140ecba158"},
           "sellerID": {"S": "S9876abc-def0-1234-5678-90abcdef1234"},
-          "name": {"S": "Jordan Eminem 3s"},
-          "description": {"S": "You dont have this one in your collection Size 10"},
+          "name": {"S": "Jordan Eminem 4s"},
+          "description": {"S": "You don't have this one in your collection Size 10"},
           "price": {"N": "42500.00"},
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/jordanEminem4s.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }
@@ -328,10 +328,10 @@
           "category": {"S": "Footwear"},
           "images": {
             "SS": [
-              "/images/placeholder.jpg"
+              "/images/MSCHFBoots.jpg"
             ]
           },
-          "dateListed": {"S": "2023-12-06T14:30"},
+          "dateListed": {"S": "2024-01-12T14:30"},
          "buyersInterested": {"SS": ["buyer1","buyer2"]},
           "status": {"S": "available"}
         }

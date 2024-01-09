@@ -124,7 +124,7 @@ async displayItems(garageId, itemIds, itemsDisplayDiv, currentUserInterestedItem
             try {
                 const itemDetails = await this.getItemDetails(garageId, itemId);
                 if (itemDetails) {
-                    const itemCard = this.createItemCard(itemDetails, currentUserInterestedItems);
+                    const itemCard = this.createItemCard(itemDetails);
                     itemsContainer.appendChild(itemCard);
                 }
             } catch (error) {
@@ -146,15 +146,15 @@ async displayItems(garageId, itemIds, itemsDisplayDiv, currentUserInterestedItem
         }
     }
 
-    createItemCard(itemDetails, currentUserInterestedItems) {
+    createItemCard(itemDetails) {
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
 
-        // Buyers Interested Badge
-        const buyersBadge = document.createElement('div');
-        buyersBadge.className = 'buyers-badge';
-        buyersBadge.innerText = itemDetails.buyersInterested ? itemDetails.buyersInterested.length : 0;
-        itemCard.appendChild(buyersBadge);
+//        // Buyers Interested Badge
+//        const buyersBadge = document.createElement('div');
+//        buyersBadge.className = 'buyers-badge';
+//        buyersBadge.innerText = itemDetails.buyersInterested ? itemDetails.buyersInterested.length : 0;
+//        itemCard.appendChild(buyersBadge);
 
         itemCard.onclick = () => this.openModal(itemDetails);
 
@@ -230,14 +230,14 @@ async openModal(itemDetails) {
     if (shouldShowLikeButton) {
         const likeButton = document.createElement('button');
         likeButton.innerText = '❤ Like';
- const concatenatedId = `${itemDetails.itemID}:${itemDetails.garageID}`;
-    if (currentUserInterestedItems && currentUserInterestedItems.includes(concatenatedId)) {
-        likeButton.classList.add('liked');  // Add a class to change the button's appearance
-    }
+// const concatenatedId = `${itemDetails.itemID}:${itemDetails.garageID}`;
+//    if (currentUserInterestedItems && currentUserInterestedItems.includes(concatenatedId)) {
+//        likeButton.classList.add('liked');  // Add a class to change the button's appearance
+//    }
     likeButton.onclick = () => this.likeItem(itemDetails.itemID, itemDetails.garageID);
-    itemCard.appendChild(likeButton);
+    modalContent.appendChild(likeButton);
 
-    return itemCard;
+//    return itemCard;
 }
 
        const currentUser = await this.header.client.getIdentity();
@@ -268,16 +268,16 @@ async openModal(itemDetails) {
         }
     }
 
-    //Image Upload 
-async function handleImageUpload(event) {
-    const files = event.target.files;
-    for (let i = 0; i < files.length; i++) {
-        await uploadImage(files[i]);
-    }
-}
-
-// Attach the event listener to your file input
-document.getElementById('image-upload').addEventListener('change', handleImageUpload);
+//    //Image Upload
+//async function handleImageUpload(event) {
+//    const files = event.target.files;
+//    for (let i = 0; i < files.length; i++) {
+//        await uploadImage(files[i]);
+//    }
+//}
+//
+//// Attach the event listener to your file input
+//document.getElementById('image-upload').addEventListener('change', handleImageUpload);
 
     showCreateItemModal(garageId) {
         const modalContainer = document.getElementById('item-modal');
